@@ -631,12 +631,18 @@ a.article-title:hover {
 }
 .article-entry blockquote {
   font-family: "Noto Serif SC", "Source Han Serif SC", Georgia, "Times New Roman", serif;
-  margin: 1.8em 20px;
+  font-size: 1.15em;
+  margin: 2em 0;
   text-align: center;
-  padding: 12px 20px;
-  background: #f8f9fa;
-  border-left: 4px solid #3498db;
-  border-radius: 0 6px 6px 0;
+  padding: 20px 28px;
+  background: -webkit-linear-gradient(315deg, #fafbfc 0%, #f0f4f8 100%);
+  background: -moz-linear-gradient(315deg, #fafbfc 0%, #f0f4f8 100%);
+  background: -ms-linear-gradient(315deg, #fafbfc 0%, #f0f4f8 100%);
+  background: linear-gradient(135deg, #fafbfc 0%, #f0f4f8 100%);
+  border: none;
+  border-radius: 10px;
+  color: #4a5568;
+  letter-spacing: 0.5px;
 }
 .article-entry blockquote footer {
   font-size: 15px;
