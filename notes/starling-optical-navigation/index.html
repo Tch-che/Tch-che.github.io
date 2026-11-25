@@ -1,42 +1,277 @@
-
-<!doctype html>
-<html lang="zh-CN">
+<!DOCTYPE html>
+<html>
 <head>
   <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>卫星可以靠路过的卫星给自己定位 · Che&#39;s Blog</title>
-  <meta name="description" content="一台平时用来看朝向的相机，加上一份太空物体目录，就多了一种估计轨道的办法。">
-  <link rel="canonical" href="https://tch-che.github.io/notes/starling-optical-navigation/">
-  <link rel="icon" href="../../assets/che.jpg">
-  <link rel="stylesheet" href="../../assets/handbook.css">
+  
+  
+  <title>卫星可以靠路过的卫星给自己定位 | Che&#39;s Blog</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="在地面上迷路，看到一座桥大概就能认路。可要是桥也在动呢？NASA 的 Starling 卫星做了个很像的实验。它用星敏感器拍下经过视野的航天器和轨道碎片。照片里一个小亮点本身没多少用，得先认出它是谁，再结合它预计会在哪里，才能拿它来推算自己的轨道。 这套叫 FALCON 的系统带了一份约两万个太空物体的目录，里面有各自的预测轨道。把观测和目录对上以后，事情还能反过来做。卫星可以用新看到的位置，帮目">
+<meta property="og:type" content="article">
+<meta property="og:title" content="卫星可以靠路过的卫星给自己定位">
+<meta property="og:url" content="https://tch-che.github.io/notes/starling-optical-navigation/index.html">
+<meta property="og:site_name" content="Che&#39;s Blog">
+<meta property="og:description" content="在地面上迷路，看到一座桥大概就能认路。可要是桥也在动呢？NASA 的 Starling 卫星做了个很像的实验。它用星敏感器拍下经过视野的航天器和轨道碎片。照片里一个小亮点本身没多少用，得先认出它是谁，再结合它预计会在哪里，才能拿它来推算自己的轨道。 这套叫 FALCON 的系统带了一份约两万个太空物体的目录，里面有各自的预测轨道。把观测和目录对上以后，事情还能反过来做。卫星可以用新看到的位置，帮目">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2026-11-24T16:00:00.000Z">
+<meta property="article:modified_time" content="2026-11-25T08:58:16.440Z">
+<meta property="article:author" content="车传凯">
+<meta name="twitter:card" content="summary">
+  
+    <link rel="alternate" href="/atom.xml" title="Che's Blog" type="application/atom+xml">
+  
+  
+    <link rel="shortcut icon" href="/favicon.png">
+  
+  
+  
+<link rel="stylesheet" href="/css/style.css">
+
+  
+    
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.min.css">
+
+  
+  
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/fork-awesome@1.2.0/css/fork-awesome.min.css">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@400;600;700&display=swap" rel="stylesheet">
 <meta name="generator" content="Hexo 7.3.0"></head>
-<body id="top">
-  <a class="skip" href="#main">跳到正文</a>
-  <header class="mast shell">
-    <a class="wordmark" href="../../index.html"><img src="../../assets/che.jpg" alt="" width="36" height="36"><span>Che’s Blog</span></a>
-    <nav class="nav" aria-label="主导航">
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">Che&#39;s Blog</a>
+      </h1>
       
-        <a class="current" href="../../index.html" aria-current="location">手记</a>
+        <h2 id="subtitle-wrap">
+          <a href="/" id="subtitle">弃燕雀之小志，慕鸿鹄以高翔</a>
+        </h2>
       
-        <a class="" href="../../archives/index.html" >归档</a>
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"><span class="fa fa-bars"></span></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+        
+          <a class="nav-icon" href="/atom.xml" title="RSS 订阅"><span class="fa fa-rss"></span></a>
+        
+        <a class="nav-icon nav-search-btn" title="搜索"><span class="fa fa-search"></span></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="搜索"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="https://tch-che.github.io"></form>
+      </div>
+    </div>
+  </div>
+</header>
+
+      <div class="outer">
+        <section id="main"><article id="post-starling-optical-navigation" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/notes/starling-optical-navigation/" class="article-date">
+  <time datetime="2026-08">2026-08 专题</time>
+</a>
+
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="p-name article-title" itemprop="headline name">
+      卫星可以靠路过的卫星给自己定位
+    </h1>
+  
+
+      </header>
+    
+    <div class="e-content article-entry" itemprop="articleBody">
       
-        <a class="" href="../../about/index.html" >关于</a>
-      
-      <a class="git" target="_blank" rel="noopener" href="https://github.com/Tch-che">GitHub <span aria-hidden="true">↗</span></a>
-    </nav>
-  </header>
-  <main id="main" class="shell">
-<article class="reading">
-  <a class="crumb" href="../../archives/2026/08/index.html">← 2026 年 8 月手记</a>
-  <header class="post-head"><p class="byline"><span></span>航天与观测</p><h1>卫星可以靠路过的卫星给自己定位</h1><p class="author">车传凯 <i>/</i> 2026-08 专题</p></header>
-  <div class="prose"><p>在地面上迷路，看到一座桥大概就能认路。可要是桥也在动呢？NASA 的 Starling 卫星做了个很像的实验。它用星敏感器拍下经过视野的航天器和轨道碎片。照片里一个小亮点本身没多少用，得先认出它是谁，再结合它预计会在哪里，才能拿它来推算自己的轨道。</p>
+        <p>在地面上迷路，看到一座桥大概就能认路。可要是桥也在动呢？NASA 的 Starling 卫星做了个很像的实验。它用星敏感器拍下经过视野的航天器和轨道碎片。照片里一个小亮点本身没多少用，得先认出它是谁，再结合它预计会在哪里，才能拿它来推算自己的轨道。</p>
 <p>这套叫 FALCON 的系统带了一份约两万个太空物体的目录，里面有各自的预测轨道。把观测和目录对上以后，事情还能反过来做。卫星可以用新看到的位置，帮目录修正原来的估计。在一项单独的测试里，它用三天改善了两百多个物体的轨道估计，期间没有地面人员插手。</p>
 <p>我喜欢这个例子，是因为相机原本就是星上设备，这次的变化主要发生在软件里。它也有个很实际的前提，附近得有能识别的参照物，目录的预测还要足够好。近地轨道上能找到的亮点，到了月球附近未必找得到。因此这次飞行验证让人看到了另一条导航路线，离到任何地方都能靠它认路还有距离。</p>
-</div>
-  <section class="sources"><h2>原文出处</h2><ul><li><a target="_blank" rel="noopener" href="https://www.nasa.gov/blogs/smallsatellites/2026/08/17/nasas-starling-mission-opens-new-frontiers-in-space-navigation/">NASA · Starling Mission Opens New Frontiers in Space Navigation ↗</a><time datetime="2026-08-17">2026-08-17</time></li></ul></section>
-  <nav class="related" aria-label="同月手记"><h2>这个月还读了</h2><a href="../go-generic-methods/index.html">Go 的随机数方法，终于不用按整数宽度起名字了 <span aria-hidden="true">↗</span></a><a href="../sodium-battery-solvent/index.html">十万个分子，最后为什么只测了 27 个？ <span aria-hidden="true">↗</span></a></nav>
+
+        
+          <p><strong>原文出处</strong></p>
+          <ul><li><a target="_blank" rel="noopener" href="https://www.nasa.gov/blogs/smallsatellites/2026/08/17/nasas-starling-mission-opens-new-frontiers-in-space-navigation/">NASA · Starling Mission Opens New Frontiers in Space Navigation</a>（<time datetime="2026-08-17">2026-08-17</time>）</li></ul>
+        
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="https://tch-che.github.io/notes/starling-optical-navigation/" data-id="cmwvx6koo000v80uo6cpaards" data-title="卫星可以靠路过的卫星给自己定位" class="article-share-link"><span class="fa fa-share">分享</span></a>
+      
+      
+      
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/notes/sodium-battery-solvent/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">前一篇</strong>
+      <div class="article-nav-title">
+        
+          十万个分子，最后为什么只测了 27 个？
+        
+      </div>
+    </a>
+  
+  
+    <a href="/notes/temporal-a-day-or-24-hours/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">后一篇</strong>
+      <div class="article-nav-title">明天同一时间，和 24 小时以后有区别吗？</div>
+    </a>
+  
+</nav>
+
+  
 </article>
-</main>
-  <footer class="foot shell"><span>Che’s Blog <i>/</i> 车传凯</span><a href="#top">回到顶部 ↑</a></footer>
+
+
+
+</section>
+        
+          <aside id="sidebar">
+  
+    <div class="widget-wrap">
+  <h3 class="widget-title">关于我</h3>
+  <div class="widget about-widget">
+    <div class="about-avatar">
+      <img src="/images/1.jpg" alt="avatar" />
+    </div>
+    <div class="about-name">车传凯</div>
+    <div class="about-bio">弃燕雀之小志，慕鸿鹄以高翔</div>
+    <div class="about-divider"></div>
+    <div class="about-info">
+      <div class="about-info-item">
+        <span class="about-info-label"><i class="fa fa-graduation-cap"></i> 教育经历</span>
+        <span class="about-info-value">黑龙江大学 软件工程</span>
+        <span class="about-info-date">2025.09 ——</span>
+      </div>
+      <div class="about-info-item">
+        <span class="about-info-label"><i class="fa fa-trophy"></i> 个人荣誉</span>
+        <span class="about-info-value">中国大学生计算机设计大赛省级一等奖</span>
+      </div>
+      <div class="about-info-item">
+        <span class="about-info-label"><i class="fa fa-users"></i> 担当职务</span>
+        <span class="about-info-value">中国计算机学会学生会员</span>
+      </div>
+      <div class="about-info-item">
+        <span class="about-info-label"><i class="fa fa-flask"></i> 研究方向</span>
+        <span class="about-info-value">计算法学 · 数据挖掘 · 医学影像处理 · 元胞自动机</span>
+      </div>
+    </div>
+  </div>
+</div>
+
+  
+    
+
+  
+    
+
+  
+    
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">归档</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2026/11/">2026 年 11 月</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2026/10/">2026 年 10 月</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2026/09/">2026 年 9 月</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2026/08/">2026 年 8 月</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2026/07/">2026 年 7 月</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2026/06/">2026 年 6 月</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2026/05/">2026 年 5 月</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2026/04/">2026 年 4 月</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2026/03/">2026 年 3 月</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2026/02/">2026 年 2 月</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2026/01/">2026 年 1 月</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2025/12/">2025 年 12 月</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">最新文章</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/notes/pelagos-quantum-decoder/">量子纠错的试卷，为什么要请八张 GPU 来批？</a>
+          </li>
+        
+          <li>
+            <a href="/notes/euclid-gravitational-lenses/">星系旁边那一道蓝弧，怎么就能拿来称重？</a>
+          </li>
+        
+          <li>
+            <a href="/notes/dns-targeted-builds/">只改一条 DNS 记录，要重读两千万条吗？</a>
+          </li>
+        
+          <li>
+            <a href="/notes/sleep-phase-model-memory/">给模型留一段「睡觉」的时间，它在学什么？</a>
+          </li>
+        
+          <li>
+            <a href="/notes/duckdb-async-io/">查远端的表，DuckDB 可以先把下一批数据叫上路</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      
+      &copy; 2026 车传凯<br>
+      Powered by <a href="https://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+
+<script src="/js/jquery-3.6.4.min.js"></script>
+
+
+
+  
+<script src="/fancybox/jquery.fancybox.min.js"></script>
+
+
+
+
+<script src="/js/script.js"></script>
+
+
+
+
+
+  </div>
 </body>
 </html>

@@ -1,0 +1,688 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  
+  <title>Che&#39;s Blog</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="车传凯的个人主页，记录软件工程、计算机系统和新技术的阅读笔记。">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Che&#39;s Blog">
+<meta property="og:url" content="https://tch-che.github.io/page/2/index.html">
+<meta property="og:site_name" content="Che&#39;s Blog">
+<meta property="og:description" content="车传凯的个人主页，记录软件工程、计算机系统和新技术的阅读笔记。">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:author" content="车传凯">
+<meta name="twitter:card" content="summary">
+  
+    <link rel="alternate" href="/atom.xml" title="Che's Blog" type="application/atom+xml">
+  
+  
+    <link rel="shortcut icon" href="/favicon.png">
+  
+  
+  
+<link rel="stylesheet" href="/css/style.css">
+
+  
+    
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.min.css">
+
+  
+  
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/fork-awesome@1.2.0/css/fork-awesome.min.css">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@400;600;700&display=swap" rel="stylesheet">
+<meta name="generator" content="Hexo 7.3.0"></head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">Che&#39;s Blog</a>
+      </h1>
+      
+        <h2 id="subtitle-wrap">
+          <a href="/" id="subtitle">弃燕雀之小志，慕鸿鹄以高翔</a>
+        </h2>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"><span class="fa fa-bars"></span></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+        
+          <a class="nav-icon" href="/atom.xml" title="RSS 订阅"><span class="fa fa-rss"></span></a>
+        
+        <a class="nav-icon nav-search-btn" title="搜索"><span class="fa fa-search"></span></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="搜索"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="https://tch-che.github.io"></form>
+      </div>
+    </div>
+  </div>
+</header>
+
+      <div class="outer">
+        <section id="main">
+  
+    <article id="post-starling-optical-navigation" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/notes/starling-optical-navigation/" class="article-date">
+  <time datetime="2026-08">2026-08 专题</time>
+</a>
+
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="p-name article-title" href="/notes/starling-optical-navigation/">卫星可以靠路过的卫星给自己定位</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <p>在地面上迷路，看到一座桥大概就能认路。可要是桥也在动呢？NASA 的 Starling 卫星做了个很像的实验。它用星敏感器拍下经过视野的航天器和轨道碎片。照片里一个小亮点本身没多少用，得先认出它是谁，再结合它预计会在哪里，才能拿它来推算自己的轨道。</p>
+<p>这套叫 FALCON 的系统带了一份约两万个太空物体的目录，里面有各自的预测轨道。把观测和目录对上以后，事情还能反过来做。卫星可以用新看到的位置，帮目录修正原来的估计。在一项单独的测试里，它用三天改善了两百多个物体的轨道估计，期间没有地面人员插手。</p>
+<p>我喜欢这个例子，是因为相机原本就是星上设备，这次的变化主要发生在软件里。它也有个很实际的前提，附近得有能识别的参照物，目录的预测还要足够好。近地轨道上能找到的亮点，到了月球附近未必找得到。因此这次飞行验证让人看到了另一条导航路线，离到任何地方都能靠它认路还有距离。</p>
+
+        
+          <p><strong>原文出处</strong></p>
+          <ul><li><a target="_blank" rel="noopener" href="https://www.nasa.gov/blogs/smallsatellites/2026/08/17/nasas-starling-mission-opens-new-frontiers-in-space-navigation/">NASA · Starling Mission Opens New Frontiers in Space Navigation</a>（<time datetime="2026-08-17">2026-08-17</time>）</li></ul>
+        
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="https://tch-che.github.io/notes/starling-optical-navigation/" data-id="cmwvx6koo000v80uo6cpaards" data-title="卫星可以靠路过的卫星给自己定位" class="article-share-link"><span class="fa fa-share">分享</span></a>
+      
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+
+
+  
+    <article id="post-sodium-battery-solvent" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/notes/sodium-battery-solvent/" class="article-date">
+  <time datetime="2026-08">2026-08 专题</time>
+</a>
+
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="p-name article-title" href="/notes/sodium-battery-solvent/">十万个分子，最后为什么只测了 27 个？</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <p>钠很常见，拿它做充电电池的吸引力很好懂。我卡在另一个问题上。充电时，钠离子要在两个电极之间移动，帮它走这段路的电解液，偏偏也可能和电极发生副反应。一次损失一点材料，多充放几轮，问题就明显了。</p>
+<p>MIT 团队从一种已经表现稳定的溶剂出发，去找外形接近、分子更小的亲戚。计算机在 24 小时里给出约十万个候选，再根据分子形状和电子性质留下 200 个。团队从中挑了 27 个有代表性的，在相同条件下逐一测。这样挑挺有意思。如果只拿预测排名最靠前的几个，它们可能彼此太像，实验反而看不出哪些差别要紧。</p>
+<p>最后胜出的 DMFSA 是这组里最小的分子。论文报告，小分子溶剂电解液的离子电导率最高可达较大同类的约 20 倍。这个倍数有个容易看漏的单位背景，测的是离子在电解液里传递电荷的本领。要给一块装进汽车的电池算充电时长，还得知道电极、散热以及整包能承受多大的电流。</p>
+
+        
+          <p><strong>原文出处</strong></p>
+          <ul><li><a target="_blank" rel="noopener" href="https://news.mit.edu/2026/solving-solvent-problem-sodium-metal-batteries-0804">MIT · Solving the solvent problem</a>（<time datetime="2026-08-04">2026-08-04</time>）</li><li><a target="_blank" rel="noopener" href="https://dspace.mit.edu/entities/publication/97c1376b-53c3-4618-8743-f3b9a5923346">Joule · Small congeneric solvents for practical sodium metal batteries</a>（<time datetime="2026-08-03">2026-08-03</time>）</li></ul>
+        
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="https://tch-che.github.io/notes/sodium-battery-solvent/" data-id="cmwvx6koo000u80uo6rfl4rr0" data-title="十万个分子，最后为什么只测了 27 个？" class="article-share-link"><span class="fa fa-share">分享</span></a>
+      
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+
+
+  
+    <article id="post-particlegs-rendering-compression" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/notes/particlegs-rendering-compression/" class="article-date">
+  <time datetime="2026-07">2026-07 专题</time>
+</a>
+
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="p-name article-title" href="/notes/particlegs-rendering-compression/">两亿多个粒子，转一下视角要等多久？</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <p>模拟里有 2.81 亿个粒子。想把它们画到屏幕上，转一下视角再看看里面的细丝，看起来只是动动鼠标的事。ParticleGS 论文里，作者用 ParaView 渲染这组完整数据，在他们的测试条件下，一帧要约 3.6 秒。拖一下得等这么久，手和眼睛很难配合起来。</p>
+<p>普通的有损压缩会关心每个坐标偏离原值多少。麻烦的是，单看每个数都只错一点，画出来却可能多出原本不存在的条纹。ParticleGS 从另一个方向入手，拿许多角度的渲染图作参照，用一组有位置、形状和透明度的三维高斯来近似这些视图。再用一个小网络适配粒子半径、透明度之类的显示设置，让人转动视角时也能调参数。</p>
+<p>在这组宇宙模拟上，论文报告约 65 倍的压缩比，还能在单张 GPU 上交互浏览。我会把这样的文件当成快速看图的版本，先找值得放大的区域。要追踪某个粒子的轨迹、统计一个区域的粒子数，还是得回到原始数据。图像很像，不等于能从里面取回每一行坐标。</p>
+
+        
+          <p><strong>原文出处</strong></p>
+          <ul><li><a target="_blank" rel="noopener" href="https://arxiv.org/abs/2607.22956">Jiang 等 · 3D Gaussian Splatting for Scientific Particle Data Compression and Rendering</a>（<time datetime="2026-07-24">2026-07-24</time>）</li></ul>
+        
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="https://tch-che.github.io/notes/particlegs-rendering-compression/" data-id="cmwvx6koi000l80uo8eb3as7p" data-title="两亿多个粒子，转一下视角要等多久？" class="article-share-link"><span class="fa fa-share">分享</span></a>
+      
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+
+
+  
+    <article id="post-typescript-seven-build-time" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/notes/typescript-seven-build-time/" class="article-date">
+  <time datetime="2026-07">2026-07 专题</time>
+</a>
+
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="p-name article-title" href="/notes/typescript-seven-build-time/">TypeScript 快了十倍，省下的是哪段等待？</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <p>微软在 TypeScript 7 的发布文章里摆了张表。拿 VS Code 的代码库做完整构建，旧版用了 125.7 秒，新版用了 10.6 秒。两分钟和十来秒的区别挺直观。前者够起身倒杯水，后者可能还没想好要不要起身，结果已经出来了。</p>
+<p>变化发生在开发工具这一边。团队用 Go 移植了编译器，尽量保留原有的类型检查逻辑，再利用原生代码和共享内存多线程来处理大项目。平常敲的还是 TypeScript，运行的依旧可以是 tsc。另一个我觉得更贴近写代码的数字，是他们在同一台机器上打开 VS Code 项目里的一个文件，从开编辑器到看到第一处报错，等待时间从大约 17.5 秒降到了 1.3 秒以内。</p>
+<p>怎么知道自己的项目能省几秒？我会把流水线里的类型检查、打包、上传分开看。假如最慢的是上传图片，那编译器再快，整次发布也很难跟着快十倍。至于读者打开网页要等多久，那是浏览器的另一笔账。看完这个表，最有用的动作也许是先给自己那几段命令分别计时。</p>
+
+        
+          <p><strong>原文出处</strong></p>
+          <ul><li><a target="_blank" rel="noopener" href="https://devblogs.microsoft.com/typescript/announcing-typescript-7-0/">Microsoft · Announcing TypeScript 7.0</a>（<time datetime="2026-07-08">2026-07-08</time>）</li></ul>
+        
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="https://tch-che.github.io/notes/typescript-seven-build-time/" data-id="cmwvx6kor000y80uo1yksf6cz" data-title="TypeScript 快了十倍，省下的是哪段等待？" class="article-share-link"><span class="fa fa-share">分享</span></a>
+      
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+
+
+  
+    <article id="post-euclid-quasar-shortlist" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/notes/euclid-quasar-shortlist/" class="article-date">
+  <time datetime="2026-07">2026-07 专题</time>
+</a>
+
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="p-name article-title" href="/notes/euclid-quasar-shortlist/">从满天的亮点里，怎么挑出 31 个类星体？</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <p>天文照片里一颗小小的亮点，可能是离我们比较近的恒星，也可能是宇宙很年轻时发光的类星体。后者的中心黑洞吞入物质，周围亮得厉害。可再亮的东西离得足够远，落在图里也只有一点点。盯着照片放大，似乎很难光靠形状猜对。</p>
+<p>Euclid 团队从大约 3000 平方度的巡天数据开始找。它在不同波段拍同一片天，研究者就能比较同一个光点在几张图上的亮度。遥远天体的光走过膨胀的宇宙，光谱特征会移向长波方向。团队用统计方法和机器学习给候选对象排队，再动用地面望远镜做光谱观测。这一步很重要，整片天都逐个测光谱太费时间，只按颜色挑又可能认错。</p>
+<p>他们最后找到了 31 个新的类星体，其中 12 个的红移达到或超过 7。比起“发现最远”的标题，我更喜欢看这份名单是怎么缩小的。原来大范围拍得快和对某个目标看得细，可以交给不同仪器。算法先帮人决定把望远镜指向哪里，后面还有观测给出的答案。</p>
+
+        
+          <p><strong>原文出处</strong></p>
+          <ul><li><a target="_blank" rel="noopener" href="https://arxiv.org/abs/2607.03432">Yang 等 · Euclid: Discovery of 31 new quasars at 6.6 &lt; z &lt; 7.8</a>（<time datetime="2026-07-03">2026-07-03</time>）</li><li><a target="_blank" rel="noopener" href="https://www.esa.int/articles/about-us/directorates/science/euclid/euclid-discovers-the-most-ancient-quasar-in-the-universe">ESA · Euclid discovers the most ancient quasar in the Universe</a>（<time datetime="2026-07-06">2026-07-06</time>）</li></ul>
+        
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="https://tch-che.github.io/notes/euclid-quasar-shortlist/" data-id="cmwvx6kod000c80uoeff292ld" data-title="从满天的亮点里，怎么挑出 31 个类星体？" class="article-share-link"><span class="fa fa-share">分享</span></a>
+      
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+
+
+  
+    <article id="post-ibm-nanostack-inverter" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/notes/ibm-nanostack-inverter/" class="article-date">
+  <time datetime="2026-06">2026-06 专题</time>
+</a>
+
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="p-name article-title" href="/notes/ibm-nanostack-inverter/">看懂 0.7 纳米新闻，要先看一个反相器</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <p>我以前看芯片新闻，读到“几纳米”，脑子里会自动出现一把很小的尺子。IBM 把这次技术叫作 0.7 纳米，自己也专门解释了，这个数是制造工艺的节点名称。想知道它究竟做了什么，还是得去看晶体管是怎么摆的。</p>
+<p>这次的做法叫 nanostack。把部分原先并排摆的晶体管上下错开，在同样一块平面上就能容下更多东西。上下层还可以采用不同材料，分别调节晶体管的表现。举个容易在脑子里画出来的例子，反相器接收低电平就输出高电平，反过来也成立。团队在实物上验证了这个小电路能按预期翻转。单凭一张堆叠示意图，还回答不了上下两层接起来能不能工作，这个实验往前走了一步。</p>
+<p>发布稿里还提到，相对 IBM 自家的 2 纳米节点，性能提升最高可达 50%。这里原文用的是预测值。实验室里的反相器已经能开关，到一整颗处理器跑程序，中间还有布线、散热和制造良率的问题。先把“做出来的电路”和“估出来的速度”分别记下，新闻就好读多了。</p>
+
+        
+          <p><strong>原文出处</strong></p>
+          <ul><li><a target="_blank" rel="noopener" href="https://newsroom.ibm.com/2026-06-25-ibm-debuts-worlds-first-sub-1-nanometer-chip-technology">IBM · IBM Debuts World’s First Sub-1 Nanometer Chip Technology</a>（<time datetime="2026-06-25">2026-06-25</time>）</li></ul>
+        
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="https://tch-che.github.io/notes/ibm-nanostack-inverter/" data-id="cmwvx6koh000i80uoeadt0uus" data-title="看懂 0.7 纳米新闻，要先看一个反相器" class="article-share-link"><span class="fa fa-share">分享</span></a>
+      
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+
+
+  
+    <article id="post-diffusiongemma-sudoku" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/notes/diffusiongemma-sudoku/" class="article-date">
+  <time datetime="2026-06">2026-06 专题</time>
+</a>
+
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="p-name article-title" href="/notes/diffusiongemma-sudoku/">如果打到一半还能改前面的字</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <p>看聊天窗口一个字一个字往外冒，很容易以为生成文字就得这样。DiffusionGemma 的开发文章里有个数独例子。第一格能填什么，可能要看最后一行；如果最后一行的数字变了，第一格也得跟着检查。要是允许模型来回改，填这张表就自然多了。</p>
+<p>这个实验模型每次铺开 256 个词元的位置，先放随机的占位内容，再一轮轮修改。每个位置都可以参考同一块里左右两边的信息，已经比较确定的地方能给其他位置提供线索。整块定下来，才把结果存进缓存，接着生成下一块。这样 GPU 一次有许多位置可算，但同一块也可能需要过很多轮，不能把 256 理解成一次就写完 256 个词。</p>
+<p>开发文章还给了一个挺坦率的数字。基础模型在他们的数独测试上成功率接近零，针对数独微调后才到了约 80%。能擦掉前面填错的一格，和知道这一格该填什么，原来是两件不同的事。下次看到一段解题演示，我想先看看作者用的是哪一版权重。</p>
+
+        
+          <p><strong>原文出处</strong></p>
+          <ul><li><a target="_blank" rel="noopener" href="https://developers.googleblog.com/diffusiongemma-the-developer-guide/">Google Developers · DiffusionGemma: The Developer Guide</a>（<time datetime="2026-06-10">2026-06-10</time>）</li></ul>
+        
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="https://tch-che.github.io/notes/diffusiongemma-sudoku/" data-id="cmwvx6ko8000580uobfst4so6" data-title="如果打到一半还能改前面的字" class="article-share-link"><span class="fa fa-share">分享</span></a>
+      
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+
+
+  
+    <article id="post-wasm-waits-for-fetch" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/notes/wasm-waits-for-fetch/" class="article-date">
+  <time datetime="2026-06">2026-06 专题</time>
+</a>
+
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="p-name article-title" href="/notes/wasm-waits-for-fetch/">网页去拿文件时，Wasm 能在原地等一下吗？</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <p>一段老 C 程序要读模型文件，通常先调用读取函数，再检查文件头，最后解析内容。这三行顺着看很自然。把它搬进浏览器，中间却卡了一下。假设文件在网上，JavaScript 调用 fetch 后先拿到一个 Promise，真正的数据还在路上。下一行凭什么立刻开始检查文件头呢？</p>
+<p>Safari 27 测试版支持了 WebAssembly 的 JavaScript Promise Integration，简称 JSPI。在需要等待的调用上，浏览器可以先挂起这段 Wasm 执行。文件拿到了，再从刚才停住的地方继续。这样，原来好几层函数之间传递的仍然是它们熟悉的结果，外面负责对接异步操作即可。等待期间浏览器还有机会响应点击和滚动，页面不用陪着这次请求一起停住。</p>
+<p>我觉得用两种不同的卡顿来记会更清楚。等文件时没有东西可算，挂起正合适。拿到文件后，假设解析要一口气做几百万次运算，这一段仍然会占用执行它的线程。JSPI 帮忙过的是等待这一关。真想让重计算也不影响界面，还得安排到合适的线程上。</p>
+
+        
+          <p><strong>原文出处</strong></p>
+          <ul><li><a target="_blank" rel="noopener" href="https://webkit.org/blog/17967/news-from-wwdc26-webkit-in-safari-27-beta/">WebKit · News from WWDC26: WebKit in Safari 27 beta</a>（<time datetime="2026-06-08">2026-06-08</time>）</li></ul>
+        
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="https://tch-che.github.io/notes/wasm-waits-for-fetch/" data-id="cmwvx6kot001080uo575t3age" data-title="网页去拿文件时，Wasm 能在原地等一下吗？" class="article-share-link"><span class="fa fa-share">分享</span></a>
+      
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+
+
+  
+    <article id="post-rust-range-and-cursor" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/notes/rust-range-and-cursor/" class="article-date">
+  <time datetime="2026-05">2026-05 专题</time>
+</a>
+
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="p-name article-title" href="/notes/rust-range-and-cursor/">Rust 的 2..5，里面藏着一个游标</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <p>在纸上写下 2 到 5，把这段区间抄给别人，当然还是同一段。可在 Rust 里，旧的范围类型自己就能当迭代器。比如让 2..5 向前走一步，拿到 2 以后，下一步应该拿 3。这个对象除了描述两端，还记得已经走到了哪儿。如果它随手就能隐式复制一份，哪一份游标往前挪了，很容易看花眼。</p>
+<p>Rust 1.96 在标准库里加了一组新的范围类型。现在可以存下一段范围，需要遍历时再把它转换为迭代器。假设编辑器要给一段 ASCII 代码里的拼写错误画线，只想保存起点和终点，等点击时再取那一段。这样的标记可以放进能直接复制的结构里。标记本身不用背着“上一次读到第几个字符”的状态。</p>
+<p>我本来以为升级版本，所有写作 2..5 的表达式自然就变了。读到发布说明后半段才发现，1.96 稳定的是新库类型，这个字面量在当时依然产生旧类型。想拿现成代码验证区别，得先看变量的具体类型。只截一行循环，往往看不到这次修改究竟改了哪里。</p>
+
+        
+          <p><strong>原文出处</strong></p>
+          <ul><li><a target="_blank" rel="noopener" href="https://blog.rust-lang.org/2026/05/28/Rust-1.96.0/">Rust Release Team · Announcing Rust 1.96.0</a>（<time datetime="2026-05-28">2026-05-28</time>）</li></ul>
+        
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="https://tch-che.github.io/notes/rust-range-and-cursor/" data-id="cmwvx6kom000r80uo4wpiawlk" data-title="Rust 的 2..5，里面藏着一个游标" class="article-share-link"><span class="fa fa-share">分享</span></a>
+      
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+
+
+  
+    <article id="post-duckdb-quack-writers" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/notes/duckdb-quack-writers/" class="article-date">
+  <time datetime="2026-05">2026-05 专题</time>
+</a>
+
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="p-name article-title" href="/notes/duckdb-quack-writers/">两段程序想同时写 DuckDB 怎么办？</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <p>DuckDB 吸引我的地方是简单。开一个 Python 进程，连上文件，就可以写 SQL。可要是另一个采集脚本也要把新数据写进同一个文件，事情就麻烦了。每个进程都留着自己的内存状态，光让它们共享一个文件路径，两边并不知道对方改到了哪里。</p>
+<p>DuckDB 团队给出的 Quack 协议换了个安排。让其中一个实例持有数据库，当服务端。其余实例把远端数据库挂进来，照常访问表，由服务端协调读写。想象有两个温度采集脚本和一个图表页面，各自有自己的进程。两个脚本都可以递交新记录，图表那头再来查最近一小时的平均温度。这样就不用每个脚本写一份临时文件，再找时间合并。</p>
+<p>有一点特别适合拿来提醒自己。服务端明明就在另一个进程里，SQL 写起来却很像在查本地表。假设只想知道最大值，让远端算完再捎一个数字回来，比来回搬整张表划算得多。网络这笔账还在。对只有一个脚本的小任务，直接打开本地文件依旧是最省事的写法。</p>
+
+        
+          <p><strong>原文出处</strong></p>
+          <ul><li><a target="_blank" rel="noopener" href="https://duckdb.org/2026/05/12/quack-remote-protocol">DuckDB · Quack: The DuckDB Client-Server Protocol</a>（<time datetime="2026-05-12">2026-05-12</time>）</li></ul>
+        
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="https://tch-che.github.io/notes/duckdb-quack-writers/" data-id="cmwvx6koa000880uo2y6ocbqk" data-title="两段程序想同时写 DuckDB 怎么办？" class="article-share-link"><span class="fa fa-share">分享</span></a>
+      
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+
+
+  
+
+
+  <nav id="page-nav">
+    
+    <a class="extend prev" rel="prev" href="/">&laquo; 上一页</a><a class="page-number" href="/">1</a><span class="page-number current">2</span><a class="page-number" href="/page/3/">3</a><a class="page-number" href="/page/4/">4</a><a class="extend next" rel="next" href="/page/3/">下一页 &raquo;</a>
+  </nav>
+
+</section>
+        
+          <aside id="sidebar">
+  
+    <div class="widget-wrap">
+  <h3 class="widget-title">关于我</h3>
+  <div class="widget about-widget">
+    <div class="about-avatar">
+      <img src="/images/1.jpg" alt="avatar" />
+    </div>
+    <div class="about-name">车传凯</div>
+    <div class="about-bio">弃燕雀之小志，慕鸿鹄以高翔</div>
+    <div class="about-divider"></div>
+    <div class="about-info">
+      <div class="about-info-item">
+        <span class="about-info-label"><i class="fa fa-graduation-cap"></i> 教育经历</span>
+        <span class="about-info-value">黑龙江大学 软件工程</span>
+        <span class="about-info-date">2025.09 ——</span>
+      </div>
+      <div class="about-info-item">
+        <span class="about-info-label"><i class="fa fa-trophy"></i> 个人荣誉</span>
+        <span class="about-info-value">中国大学生计算机设计大赛省级一等奖</span>
+      </div>
+      <div class="about-info-item">
+        <span class="about-info-label"><i class="fa fa-users"></i> 担当职务</span>
+        <span class="about-info-value">中国计算机学会学生会员</span>
+      </div>
+      <div class="about-info-item">
+        <span class="about-info-label"><i class="fa fa-flask"></i> 研究方向</span>
+        <span class="about-info-value">计算法学 · 数据挖掘 · 医学影像处理 · 元胞自动机</span>
+      </div>
+    </div>
+  </div>
+</div>
+
+  
+    
+
+  
+    
+
+  
+    
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">归档</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2026/11/">2026 年 11 月</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2026/10/">2026 年 10 月</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2026/09/">2026 年 9 月</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2026/08/">2026 年 8 月</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2026/07/">2026 年 7 月</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2026/06/">2026 年 6 月</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2026/05/">2026 年 5 月</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2026/04/">2026 年 4 月</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2026/03/">2026 年 3 月</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2026/02/">2026 年 2 月</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2026/01/">2026 年 1 月</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2025/12/">2025 年 12 月</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">最新文章</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/notes/pelagos-quantum-decoder/">量子纠错的试卷，为什么要请八张 GPU 来批？</a>
+          </li>
+        
+          <li>
+            <a href="/notes/euclid-gravitational-lenses/">星系旁边那一道蓝弧，怎么就能拿来称重？</a>
+          </li>
+        
+          <li>
+            <a href="/notes/dns-targeted-builds/">只改一条 DNS 记录，要重读两千万条吗？</a>
+          </li>
+        
+          <li>
+            <a href="/notes/sleep-phase-model-memory/">给模型留一段「睡觉」的时间，它在学什么？</a>
+          </li>
+        
+          <li>
+            <a href="/notes/duckdb-async-io/">查远端的表，DuckDB 可以先把下一批数据叫上路</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      
+      &copy; 2026 车传凯<br>
+      Powered by <a href="https://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+
+<script src="/js/jquery-3.6.4.min.js"></script>
+
+
+
+  
+<script src="/fancybox/jquery.fancybox.min.js"></script>
+
+
+
+
+<script src="/js/script.js"></script>
+
+
+
+
+
+  </div>
+</body>
+</html>

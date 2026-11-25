@@ -1,0 +1,508 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  
+  <title>Che&#39;s Blog</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="车传凯的个人主页，记录软件工程、计算机系统和新技术的阅读笔记。">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Che&#39;s Blog">
+<meta property="og:url" content="https://tch-che.github.io/page/4/index.html">
+<meta property="og:site_name" content="Che&#39;s Blog">
+<meta property="og:description" content="车传凯的个人主页，记录软件工程、计算机系统和新技术的阅读笔记。">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:author" content="车传凯">
+<meta name="twitter:card" content="summary">
+  
+    <link rel="alternate" href="/atom.xml" title="Che's Blog" type="application/atom+xml">
+  
+  
+    <link rel="shortcut icon" href="/favicon.png">
+  
+  
+  
+<link rel="stylesheet" href="/css/style.css">
+
+  
+    
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.min.css">
+
+  
+  
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/fork-awesome@1.2.0/css/fork-awesome.min.css">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@400;600;700&display=swap" rel="stylesheet">
+<meta name="generator" content="Hexo 7.3.0"></head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">Che&#39;s Blog</a>
+      </h1>
+      
+        <h2 id="subtitle-wrap">
+          <a href="/" id="subtitle">弃燕雀之小志，慕鸿鹄以高翔</a>
+        </h2>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"><span class="fa fa-bars"></span></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+        
+          <a class="nav-icon" href="/atom.xml" title="RSS 订阅"><span class="fa fa-rss"></span></a>
+        
+        <a class="nav-icon nav-search-btn" title="搜索"><span class="fa fa-search"></span></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="搜索"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="https://tch-che.github.io"></form>
+      </div>
+    </div>
+  </div>
+</header>
+
+      <div class="outer">
+        <section id="main">
+  
+    <article id="post-raspberry-pi-ai-hat-memory" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/notes/raspberry-pi-ai-hat-memory/" class="article-date">
+  <time datetime="2026-01">2026-01 专题</time>
+</a>
+
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="p-name article-title" href="/notes/raspberry-pi-ai-hat-memory/">树莓派的 AI 扩展板，为什么自己带了 8GB 内存？</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <p>同样是接个摄像头，「这是一只猫」和「猫正趴在窗台上」听起来差不多。对小电脑来说，两件事差得还挺远。前者可以是识别模型挑一个标签，后者要把图像的信息接到语言模型上，再一个词一个词地产生句子。</p>
+<p>树莓派在一月发布的 AI HAT+ 2 是插在 Pi 5 上的一块扩展板。它用了 Hailo-10H 加速器，旁边还单独放了 8GB 内存，用来装模型和运行中需要的数据。官方首发列的模型里，Qwen2.5-Coder 就有 15 亿个参数。模型已经准备好的情况下，板子能在本地处理请求，房间里的图像可以留在设备上。</p>
+<p>反而是性能表里的一句小字更让我在意。新板标的是 INT4 下 40 TOPS，旧款有一档是 26 TOPS，但官方说，在目标识别这类传统视觉任务上，两者整体表现接近。如果需求只是统计有几只猫经过窗口，不能照着两个数字的比例去猜帧率。</p>
+<p>对这个扩展板，我最想看的会是从拍下画面到说完一句话一共多久。算力峰值、能放下多大的模型、最后要等多久，回答的是三个不同的问题。</p>
+
+        
+          <p><strong>原文出处</strong></p>
+          <ul><li><a target="_blank" rel="noopener" href="https://www.raspberrypi.com/news/introducing-the-raspberry-pi-ai-hat-plus-2-generative-ai-on-raspberry-pi-5/">Raspberry Pi · Introducing the Raspberry Pi AI HAT+ 2</a>（<time datetime="2026-01-15">2026-01-15</time>）</li></ul>
+        
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="https://tch-che.github.io/notes/raspberry-pi-ai-hat-memory/" data-id="cmwvx6kok000o80uo5n2ndgem" data-title="树莓派的 AI 扩展板，为什么自己带了 8GB 内存？" class="article-share-link"><span class="fa fa-share">分享</span></a>
+      
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+
+
+  
+    <article id="post-temporal-a-day-or-24-hours" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/notes/temporal-a-day-or-24-hours/" class="article-date">
+  <time datetime="2026-01">2026-01 专题</time>
+</a>
+
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="p-name article-title" href="/notes/temporal-a-day-or-24-hours/">明天同一时间，和 24 小时以后有区别吗？</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <p>如果在上海约人，今天中午加 24 小时，通常就是明天中午。这条直觉搬到有夏令时的地方，就会露出一个小洞。以纽约开始夏令时的那个周末为例，周六中午到周日中午，钟面看着正好隔一天，实际只走了 23 小时。</p>
+<p>Chrome 144 在一月带来了 JavaScript 的 Temporal。它把好几种容易混着用的东西分开了。生日只需保存月日，演出的开场要记清当地时区，两个服务器上报的事件则可以放到同一条时间线上比较。选哪一种，取决于程序要替人记住什么。</p>
+<p>比如给一个带纽约时区的 <code>ZonedDateTime</code> 加上 <code>&#123; days: 1 &#125;</code>，表达的是翻过一个日历日。换成 <code>&#123; hours: 24 &#125;</code>，表达的是实实在在经过 24 个小时。在上面那个周末，后一种算法会走到周日下午一点。下次表单写「每天中午提醒」，我就知道该选第一个了。</p>
+<p>一处边界也值得记。Chrome 支持这个接口，只能说明对应版本的 Chrome 能跑。给网站的老访客做日历功能，还要检查他们的浏览器能不能识别 <code>Temporal</code>，否则连第一行日期计算都会停下来。</p>
+
+        
+          <p><strong>原文出处</strong></p>
+          <ul><li><a target="_blank" rel="noopener" href="https://developer.chrome.com/blog/new-in-chrome-144">Chrome for Developers · New in Chrome 144</a>（<time datetime="2026-01-13">2026-01-13</time>）</li></ul>
+        
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="https://tch-che.github.io/notes/temporal-a-day-or-24-hours/" data-id="cmwvx6kop000w80uo7thz8sf9" data-title="明天同一时间，和 24 小时以后有区别吗？" class="article-share-link"><span class="fa fa-share">分享</span></a>
+      
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+
+
+  
+    <article id="post-rubin-rack-interconnect" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/notes/rubin-rack-interconnect/" class="article-date">
+  <time datetime="2026-01">2026-01 专题</time>
+</a>
+
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="p-name article-title" href="/notes/rubin-rack-interconnect/">一台 AI 机柜，为什么要一起设计六种芯片？</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <p>看显卡发布，我以前习惯先找算力数字。读 NVIDIA 一月公布的 Rubin 平台时，我在名单里数了两遍。六种芯片里，真正叫 GPU 的只有一种，剩下还有 CPU、两种交换芯片、网卡和负责数据处理的芯片。</p>
+<p>可以想一个有点傻的例子。假设模型分在两张卡上，第一张算完的结果要交给第二张。就算把第二张的乘法做快一倍，它收到数据前还是得干等。模型再大一点，一次训练里反复有类似的交换。比起孤零零的一张卡，卡之间用什么连、机柜之间怎么走数据，就都成了计算的一部分。</p>
+<p>看懂这个以后，原文里的两个名字也好记多了。NVLink 6 负责把机柜里的 GPU 高速连在一起，Spectrum-6 则是以太网交换芯片。平时只看见一个聊天框，后面挨着跑的可能是一整柜子的机器。</p>
+<p>公告还给了相对上一代平台的推理成本估算，最好情形能把每个 token 的成本降到原来的十分之一。这个数有比较对象，也取决于负载。拿它去猜任意一个聊天网站会降价多少，中间还隔着模型、利用率和服务定价好几件事。</p>
+
+        
+          <p><strong>原文出处</strong></p>
+          <ul><li><a target="_blank" rel="noopener" href="https://nvidianews.nvidia.com/news/rubin-platform-ai-supercomputer">NVIDIA · NVIDIA Kicks Off the Next Generation of AI With Rubin</a>（<time datetime="2026-01-05">2026-01-05</time>）</li></ul>
+        
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="https://tch-che.github.io/notes/rubin-rack-interconnect/" data-id="cmwvx6kol000p80uohjng6ztk" data-title="一台 AI 机柜，为什么要一起设计六种芯片？" class="article-share-link"><span class="fa fa-share">分享</span></a>
+      
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+
+
+  
+    <article id="post-functiongemma-small-actions" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/notes/functiongemma-small-actions/" class="article-date">
+  <time datetime="2025-12">2025-12 专题</time>
+</a>
+
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="p-name article-title" href="/notes/functiongemma-small-actions/">两亿七千万参数，够不够帮我定个提醒？</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <p>「明早八点提醒我带充电器。」如果手机最后回一句「好的，记得带哦」，人听着还行，第二天大概什么也不会发生。提醒要真的响，程序得拿到时间、内容，还得把它们交给系统的提醒接口。</p>
+<p>Google 在 12 月发布的 FunctionGemma 只有 2.7 亿参数，专门练的就是中间这道题。开发者告诉它有哪些函数、各自收什么参数，它负责把一句话填到合适的位置上。这个过程可以放在设备本地。这样一来，创建一条小提醒，就少了非得把日程发到远端处理的理由。</p>
+<p>原文有组数字让我对「专门练」这几个字有了点感觉。在团队留出的 Mobile Actions 测试集上，针对这些操作微调，准确率从 58% 到了 85%。如果测试题有一百道，这个比例仍意味着大约十五道答不对。把这个分数直接套到中文提醒，或者另一个软件的菜单上，都太乐观了。</p>
+<p>我会想看界面怎样处理「明早」。把识别出的具体日期和时间摆在按钮旁边，一眼能看出它有没有听错。对于提醒这种小事，这个细节可能比让回答更像真人还重要。</p>
+
+        
+          <p><strong>原文出处</strong></p>
+          <ul><li><a target="_blank" rel="noopener" href="https://blog.google/innovation-and-ai/technology/developers-tools/functiongemma/">Google · FunctionGemma: Bringing bespoke function calling to the edge</a>（<time datetime="2025-12-18">2025-12-18</time>）</li></ul>
+        
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="https://tch-che.github.io/notes/functiongemma-small-actions/" data-id="cmwvx6koe000d80uo8bkh1i95" data-title="两亿七千万参数，够不够帮我定个提醒？" class="article-share-link"><span class="fa fa-share">分享</span></a>
+      
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+
+
+  
+    <article id="post-css-scope-for-posts" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/notes/css-scope-for-posts/" class="article-date">
+  <time datetime="2025-12">2025-12 专题</time>
+</a>
+
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="p-name article-title" href="/notes/css-scope-for-posts/">给正文里的链接画个边界</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <p>一条看起来挺老实的样式，放到博客里就容易出事。比如想给正文链接加下划线，写了 <code>.post a</code>，结果文末作者卡片上的两个小图标也带上了横线。它们也是链接，也恰好住在文章里面。</p>
+<p>我喜欢 CSS 的 <code>@scope</code>，因为这个需求可以照着人话翻过去。下面这段从 <code>.post</code> 开始找链接，走到 <code>.author-card</code> 就停。卡片和它里面的链接都在边界外。</p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">@scope</span> (.post) to (.author-card) &#123;</span><br><span class="line">  <span class="selector-tag">a</span> &#123; <span class="attribute">text-decoration</span>: underline dotted; &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>以后卡片里多嵌一层头像或社交账号，正文这条规则也不用跟着改。换成给每个正文链接都挂一个专用类，写 Markdown 的人就得记得配合，漏一处的机会大得多。</p>
+<p>Firefox 146 在这个月补齐了支持，三个主要浏览器引擎的当期稳定版都能理解这段 CSS。还有一个容易误会的小地方。假如正文外层设置的是文字颜色，卡片里的字仍有可能通过继承拿到这个颜色。边界只管哪些元素会被里面的选择器选中，继承依然按原来的规则走。</p>
+
+        
+          <p><strong>原文出处</strong></p>
+          <ul><li><a target="_blank" rel="noopener" href="https://web.dev/blog/web-platform-12-2025">web.dev · New to the web platform in December</a>（<time datetime="2025-12-16">2025-12-16</time>）</li><li><a target="_blank" rel="noopener" href="https://developer.chrome.com/docs/css-ui/at-scope">Chrome for Developers · Limit the reach of your selectors with the CSS @scope at-rule</a>（<time datetime="2023-10-04">2023-10-04</time>）</li></ul>
+        
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="https://tch-che.github.io/notes/css-scope-for-posts/" data-id="cmwvx6ko7000480uodvi6c508" data-title="给正文里的链接画个边界" class="article-share-link"><span class="fa fa-share">分享</span></a>
+      
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+
+
+  
+    <article id="post-s3-vectors-for-a-notebook" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/notes/s3-vectors-for-a-notebook/" class="article-date">
+  <time datetime="2025-12">2025-12 专题</time>
+</a>
+
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="p-name article-title" href="/notes/s3-vectors-for-a-notebook/">搜「电脑一拔电就关机」，能找到哪篇笔记？</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <p>假设笔记里有一篇《换电池记录》，里面写的是「断开电源，机器立刻黑屏」。以后搜「电脑一拔电就关机」，照字面匹配可能漏掉它。这种时候我希望搜索框能听懂大意，哪怕我已经记不起标题。</p>
+<p>做法是先让一个模型把每段文字变成一串数字，也就是向量。提问时，用同一个模型处理问题，再找靠得近的几段文字。12 月正式推出的 S3 Vectors 接手了存向量和找近邻这两件事。如果原文已经放在 S3 里，可以把段落编号和对应的向量关联起来，搜到编号再回去看上下文。</p>
+<p>AWS 给的正式版上限是每个索引 20 亿个向量。我自己的几页笔记当然用不上这个量，更值得看的是另一组数据。公告说，偶尔查一次可能要等接近一秒，经常查询时可以到一百毫秒左右或更低。这会影响搜索框该在打字时立刻查，还是等人按下回车。</p>
+<p>还有个小坑。「拔掉外接屏就黑屏」可能也很像。最后展示命中段落，往往比只给一个看起来很肯定的标题更有用。</p>
+
+        
+          <p><strong>原文出处</strong></p>
+          <ul><li><a target="_blank" rel="noopener" href="https://aws.amazon.com/about-aws/whats-new/2025/12/amazon-s3-vectors-generally-available/">AWS · Amazon S3 Vectors is now generally available</a>（<time datetime="2025-12-02">2025-12-02</time>）</li></ul>
+        
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="https://tch-che.github.io/notes/s3-vectors-for-a-notebook/" data-id="cmwvx6kon000s80uof3c63qqn" data-title="搜「电脑一拔电就关机」，能找到哪篇笔记？" class="article-share-link"><span class="fa fa-share">分享</span></a>
+      
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+
+
+  
+
+
+  <nav id="page-nav">
+    
+    <a class="extend prev" rel="prev" href="/page/3/">&laquo; 上一页</a><a class="page-number" href="/">1</a><a class="page-number" href="/page/2/">2</a><a class="page-number" href="/page/3/">3</a><span class="page-number current">4</span>
+  </nav>
+
+</section>
+        
+          <aside id="sidebar">
+  
+    <div class="widget-wrap">
+  <h3 class="widget-title">关于我</h3>
+  <div class="widget about-widget">
+    <div class="about-avatar">
+      <img src="/images/1.jpg" alt="avatar" />
+    </div>
+    <div class="about-name">车传凯</div>
+    <div class="about-bio">弃燕雀之小志，慕鸿鹄以高翔</div>
+    <div class="about-divider"></div>
+    <div class="about-info">
+      <div class="about-info-item">
+        <span class="about-info-label"><i class="fa fa-graduation-cap"></i> 教育经历</span>
+        <span class="about-info-value">黑龙江大学 软件工程</span>
+        <span class="about-info-date">2025.09 ——</span>
+      </div>
+      <div class="about-info-item">
+        <span class="about-info-label"><i class="fa fa-trophy"></i> 个人荣誉</span>
+        <span class="about-info-value">中国大学生计算机设计大赛省级一等奖</span>
+      </div>
+      <div class="about-info-item">
+        <span class="about-info-label"><i class="fa fa-users"></i> 担当职务</span>
+        <span class="about-info-value">中国计算机学会学生会员</span>
+      </div>
+      <div class="about-info-item">
+        <span class="about-info-label"><i class="fa fa-flask"></i> 研究方向</span>
+        <span class="about-info-value">计算法学 · 数据挖掘 · 医学影像处理 · 元胞自动机</span>
+      </div>
+    </div>
+  </div>
+</div>
+
+  
+    
+
+  
+    
+
+  
+    
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">归档</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2026/11/">2026 年 11 月</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2026/10/">2026 年 10 月</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2026/09/">2026 年 9 月</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2026/08/">2026 年 8 月</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2026/07/">2026 年 7 月</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2026/06/">2026 年 6 月</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2026/05/">2026 年 5 月</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2026/04/">2026 年 4 月</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2026/03/">2026 年 3 月</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2026/02/">2026 年 2 月</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2026/01/">2026 年 1 月</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2025/12/">2025 年 12 月</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">最新文章</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/notes/pelagos-quantum-decoder/">量子纠错的试卷，为什么要请八张 GPU 来批？</a>
+          </li>
+        
+          <li>
+            <a href="/notes/euclid-gravitational-lenses/">星系旁边那一道蓝弧，怎么就能拿来称重？</a>
+          </li>
+        
+          <li>
+            <a href="/notes/dns-targeted-builds/">只改一条 DNS 记录，要重读两千万条吗？</a>
+          </li>
+        
+          <li>
+            <a href="/notes/sleep-phase-model-memory/">给模型留一段「睡觉」的时间，它在学什么？</a>
+          </li>
+        
+          <li>
+            <a href="/notes/duckdb-async-io/">查远端的表，DuckDB 可以先把下一批数据叫上路</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      
+      &copy; 2026 车传凯<br>
+      Powered by <a href="https://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+
+<script src="/js/jquery-3.6.4.min.js"></script>
+
+
+
+  
+<script src="/fancybox/jquery.fancybox.min.js"></script>
+
+
+
+
+<script src="/js/script.js"></script>
+
+
+
+
+
+  </div>
+</body>
+</html>

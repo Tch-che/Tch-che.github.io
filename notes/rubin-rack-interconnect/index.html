@@ -1,43 +1,278 @@
-
-<!doctype html>
-<html lang="zh-CN">
+<!DOCTYPE html>
+<html>
 <head>
   <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>一台 AI 机柜，为什么要一起设计六种芯片？ · Che&#39;s Blog</title>
-  <meta name="description" content="从一次需要跨卡传递的中间结果，看懂 Rubin 平台里那些容易被忽略的交换机和网卡。">
-  <link rel="canonical" href="https://tch-che.github.io/notes/rubin-rack-interconnect/">
-  <link rel="icon" href="../../assets/che.jpg">
-  <link rel="stylesheet" href="../../assets/handbook.css">
+  
+  
+  <title>一台 AI 机柜，为什么要一起设计六种芯片？ | Che&#39;s Blog</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="看显卡发布，我以前习惯先找算力数字。读 NVIDIA 一月公布的 Rubin 平台时，我在名单里数了两遍。六种芯片里，真正叫 GPU 的只有一种，剩下还有 CPU、两种交换芯片、网卡和负责数据处理的芯片。 可以想一个有点傻的例子。假设模型分在两张卡上，第一张算完的结果要交给第二张。就算把第二张的乘法做快一倍，它收到数据前还是得干等。模型再大一点，一次训练里反复有类似的交换。比起孤零零的一张卡，卡之">
+<meta property="og:type" content="article">
+<meta property="og:title" content="一台 AI 机柜，为什么要一起设计六种芯片？">
+<meta property="og:url" content="https://tch-che.github.io/notes/rubin-rack-interconnect/index.html">
+<meta property="og:site_name" content="Che&#39;s Blog">
+<meta property="og:description" content="看显卡发布，我以前习惯先找算力数字。读 NVIDIA 一月公布的 Rubin 平台时，我在名单里数了两遍。六种芯片里，真正叫 GPU 的只有一种，剩下还有 CPU、两种交换芯片、网卡和负责数据处理的芯片。 可以想一个有点傻的例子。假设模型分在两张卡上，第一张算完的结果要交给第二张。就算把第二张的乘法做快一倍，它收到数据前还是得干等。模型再大一点，一次训练里反复有类似的交换。比起孤零零的一张卡，卡之">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2026-11-24T16:00:00.000Z">
+<meta property="article:modified_time" content="2026-11-25T08:58:16.416Z">
+<meta property="article:author" content="车传凯">
+<meta name="twitter:card" content="summary">
+  
+    <link rel="alternate" href="/atom.xml" title="Che's Blog" type="application/atom+xml">
+  
+  
+    <link rel="shortcut icon" href="/favicon.png">
+  
+  
+  
+<link rel="stylesheet" href="/css/style.css">
+
+  
+    
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.min.css">
+
+  
+  
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/fork-awesome@1.2.0/css/fork-awesome.min.css">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@400;600;700&display=swap" rel="stylesheet">
 <meta name="generator" content="Hexo 7.3.0"></head>
-<body id="top">
-  <a class="skip" href="#main">跳到正文</a>
-  <header class="mast shell">
-    <a class="wordmark" href="../../index.html"><img src="../../assets/che.jpg" alt="" width="36" height="36"><span>Che’s Blog</span></a>
-    <nav class="nav" aria-label="主导航">
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">Che&#39;s Blog</a>
+      </h1>
       
-        <a class="current" href="../../index.html" aria-current="location">手记</a>
+        <h2 id="subtitle-wrap">
+          <a href="/" id="subtitle">弃燕雀之小志，慕鸿鹄以高翔</a>
+        </h2>
       
-        <a class="" href="../../archives/index.html" >归档</a>
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"><span class="fa fa-bars"></span></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+        
+          <a class="nav-icon" href="/atom.xml" title="RSS 订阅"><span class="fa fa-rss"></span></a>
+        
+        <a class="nav-icon nav-search-btn" title="搜索"><span class="fa fa-search"></span></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="搜索"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="https://tch-che.github.io"></form>
+      </div>
+    </div>
+  </div>
+</header>
+
+      <div class="outer">
+        <section id="main"><article id="post-rubin-rack-interconnect" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/notes/rubin-rack-interconnect/" class="article-date">
+  <time datetime="2026-01">2026-01 专题</time>
+</a>
+
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="p-name article-title" itemprop="headline name">
+      一台 AI 机柜，为什么要一起设计六种芯片？
+    </h1>
+  
+
+      </header>
+    
+    <div class="e-content article-entry" itemprop="articleBody">
       
-        <a class="" href="../../about/index.html" >关于</a>
-      
-      <a class="git" target="_blank" rel="noopener" href="https://github.com/Tch-che">GitHub <span aria-hidden="true">↗</span></a>
-    </nav>
-  </header>
-  <main id="main" class="shell">
-<article class="reading">
-  <a class="crumb" href="../../archives/2026/01/index.html">← 2026 年 1 月手记</a>
-  <header class="post-head"><p class="byline"><span></span>硬件</p><h1>一台 AI 机柜，为什么要一起设计六种芯片？</h1><p class="author">车传凯 <i>/</i> 2026-01 专题</p></header>
-  <div class="prose"><p>看显卡发布，我以前习惯先找算力数字。读 NVIDIA 一月公布的 Rubin 平台时，我在名单里数了两遍。六种芯片里，真正叫 GPU 的只有一种，剩下还有 CPU、两种交换芯片、网卡和负责数据处理的芯片。</p>
+        <p>看显卡发布，我以前习惯先找算力数字。读 NVIDIA 一月公布的 Rubin 平台时，我在名单里数了两遍。六种芯片里，真正叫 GPU 的只有一种，剩下还有 CPU、两种交换芯片、网卡和负责数据处理的芯片。</p>
 <p>可以想一个有点傻的例子。假设模型分在两张卡上，第一张算完的结果要交给第二张。就算把第二张的乘法做快一倍，它收到数据前还是得干等。模型再大一点，一次训练里反复有类似的交换。比起孤零零的一张卡，卡之间用什么连、机柜之间怎么走数据，就都成了计算的一部分。</p>
 <p>看懂这个以后，原文里的两个名字也好记多了。NVLink 6 负责把机柜里的 GPU 高速连在一起，Spectrum-6 则是以太网交换芯片。平时只看见一个聊天框，后面挨着跑的可能是一整柜子的机器。</p>
 <p>公告还给了相对上一代平台的推理成本估算，最好情形能把每个 token 的成本降到原来的十分之一。这个数有比较对象，也取决于负载。拿它去猜任意一个聊天网站会降价多少，中间还隔着模型、利用率和服务定价好几件事。</p>
-</div>
-  <section class="sources"><h2>原文出处</h2><ul><li><a target="_blank" rel="noopener" href="https://nvidianews.nvidia.com/news/rubin-platform-ai-supercomputer">NVIDIA · NVIDIA Kicks Off the Next Generation of AI With Rubin ↗</a><time datetime="2026-01-05">2026-01-05</time></li></ul></section>
-  <nav class="related" aria-label="同月手记"><h2>这个月还读了</h2><a href="../raspberry-pi-ai-hat-memory/index.html">树莓派的 AI 扩展板，为什么自己带了 8GB 内存？ <span aria-hidden="true">↗</span></a><a href="../temporal-a-day-or-24-hours/index.html">明天同一时间，和 24 小时以后有区别吗？ <span aria-hidden="true">↗</span></a></nav>
+
+        
+          <p><strong>原文出处</strong></p>
+          <ul><li><a target="_blank" rel="noopener" href="https://nvidianews.nvidia.com/news/rubin-platform-ai-supercomputer">NVIDIA · NVIDIA Kicks Off the Next Generation of AI With Rubin</a>（<time datetime="2026-01-05">2026-01-05</time>）</li></ul>
+        
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="https://tch-che.github.io/notes/rubin-rack-interconnect/" data-id="cmwvx6kol000p80uohjng6ztk" data-title="一台 AI 机柜，为什么要一起设计六种芯片？" class="article-share-link"><span class="fa fa-share">分享</span></a>
+      
+      
+      
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/notes/raspberry-pi-ai-hat-memory/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">前一篇</strong>
+      <div class="article-nav-title">
+        
+          树莓派的 AI 扩展板，为什么自己带了 8GB 内存？
+        
+      </div>
+    </a>
+  
+  
+    <a href="/notes/rubin-sky-image-alerts/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">后一篇</strong>
+      <div class="article-nav-title">望远镜一晚发了八十万条提醒，谁看得完？</div>
+    </a>
+  
+</nav>
+
+  
 </article>
-</main>
-  <footer class="foot shell"><span>Che’s Blog <i>/</i> 车传凯</span><a href="#top">回到顶部 ↑</a></footer>
+
+
+
+</section>
+        
+          <aside id="sidebar">
+  
+    <div class="widget-wrap">
+  <h3 class="widget-title">关于我</h3>
+  <div class="widget about-widget">
+    <div class="about-avatar">
+      <img src="/images/1.jpg" alt="avatar" />
+    </div>
+    <div class="about-name">车传凯</div>
+    <div class="about-bio">弃燕雀之小志，慕鸿鹄以高翔</div>
+    <div class="about-divider"></div>
+    <div class="about-info">
+      <div class="about-info-item">
+        <span class="about-info-label"><i class="fa fa-graduation-cap"></i> 教育经历</span>
+        <span class="about-info-value">黑龙江大学 软件工程</span>
+        <span class="about-info-date">2025.09 ——</span>
+      </div>
+      <div class="about-info-item">
+        <span class="about-info-label"><i class="fa fa-trophy"></i> 个人荣誉</span>
+        <span class="about-info-value">中国大学生计算机设计大赛省级一等奖</span>
+      </div>
+      <div class="about-info-item">
+        <span class="about-info-label"><i class="fa fa-users"></i> 担当职务</span>
+        <span class="about-info-value">中国计算机学会学生会员</span>
+      </div>
+      <div class="about-info-item">
+        <span class="about-info-label"><i class="fa fa-flask"></i> 研究方向</span>
+        <span class="about-info-value">计算法学 · 数据挖掘 · 医学影像处理 · 元胞自动机</span>
+      </div>
+    </div>
+  </div>
+</div>
+
+  
+    
+
+  
+    
+
+  
+    
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">归档</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2026/11/">2026 年 11 月</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2026/10/">2026 年 10 月</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2026/09/">2026 年 9 月</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2026/08/">2026 年 8 月</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2026/07/">2026 年 7 月</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2026/06/">2026 年 6 月</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2026/05/">2026 年 5 月</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2026/04/">2026 年 4 月</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2026/03/">2026 年 3 月</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2026/02/">2026 年 2 月</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2026/01/">2026 年 1 月</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2025/12/">2025 年 12 月</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">最新文章</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/notes/pelagos-quantum-decoder/">量子纠错的试卷，为什么要请八张 GPU 来批？</a>
+          </li>
+        
+          <li>
+            <a href="/notes/euclid-gravitational-lenses/">星系旁边那一道蓝弧，怎么就能拿来称重？</a>
+          </li>
+        
+          <li>
+            <a href="/notes/dns-targeted-builds/">只改一条 DNS 记录，要重读两千万条吗？</a>
+          </li>
+        
+          <li>
+            <a href="/notes/sleep-phase-model-memory/">给模型留一段「睡觉」的时间，它在学什么？</a>
+          </li>
+        
+          <li>
+            <a href="/notes/duckdb-async-io/">查远端的表，DuckDB 可以先把下一批数据叫上路</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      
+      &copy; 2026 车传凯<br>
+      Powered by <a href="https://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+
+<script src="/js/jquery-3.6.4.min.js"></script>
+
+
+
+  
+<script src="/fancybox/jquery.fancybox.min.js"></script>
+
+
+
+
+<script src="/js/script.js"></script>
+
+
+
+
+
+  </div>
 </body>
 </html>

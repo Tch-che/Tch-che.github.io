@@ -1,42 +1,277 @@
-
-<!doctype html>
-<html lang="zh-CN">
+<!DOCTYPE html>
+<html>
 <head>
   <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>TypeScript 快了十倍，省下的是哪段等待？ · Che&#39;s Blog</title>
-  <meta name="description" content="拿 VS Code 的一次完整构建，分清编译器变快和用户打开网页变快。">
-  <link rel="canonical" href="https://tch-che.github.io/notes/typescript-seven-build-time/">
-  <link rel="icon" href="../../assets/che.jpg">
-  <link rel="stylesheet" href="../../assets/handbook.css">
+  
+  
+  <title>TypeScript 快了十倍，省下的是哪段等待？ | Che&#39;s Blog</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="微软在 TypeScript 7 的发布文章里摆了张表。拿 VS Code 的代码库做完整构建，旧版用了 125.7 秒，新版用了 10.6 秒。两分钟和十来秒的区别挺直观。前者够起身倒杯水，后者可能还没想好要不要起身，结果已经出来了。 变化发生在开发工具这一边。团队用 Go 移植了编译器，尽量保留原有的类型检查逻辑，再利用原生代码和共享内存多线程来处理大项目。平常敲的还是 TypeScript，">
+<meta property="og:type" content="article">
+<meta property="og:title" content="TypeScript 快了十倍，省下的是哪段等待？">
+<meta property="og:url" content="https://tch-che.github.io/notes/typescript-seven-build-time/index.html">
+<meta property="og:site_name" content="Che&#39;s Blog">
+<meta property="og:description" content="微软在 TypeScript 7 的发布文章里摆了张表。拿 VS Code 的代码库做完整构建，旧版用了 125.7 秒，新版用了 10.6 秒。两分钟和十来秒的区别挺直观。前者够起身倒杯水，后者可能还没想好要不要起身，结果已经出来了。 变化发生在开发工具这一边。团队用 Go 移植了编译器，尽量保留原有的类型检查逻辑，再利用原生代码和共享内存多线程来处理大项目。平常敲的还是 TypeScript，">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2026-11-24T16:00:00.000Z">
+<meta property="article:modified_time" content="2026-11-25T08:58:16.437Z">
+<meta property="article:author" content="车传凯">
+<meta name="twitter:card" content="summary">
+  
+    <link rel="alternate" href="/atom.xml" title="Che's Blog" type="application/atom+xml">
+  
+  
+    <link rel="shortcut icon" href="/favicon.png">
+  
+  
+  
+<link rel="stylesheet" href="/css/style.css">
+
+  
+    
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.min.css">
+
+  
+  
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/fork-awesome@1.2.0/css/fork-awesome.min.css">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@400;600;700&display=swap" rel="stylesheet">
 <meta name="generator" content="Hexo 7.3.0"></head>
-<body id="top">
-  <a class="skip" href="#main">跳到正文</a>
-  <header class="mast shell">
-    <a class="wordmark" href="../../index.html"><img src="../../assets/che.jpg" alt="" width="36" height="36"><span>Che’s Blog</span></a>
-    <nav class="nav" aria-label="主导航">
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">Che&#39;s Blog</a>
+      </h1>
       
-        <a class="current" href="../../index.html" aria-current="location">手记</a>
+        <h2 id="subtitle-wrap">
+          <a href="/" id="subtitle">弃燕雀之小志，慕鸿鹄以高翔</a>
+        </h2>
       
-        <a class="" href="../../archives/index.html" >归档</a>
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"><span class="fa fa-bars"></span></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+        
+          <a class="nav-icon" href="/atom.xml" title="RSS 订阅"><span class="fa fa-rss"></span></a>
+        
+        <a class="nav-icon nav-search-btn" title="搜索"><span class="fa fa-search"></span></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="搜索"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="https://tch-che.github.io"></form>
+      </div>
+    </div>
+  </div>
+</header>
+
+      <div class="outer">
+        <section id="main"><article id="post-typescript-seven-build-time" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/notes/typescript-seven-build-time/" class="article-date">
+  <time datetime="2026-07">2026-07 专题</time>
+</a>
+
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="p-name article-title" itemprop="headline name">
+      TypeScript 快了十倍，省下的是哪段等待？
+    </h1>
+  
+
+      </header>
+    
+    <div class="e-content article-entry" itemprop="articleBody">
       
-        <a class="" href="../../about/index.html" >关于</a>
-      
-      <a class="git" target="_blank" rel="noopener" href="https://github.com/Tch-che">GitHub <span aria-hidden="true">↗</span></a>
-    </nav>
-  </header>
-  <main id="main" class="shell">
-<article class="reading">
-  <a class="crumb" href="../../archives/2026/07/index.html">← 2026 年 7 月手记</a>
-  <header class="post-head"><p class="byline"><span></span>开发工具</p><h1>TypeScript 快了十倍，省下的是哪段等待？</h1><p class="author">车传凯 <i>/</i> 2026-07 专题</p></header>
-  <div class="prose"><p>微软在 TypeScript 7 的发布文章里摆了张表。拿 VS Code 的代码库做完整构建，旧版用了 125.7 秒，新版用了 10.6 秒。两分钟和十来秒的区别挺直观。前者够起身倒杯水，后者可能还没想好要不要起身，结果已经出来了。</p>
+        <p>微软在 TypeScript 7 的发布文章里摆了张表。拿 VS Code 的代码库做完整构建，旧版用了 125.7 秒，新版用了 10.6 秒。两分钟和十来秒的区别挺直观。前者够起身倒杯水，后者可能还没想好要不要起身，结果已经出来了。</p>
 <p>变化发生在开发工具这一边。团队用 Go 移植了编译器，尽量保留原有的类型检查逻辑，再利用原生代码和共享内存多线程来处理大项目。平常敲的还是 TypeScript，运行的依旧可以是 tsc。另一个我觉得更贴近写代码的数字，是他们在同一台机器上打开 VS Code 项目里的一个文件，从开编辑器到看到第一处报错，等待时间从大约 17.5 秒降到了 1.3 秒以内。</p>
 <p>怎么知道自己的项目能省几秒？我会把流水线里的类型检查、打包、上传分开看。假如最慢的是上传图片，那编译器再快，整次发布也很难跟着快十倍。至于读者打开网页要等多久，那是浏览器的另一笔账。看完这个表，最有用的动作也许是先给自己那几段命令分别计时。</p>
-</div>
-  <section class="sources"><h2>原文出处</h2><ul><li><a target="_blank" rel="noopener" href="https://devblogs.microsoft.com/typescript/announcing-typescript-7-0/">Microsoft · Announcing TypeScript 7.0 ↗</a><time datetime="2026-07-08">2026-07-08</time></li></ul></section>
-  <nav class="related" aria-label="同月手记"><h2>这个月还读了</h2><a href="../particlegs-rendering-compression/index.html">两亿多个粒子，转一下视角要等多久？ <span aria-hidden="true">↗</span></a><a href="../euclid-quasar-shortlist/index.html">从满天的亮点里，怎么挑出 31 个类星体？ <span aria-hidden="true">↗</span></a></nav>
+
+        
+          <p><strong>原文出处</strong></p>
+          <ul><li><a target="_blank" rel="noopener" href="https://devblogs.microsoft.com/typescript/announcing-typescript-7-0/">Microsoft · Announcing TypeScript 7.0</a>（<time datetime="2026-07-08">2026-07-08</time>）</li></ul>
+        
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="https://tch-che.github.io/notes/typescript-seven-build-time/" data-id="cmwvx6kor000y80uo1yksf6cz" data-title="TypeScript 快了十倍，省下的是哪段等待？" class="article-share-link"><span class="fa fa-share">分享</span></a>
+      
+      
+      
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/notes/sleep-phase-model-memory/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">前一篇</strong>
+      <div class="article-nav-title">
+        
+          给模型留一段「睡觉」的时间，它在学什么？
+        
+      </div>
+    </a>
+  
+  
+    <a href="/notes/visiprint-filament-preview/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">后一篇</strong>
+      <div class="article-nav-title">换卷耗材，这只小章鱼会变成什么样？</div>
+    </a>
+  
+</nav>
+
+  
 </article>
-</main>
-  <footer class="foot shell"><span>Che’s Blog <i>/</i> 车传凯</span><a href="#top">回到顶部 ↑</a></footer>
+
+
+
+</section>
+        
+          <aside id="sidebar">
+  
+    <div class="widget-wrap">
+  <h3 class="widget-title">关于我</h3>
+  <div class="widget about-widget">
+    <div class="about-avatar">
+      <img src="/images/1.jpg" alt="avatar" />
+    </div>
+    <div class="about-name">车传凯</div>
+    <div class="about-bio">弃燕雀之小志，慕鸿鹄以高翔</div>
+    <div class="about-divider"></div>
+    <div class="about-info">
+      <div class="about-info-item">
+        <span class="about-info-label"><i class="fa fa-graduation-cap"></i> 教育经历</span>
+        <span class="about-info-value">黑龙江大学 软件工程</span>
+        <span class="about-info-date">2025.09 ——</span>
+      </div>
+      <div class="about-info-item">
+        <span class="about-info-label"><i class="fa fa-trophy"></i> 个人荣誉</span>
+        <span class="about-info-value">中国大学生计算机设计大赛省级一等奖</span>
+      </div>
+      <div class="about-info-item">
+        <span class="about-info-label"><i class="fa fa-users"></i> 担当职务</span>
+        <span class="about-info-value">中国计算机学会学生会员</span>
+      </div>
+      <div class="about-info-item">
+        <span class="about-info-label"><i class="fa fa-flask"></i> 研究方向</span>
+        <span class="about-info-value">计算法学 · 数据挖掘 · 医学影像处理 · 元胞自动机</span>
+      </div>
+    </div>
+  </div>
+</div>
+
+  
+    
+
+  
+    
+
+  
+    
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">归档</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2026/11/">2026 年 11 月</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2026/10/">2026 年 10 月</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2026/09/">2026 年 9 月</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2026/08/">2026 年 8 月</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2026/07/">2026 年 7 月</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2026/06/">2026 年 6 月</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2026/05/">2026 年 5 月</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2026/04/">2026 年 4 月</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2026/03/">2026 年 3 月</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2026/02/">2026 年 2 月</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2026/01/">2026 年 1 月</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2025/12/">2025 年 12 月</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">最新文章</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/notes/pelagos-quantum-decoder/">量子纠错的试卷，为什么要请八张 GPU 来批？</a>
+          </li>
+        
+          <li>
+            <a href="/notes/euclid-gravitational-lenses/">星系旁边那一道蓝弧，怎么就能拿来称重？</a>
+          </li>
+        
+          <li>
+            <a href="/notes/dns-targeted-builds/">只改一条 DNS 记录，要重读两千万条吗？</a>
+          </li>
+        
+          <li>
+            <a href="/notes/sleep-phase-model-memory/">给模型留一段「睡觉」的时间，它在学什么？</a>
+          </li>
+        
+          <li>
+            <a href="/notes/duckdb-async-io/">查远端的表，DuckDB 可以先把下一批数据叫上路</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      
+      &copy; 2026 车传凯<br>
+      Powered by <a href="https://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+
+<script src="/js/jquery-3.6.4.min.js"></script>
+
+
+
+  
+<script src="/fancybox/jquery.fancybox.min.js"></script>
+
+
+
+
+<script src="/js/script.js"></script>
+
+
+
+
+
+  </div>
 </body>
 </html>

@@ -1,42 +1,277 @@
-
-<!doctype html>
-<html lang="zh-CN">
+<!DOCTYPE html>
+<html>
 <head>
   <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>看懂 0.7 纳米新闻，要先看一个反相器 · Che&#39;s Blog</title>
-  <meta name="description" content="IBM 把晶体管向上堆起来。一个能翻转输出的简单电路说明了什么？">
-  <link rel="canonical" href="https://tch-che.github.io/notes/ibm-nanostack-inverter/">
-  <link rel="icon" href="../../assets/che.jpg">
-  <link rel="stylesheet" href="../../assets/handbook.css">
+  
+  
+  <title>看懂 0.7 纳米新闻，要先看一个反相器 | Che&#39;s Blog</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="我以前看芯片新闻，读到“几纳米”，脑子里会自动出现一把很小的尺子。IBM 把这次技术叫作 0.7 纳米，自己也专门解释了，这个数是制造工艺的节点名称。想知道它究竟做了什么，还是得去看晶体管是怎么摆的。 这次的做法叫 nanostack。把部分原先并排摆的晶体管上下错开，在同样一块平面上就能容下更多东西。上下层还可以采用不同材料，分别调节晶体管的表现。举个容易在脑子里画出来的例子，反相器接收低电平就">
+<meta property="og:type" content="article">
+<meta property="og:title" content="看懂 0.7 纳米新闻，要先看一个反相器">
+<meta property="og:url" content="https://tch-che.github.io/notes/ibm-nanostack-inverter/index.html">
+<meta property="og:site_name" content="Che&#39;s Blog">
+<meta property="og:description" content="我以前看芯片新闻，读到“几纳米”，脑子里会自动出现一把很小的尺子。IBM 把这次技术叫作 0.7 纳米，自己也专门解释了，这个数是制造工艺的节点名称。想知道它究竟做了什么，还是得去看晶体管是怎么摆的。 这次的做法叫 nanostack。把部分原先并排摆的晶体管上下错开，在同样一块平面上就能容下更多东西。上下层还可以采用不同材料，分别调节晶体管的表现。举个容易在脑子里画出来的例子，反相器接收低电平就">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2026-11-24T16:00:00.000Z">
+<meta property="article:modified_time" content="2026-11-25T08:58:16.434Z">
+<meta property="article:author" content="车传凯">
+<meta name="twitter:card" content="summary">
+  
+    <link rel="alternate" href="/atom.xml" title="Che's Blog" type="application/atom+xml">
+  
+  
+    <link rel="shortcut icon" href="/favicon.png">
+  
+  
+  
+<link rel="stylesheet" href="/css/style.css">
+
+  
+    
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.min.css">
+
+  
+  
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/fork-awesome@1.2.0/css/fork-awesome.min.css">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@400;600;700&display=swap" rel="stylesheet">
 <meta name="generator" content="Hexo 7.3.0"></head>
-<body id="top">
-  <a class="skip" href="#main">跳到正文</a>
-  <header class="mast shell">
-    <a class="wordmark" href="../../index.html"><img src="../../assets/che.jpg" alt="" width="36" height="36"><span>Che’s Blog</span></a>
-    <nav class="nav" aria-label="主导航">
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">Che&#39;s Blog</a>
+      </h1>
       
-        <a class="current" href="../../index.html" aria-current="location">手记</a>
+        <h2 id="subtitle-wrap">
+          <a href="/" id="subtitle">弃燕雀之小志，慕鸿鹄以高翔</a>
+        </h2>
       
-        <a class="" href="../../archives/index.html" >归档</a>
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"><span class="fa fa-bars"></span></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+        
+          <a class="nav-icon" href="/atom.xml" title="RSS 订阅"><span class="fa fa-rss"></span></a>
+        
+        <a class="nav-icon nav-search-btn" title="搜索"><span class="fa fa-search"></span></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="搜索"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="https://tch-che.github.io"></form>
+      </div>
+    </div>
+  </div>
+</header>
+
+      <div class="outer">
+        <section id="main"><article id="post-ibm-nanostack-inverter" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/notes/ibm-nanostack-inverter/" class="article-date">
+  <time datetime="2026-06">2026-06 专题</time>
+</a>
+
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="p-name article-title" itemprop="headline name">
+      看懂 0.7 纳米新闻，要先看一个反相器
+    </h1>
+  
+
+      </header>
+    
+    <div class="e-content article-entry" itemprop="articleBody">
       
-        <a class="" href="../../about/index.html" >关于</a>
-      
-      <a class="git" target="_blank" rel="noopener" href="https://github.com/Tch-che">GitHub <span aria-hidden="true">↗</span></a>
-    </nav>
-  </header>
-  <main id="main" class="shell">
-<article class="reading">
-  <a class="crumb" href="../../archives/2026/06/index.html">← 2026 年 6 月手记</a>
-  <header class="post-head"><p class="byline"><span></span>芯片与硬件</p><h1>看懂 0.7 纳米新闻，要先看一个反相器</h1><p class="author">车传凯 <i>/</i> 2026-06 专题</p></header>
-  <div class="prose"><p>我以前看芯片新闻，读到“几纳米”，脑子里会自动出现一把很小的尺子。IBM 把这次技术叫作 0.7 纳米，自己也专门解释了，这个数是制造工艺的节点名称。想知道它究竟做了什么，还是得去看晶体管是怎么摆的。</p>
+        <p>我以前看芯片新闻，读到“几纳米”，脑子里会自动出现一把很小的尺子。IBM 把这次技术叫作 0.7 纳米，自己也专门解释了，这个数是制造工艺的节点名称。想知道它究竟做了什么，还是得去看晶体管是怎么摆的。</p>
 <p>这次的做法叫 nanostack。把部分原先并排摆的晶体管上下错开，在同样一块平面上就能容下更多东西。上下层还可以采用不同材料，分别调节晶体管的表现。举个容易在脑子里画出来的例子，反相器接收低电平就输出高电平，反过来也成立。团队在实物上验证了这个小电路能按预期翻转。单凭一张堆叠示意图，还回答不了上下两层接起来能不能工作，这个实验往前走了一步。</p>
 <p>发布稿里还提到，相对 IBM 自家的 2 纳米节点，性能提升最高可达 50%。这里原文用的是预测值。实验室里的反相器已经能开关，到一整颗处理器跑程序，中间还有布线、散热和制造良率的问题。先把“做出来的电路”和“估出来的速度”分别记下，新闻就好读多了。</p>
-</div>
-  <section class="sources"><h2>原文出处</h2><ul><li><a target="_blank" rel="noopener" href="https://newsroom.ibm.com/2026-06-25-ibm-debuts-worlds-first-sub-1-nanometer-chip-technology">IBM · IBM Debuts World’s First Sub-1 Nanometer Chip Technology ↗</a><time datetime="2026-06-25">2026-06-25</time></li></ul></section>
-  <nav class="related" aria-label="同月手记"><h2>这个月还读了</h2><a href="../diffusiongemma-sudoku/index.html">如果打到一半还能改前面的字 <span aria-hidden="true">↗</span></a><a href="../wasm-waits-for-fetch/index.html">网页去拿文件时，Wasm 能在原地等一下吗？ <span aria-hidden="true">↗</span></a></nav>
+
+        
+          <p><strong>原文出处</strong></p>
+          <ul><li><a target="_blank" rel="noopener" href="https://newsroom.ibm.com/2026-06-25-ibm-debuts-worlds-first-sub-1-nanometer-chip-technology">IBM · IBM Debuts World’s First Sub-1 Nanometer Chip Technology</a>（<time datetime="2026-06-25">2026-06-25</time>）</li></ul>
+        
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="https://tch-che.github.io/notes/ibm-nanostack-inverter/" data-id="cmwvx6koh000i80uoeadt0uus" data-title="看懂 0.7 纳米新闻，要先看一个反相器" class="article-share-link"><span class="fa fa-share">分享</span></a>
+      
+      
+      
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/notes/implosion-carving-light/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">前一篇</strong>
+      <div class="article-nav-title">
+        
+          先把图案刻大一点，再缩小给光看
+        
+      </div>
+    </a>
+  
+  
+    <a href="/notes/java-compact-object-headers/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">后一篇</strong>
+      <div class="article-nav-title">Java 给每个小对象省下的那 4 个字节</div>
+    </a>
+  
+</nav>
+
+  
 </article>
-</main>
-  <footer class="foot shell"><span>Che’s Blog <i>/</i> 车传凯</span><a href="#top">回到顶部 ↑</a></footer>
+
+
+
+</section>
+        
+          <aside id="sidebar">
+  
+    <div class="widget-wrap">
+  <h3 class="widget-title">关于我</h3>
+  <div class="widget about-widget">
+    <div class="about-avatar">
+      <img src="/images/1.jpg" alt="avatar" />
+    </div>
+    <div class="about-name">车传凯</div>
+    <div class="about-bio">弃燕雀之小志，慕鸿鹄以高翔</div>
+    <div class="about-divider"></div>
+    <div class="about-info">
+      <div class="about-info-item">
+        <span class="about-info-label"><i class="fa fa-graduation-cap"></i> 教育经历</span>
+        <span class="about-info-value">黑龙江大学 软件工程</span>
+        <span class="about-info-date">2025.09 ——</span>
+      </div>
+      <div class="about-info-item">
+        <span class="about-info-label"><i class="fa fa-trophy"></i> 个人荣誉</span>
+        <span class="about-info-value">中国大学生计算机设计大赛省级一等奖</span>
+      </div>
+      <div class="about-info-item">
+        <span class="about-info-label"><i class="fa fa-users"></i> 担当职务</span>
+        <span class="about-info-value">中国计算机学会学生会员</span>
+      </div>
+      <div class="about-info-item">
+        <span class="about-info-label"><i class="fa fa-flask"></i> 研究方向</span>
+        <span class="about-info-value">计算法学 · 数据挖掘 · 医学影像处理 · 元胞自动机</span>
+      </div>
+    </div>
+  </div>
+</div>
+
+  
+    
+
+  
+    
+
+  
+    
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">归档</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2026/11/">2026 年 11 月</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2026/10/">2026 年 10 月</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2026/09/">2026 年 9 月</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2026/08/">2026 年 8 月</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2026/07/">2026 年 7 月</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2026/06/">2026 年 6 月</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2026/05/">2026 年 5 月</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2026/04/">2026 年 4 月</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2026/03/">2026 年 3 月</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2026/02/">2026 年 2 月</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2026/01/">2026 年 1 月</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2025/12/">2025 年 12 月</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">最新文章</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/notes/pelagos-quantum-decoder/">量子纠错的试卷，为什么要请八张 GPU 来批？</a>
+          </li>
+        
+          <li>
+            <a href="/notes/euclid-gravitational-lenses/">星系旁边那一道蓝弧，怎么就能拿来称重？</a>
+          </li>
+        
+          <li>
+            <a href="/notes/dns-targeted-builds/">只改一条 DNS 记录，要重读两千万条吗？</a>
+          </li>
+        
+          <li>
+            <a href="/notes/sleep-phase-model-memory/">给模型留一段「睡觉」的时间，它在学什么？</a>
+          </li>
+        
+          <li>
+            <a href="/notes/duckdb-async-io/">查远端的表，DuckDB 可以先把下一批数据叫上路</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      
+      &copy; 2026 车传凯<br>
+      Powered by <a href="https://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+
+<script src="/js/jquery-3.6.4.min.js"></script>
+
+
+
+  
+<script src="/fancybox/jquery.fancybox.min.js"></script>
+
+
+
+
+<script src="/js/script.js"></script>
+
+
+
+
+
+  </div>
 </body>
 </html>

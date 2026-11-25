@@ -1,80 +1,688 @@
-
-<!doctype html>
-<html lang="zh-CN">
+<!DOCTYPE html>
+<html>
 <head>
   <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>车传凯的技术手记 · Che&#39;s Blog</title>
+  
+  
+  <title>Che&#39;s Blog</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
   <meta name="description" content="车传凯的个人主页，记录软件工程、计算机系统和新技术的阅读笔记。">
-  <link rel="canonical" href="https://tch-che.github.io/">
-  <link rel="icon" href="assets/che.jpg">
-  <link rel="stylesheet" href="assets/handbook.css">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Che&#39;s Blog">
+<meta property="og:url" content="https://tch-che.github.io/index.html">
+<meta property="og:site_name" content="Che&#39;s Blog">
+<meta property="og:description" content="车传凯的个人主页，记录软件工程、计算机系统和新技术的阅读笔记。">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:author" content="车传凯">
+<meta name="twitter:card" content="summary">
+  
+    <link rel="alternate" href="/atom.xml" title="Che's Blog" type="application/atom+xml">
+  
+  
+    <link rel="shortcut icon" href="/favicon.png">
+  
+  
+  
+<link rel="stylesheet" href="/css/style.css">
+
+  
+    
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.min.css">
+
+  
+  
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/fork-awesome@1.2.0/css/fork-awesome.min.css">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@400;600;700&display=swap" rel="stylesheet">
 <meta name="generator" content="Hexo 7.3.0"></head>
-<body id="top">
-  <a class="skip" href="#main">跳到正文</a>
-  <header class="mast shell">
-    <a class="wordmark" href="index.html"><img src="assets/che.jpg" alt="" width="36" height="36"><span>Che’s Blog</span></a>
-    <nav class="nav" aria-label="主导航">
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">Che&#39;s Blog</a>
+      </h1>
       
-        <a class="current" href="index.html" aria-current="location">手记</a>
+        <h2 id="subtitle-wrap">
+          <a href="/" id="subtitle">弃燕雀之小志，慕鸿鹄以高翔</a>
+        </h2>
       
-        <a class="" href="archives/index.html" >归档</a>
-      
-        <a class="" href="about/index.html" >关于</a>
-      
-      <a class="git" target="_blank" rel="noopener" href="https://github.com/Tch-che">GitHub <span aria-hidden="true">↗</span></a>
-    </nav>
-  </header>
-  <main id="main" class="shell">
-<section class="hero">
-  <div class="hero-copy">
-    <p class="byline"><span></span>车传凯 <i>/</i> 黑龙江大学 · 软件工程</p>
-    <h1>我的技术手记<span class="fullstop">。</span></h1>
-    <p class="intro">翻文档、读论文，碰到有意思的地方就记下来。<br class="wide">有时候，一张小图比半页公式更容易看懂。</p>
-    <div class="actions"><a class="ink-button" href="#notes">翻开手记 <span aria-hidden="true">↓</span></a><a class="text-link" href="about/index.html">关于我 <span aria-hidden="true">↗</span></a></div>
-  </div>
-  <figure class="experiment">
-  <fieldset>
-    <legend class="sr">切换元胞自动机规则</legend>
-    <input class="sr rule" type="radio" name="rule" id="rule-30" value="30" checked><input class="sr rule" type="radio" name="rule" id="rule-90" value="90" ><input class="sr rule" type="radio" name="rule" id="rule-110" value="110" >
-    <div class="exp-head"><strong>元胞自动机</strong><div class="rule-set"><span>规则</span><label for="rule-30">30</label><label for="rule-90">90</label><label for="rule-110">110</label></div></div>
-    <div class="graph">
-      <img class="r30" src="assets/rule-30.png" width="436" height="220" alt="规则 30 从一个活细胞开始的演化图"><img class="r90" src="assets/rule-90.png" width="436" height="220" alt="规则 90 从一个活细胞开始的演化图"><img class="r110" src="assets/rule-110.png" width="436" height="220" alt="规则 110 从一个活细胞开始的演化图">
     </div>
-  </fieldset>
-  <figcaption><span>从一个细胞出发</span><span>54 代演化</span></figcaption>
-</figure>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"><span class="fa fa-bars"></span></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+        
+          <a class="nav-icon" href="/atom.xml" title="RSS 订阅"><span class="fa fa-rss"></span></a>
+        
+        <a class="nav-icon nav-search-btn" title="搜索"><span class="fa fa-search"></span></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="搜索"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="https://tch-che.github.io"></form>
+      </div>
+    </div>
+  </div>
+</header>
+
+      <div class="outer">
+        <section id="main">
+  
+    <article id="post-pelagos-quantum-decoder" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/notes/pelagos-quantum-decoder/" class="article-date">
+  <time datetime="2026-11">2026-11 专题</time>
+</a>
+
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="p-name article-title" href="/notes/pelagos-quantum-decoder/">量子纠错的试卷，为什么要请八张 GPU 来批？</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <p>要知道一个量子纠错方案靠不靠谱，可以先模拟许多次出错的过程。检测步骤会留下间接线索，在量子纠错里叫作错误综合征（syndrome）。解码器拿到的就是这些线索，要据此推断该怎样纠正错误。同样的一组综合征有时对应好几种出错方式，这就有了一个可以实实在在比较的问题，哪种解码方法更常猜对，又能算得够快？</p>
+<p>IBM 和 AMD 开源的 Pelagos 用普通计算机上的 GPU 加快这类评测。越想知道一种罕见的失败多久才会发生，就越需要大量样本。假设一次失败的概率只有一万分之一，跑一百个例子都成功，仍然说不清它够不够可靠。很多样本之间互不依赖，正好能交给多张卡同时处理。</p>
+<p>论文配套的介绍给了一个数字，在所测系统上用八张 GPU，解码环节相对单卡的加速最高约 7.5 倍。差的那半倍也挺有意思，主机还要给不同卡安排任务、交换数据。这个数字说明团队能更快筛选纠错设计。等到把解码器接到真机器上，每轮测量完，能不能在下一轮操作需要结果前给出答案，又得拿延迟来考一遍。</p>
+
+        
+          <p><strong>原文出处</strong></p>
+          <ul><li><a target="_blank" rel="noopener" href="https://www.ibm.com/quantum/blog/pelagos">IBM Quantum · IBM, AMD advance quantum error correction decoding at scale</a>（<time datetime="2026-11-16">2026-11-16</time>）</li></ul>
+        
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="https://tch-che.github.io/notes/pelagos-quantum-decoder/" data-id="cmwvx6koj000m80uo43gn8gra" data-title="量子纠错的试卷，为什么要请八张 GPU 来批？" class="article-share-link"><span class="fa fa-share">分享</span></a>
+      
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+
+
+  
+    <article id="post-euclid-gravitational-lenses" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/notes/euclid-gravitational-lenses/" class="article-date">
+  <time datetime="2026-11">2026-11 专题</time>
+</a>
+
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="p-name article-title" href="/notes/euclid-gravitational-lenses/">星系旁边那一道蓝弧，怎么就能拿来称重？</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <p>欧空局放的九宫格里，有一张照片，中间是团偏黄的亮斑，旁边贴着细细的蓝弧。把它看成同一个星系向外甩出的胳膊挺自然，实际的空间关系却可能差得很远。更远处的星系发出光，光经过近处星系的时候，路径会被近处的质量改变。从地球看去，远处的同一个光源就可能被拉成弧，甚至出现好几份像。</p>
+<p>欧几里得这批巡天数据收录了超过十亿个天体，团队把机器学习筛选和数千位志愿者的看图工作结合在一起，从中挑出约一万五千个强引力透镜候选体。候选这个词有分量。天空里本来就有带环、长旋臂的星系，模样像只能让它进入下一轮，接下来还要看图像是否符合引力透镜的解释。</p>
+<p>所谓「称重」，就藏在不同像的位置和弯曲形状里。研究者用质量分布模型去解释这些观测，能推断包含暗物质在内的前景星系质量。有些系统甚至让同一个前景星系给两个距离不同的背景源成像，多了一组约束。从前遇上一例就值得写一篇文章，现在有机会在成千上万个候选里比一比，哪种形状经常出现、哪种确实稀少。</p>
+
+        
+          <p><strong>原文出处</strong></p>
+          <ul><li><a target="_blank" rel="noopener" href="https://www.esa.int/media/about-us/directorates/science/euclid/euclid-reveals-the-largest-ever-catalogue-of-strong-cosmic-lenses">ESA · Euclid reveals the largest-ever catalogue of strong cosmic lenses</a>（<time datetime="2026-11-12">2026-11-12</time>）</li><li><a target="_blank" rel="noopener" href="https://www.esa.int/articles/about-us/directorates/science/euclid/euclid-lays-the-foundation-for-its-best-ever-3d-map-of-the-universe">ESA · Euclid lays the foundation for its best-ever 3D map of the Universe</a>（<time datetime="2026-11-12">2026-11-12</time>）</li></ul>
+        
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="https://tch-che.github.io/notes/euclid-gravitational-lenses/" data-id="cmwvx6koc000b80uo1bln87vj" data-title="星系旁边那一道蓝弧，怎么就能拿来称重？" class="article-share-link"><span class="fa fa-share">分享</span></a>
+      
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+
+
+  
+    <article id="post-dns-targeted-builds" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/notes/dns-targeted-builds/" class="article-date">
+  <time datetime="2026-11">2026-11 专题</time>
+</a>
+
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="p-name article-title" href="/notes/dns-targeted-builds/">只改一条 DNS 记录，要重读两千万条吗？</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <p>给子域名换 IP，后台表里可能只改了一条记录。可 DNS 服务还要把数据库里的状态整理成边缘服务器能读取的格式。一条通知如果只说「这个域有变化」，下游就很难确定要重新生成哪些东西。Cloudflare 有些 DNS 区域已经超过两千万条记录，遇上含糊的通知，整区读一遍，哪怕最后只写了几个字节，也得先付出那次扫描的代价。</p>
+<p>他们让事件尽量附上具体字段以及变更前后的值，再逐项追踪每种设置会影响哪些输出。普通地址记录通常只要处理对应的名字，通配符还要连同共享的元数据一起更新。遇到只带时间戳、又说不清来由的通知，系统一般仍按全量处理。从编程角度看，给改动一个尽可能准确的名字，竟然能少做这么多工作。</p>
+<p>公布的结果里，峰值工作集内存从 79 GiB 降到 12 GiB。拿回这部分余量，再配合缩短排队等待，变更到写入分布式存储这段的中位时间从约 7.7 秒变成 3.3 秒。自己刚换完域名解析，还可能等到旧结果的缓存过期。把这两段时间分清，就不会拿 3.3 秒当作每一位访客都能看到新地址的承诺了。</p>
+
+        
+          <p><strong>原文出处</strong></p>
+          <ul><li><a target="_blank" rel="noopener" href="https://blog.cloudflare.com/dns-targeted-zone-builds">Cloudflare · How we halved DNS build delay and cut memory use by 85%</a>（<time datetime="2026-11-02">2026-11-02</time>）</li></ul>
+        
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="https://tch-che.github.io/notes/dns-targeted-builds/" data-id="cmwvx6ko9000680uo39ad90h0" data-title="只改一条 DNS 记录，要重读两千万条吗？" class="article-share-link"><span class="fa fa-share">分享</span></a>
+      
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+
+
+  
+    <article id="post-sleep-phase-model-memory" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/notes/sleep-phase-model-memory/" class="article-date">
+  <time datetime="2026-10">2026-10 专题</time>
+</a>
+
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="p-name article-title" href="/notes/sleep-phase-model-memory/">给模型留一段「睡觉」的时间，它在学什么？</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <p>在一段对话里给模型讲清楚一批生词，它接下来多半能照着用。另开一段对话，刚才的资料没了，那份熟练也可能跟着消失。直接用这批生词去更新模型，又有机会把原先会的东西挤掉。想同时保住两头，得给「记住」找个比复制聊天记录更具体的做法。</p>
+<p>Google Research 的实验叫它「睡眠」。模型工作时先接收材料，把新信息放在短期记忆里。离线阶段暂时停下接收新输入，启用预留的一小部分模型参数，通过练习把有用的信息逐渐写进去。研究里还让不同的专家模块组合起来生成练习题，再从中筛选样本。整个过程都要实际花算力更新数值，给正在运行的聊天窗口晾一晚上，模型当然不会自己复习。</p>
+<p>最吸引眼球的数字来自 BABILong 长文本测试。作者报告，输入材料最高拉到一千万个 token，方法仍能在这项任务上找回需要的线索。我更想问一个小问题，如果资料里反复出现了一个错误的年份，它会不会也被认真巩固下来？测试表明某些信息能留下，至于长期留下的到底该是哪部分，还得单独评价。</p>
+
+        
+          <p><strong>原文出处</strong></p>
+          <ul><li><a target="_blank" rel="noopener" href="https://research.google/blog/the-sleep-framework-a-new-way-for-llms-to-retain-knowledge-in-continual-learning/">Google Research · The sleep framework: A new way for LLMs to retain knowledge in continual learning</a>（<time datetime="2026-10-27">2026-10-27</time>）</li></ul>
+        
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="https://tch-che.github.io/notes/sleep-phase-model-memory/" data-id="cmwvx6koq000x80uoh7d82xkg" data-title="给模型留一段「睡觉」的时间，它在学什么？" class="article-share-link"><span class="fa fa-share">分享</span></a>
+      
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+
+
+  
+    <article id="post-duckdb-async-io" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/notes/duckdb-async-io/" class="article-date">
+  <time datetime="2026-10">2026-10 专题</time>
+</a>
+
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="p-name article-title" href="/notes/duckdb-async-io/">查远端的表，DuckDB 可以先把下一批数据叫上路</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <p>假设一张销售表分成很多块，放在对象存储里。查询只想按城市加总金额，数据库已经足够聪明，知道该跳过顾客姓名那一列。可要是它读一块、等一块、算完再去要下一块，网速再快，也会有不少时间花在等待远端回复上。</p>
+<p>DuckDB 2.0 把异步读取带进了正式版，支持 Parquet、CSV 和它自己的存储格式。读 Parquet 时，可以把不同数据块的读取交到后台，同时保留多个已经发出、还没返回的请求。第一块数据到了，查询线程就开始解码和汇总，这时候接下来的几块可能已经在路上。发出请求的数量和真正做计算的线程数，终于不用绑得那么紧。</p>
+<p>拿一组假设数字就好想了。八个互不依赖的小请求，每个光往返就要 30 毫秒，逐个等待得付八次这笔时间。一起发能让好几段等待重合，实际耗时还得加上传输和解码。换成本地 SSD 上已经热起来的数据，或者查询主要在做昂贵的联结，最慢的那一步又变了。工程文章里的吞吐曲线值得看，波峰有多高是一回事，中间有多少空白是另一回事。</p>
+
+        
+          <p><strong>原文出处</strong></p>
+          <ul><li><a target="_blank" rel="noopener" href="https://duckdb.org/2026/10/21/announcing-duckdb-200">DuckDB · Announcing DuckDB 2.0.0 LTS “Cinnamon Teal”</a>（<time datetime="2026-10-21">2026-10-21</time>）</li><li><a target="_blank" rel="noopener" href="https://duckdb.org/2026/07/31/asynchronous-io">DuckDB · Asynchronous I/O in DuckDB: Work, Thread, Work</a>（<time datetime="2026-07-31">2026-07-31</time>）</li></ul>
+        
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="https://tch-che.github.io/notes/duckdb-async-io/" data-id="cmwvx6ko9000780uo6s3w4a3p" data-title="查远端的表，DuckDB 可以先把下一批数据叫上路" class="article-share-link"><span class="fa fa-share">分享</span></a>
+      
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+
+
+  
+    <article id="post-python-lazy-imports" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/notes/python-lazy-imports/" class="article-date">
+  <time datetime="2026-10">2026-10 专题</time>
+</a>
+
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="p-name article-title" href="/notes/python-lazy-imports/">只想看一眼 --help，为什么要等绘图库？</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <p>一个命令行工具有三个入口，看帮助、数行数、画图。前两个点进去连一条曲线都不会画，却可能因为文件第一行导入了绘图库，一启动就要等它和它的依赖全部准备好。Python 导入模块时会执行模块顶层的代码，光是看一眼帮助也可能替以后用不到的功能买单。</p>
+<p>Python 3.15 加了 <code>lazy import</code>。可以在模块开头写 <code>lazy import matplotlib.pyplot as plt</code>。程序读到这里先记下名字，真正走到 <code>plt.subplots()</code>，需要 <code>plt</code> 这个对象时，才加载模块。写代码的人仍能在文件头看到它依赖什么。只看帮助的人也不用等绘图库，真要出图的人则在第一次用的时候等。</p>
+<p>有个细节会影响测试。如果环境里根本没装绘图库，看帮助可能一路正常，直到点「画图」才收到导入错误。一些插件还会在被导入时顺手注册命令，把这类模块改成延迟导入，谁也没有访问它，注册动作就可能一直不发生。所以下次看到有人报开头变快了，我会想同时看看第一次画图的时间，以及缺了依赖时屏幕上给出的错误提示。</p>
+
+        
+          <p><strong>原文出处</strong></p>
+          <ul><li><a target="_blank" rel="noopener" href="https://blog.python.org/2026/10/python-3150-final-is-here/">Python Insider · Python 3.15.0 (final) is here!</a>（<time datetime="2026-10-09">2026-10-09</time>）</li><li><a target="_blank" rel="noopener" href="https://docs.python.org/3.15/whatsnew/3.15.html#pep-810-explicit-lazy-imports">Python 3.15 文档 · Explicit lazy imports</a>（<time datetime="2026-10-09">2026-10-09</time>）</li></ul>
+        
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="https://tch-che.github.io/notes/python-lazy-imports/" data-id="cmwvx6kok000n80uo5w336fus" data-title="只想看一眼 --help，为什么要等绘图库？" class="article-share-link"><span class="fa fa-share">分享</span></a>
+      
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+
+
+  
+    <article id="post-safari-customizable-select" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/notes/safari-customizable-select/" class="article-date">
+  <time datetime="2026-09">2026-09 专题</time>
+</a>
+
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="p-name article-title" href="/notes/safari-customizable-select/">给下拉菜单加个色块，还能保住方向键</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <p>假设页面要选主题颜色，一排色块比一排英文色名好认。用普通按钮和列表拼个下拉菜单，鼠标点起来大概很快就像那么回事了。试着把鼠标放下，麻烦才冒出来。按方向键时焦点该去哪？按 Escape 能不能收起来？选了蓝色之后，表单最后到底交了哪个值？</p>
+<p>WebKit 写 Safari 27 时演示了另一种办法。保留表单里的 <code>select</code> 和 <code>option</code>，给 <code>select</code> 以及它的 <code>::picker(select)</code> 设置 <code>appearance: base-select</code>。下拉项里可以摆颜色样本和文字，<code>::checkmark</code> 还可以单独调整选中标记的样式。外观更自由，方向键导航、读屏支持和表单提交这些工作仍由原生控件接手。</p>
+<p>我觉得这个例子里的文字值得留着。给三个选项各画一块颜色，看上去很干净，可有些人分不清接近的颜色，读屏软件也需要有意义的名称。写成「海蓝」再配一小块蓝色，装饰没加载时也能选。再往前想一步，旧浏览器里高级样式可能没有效果，简单明确的选项名刚好也能做它的退路。</p>
+
+        
+          <p><strong>原文出处</strong></p>
+          <ul><li><a target="_blank" rel="noopener" href="https://webkit.org/blog/18325/webkit-features-for-safari-27-0/">WebKit · WebKit Features for Safari 27.0</a>（<time datetime="2026-09-17">2026-09-17</time>）</li></ul>
+        
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="https://tch-che.github.io/notes/safari-customizable-select/" data-id="cmwvx6kon000t80uo0l7qhm3k" data-title="给下拉菜单加个色块，还能保住方向键" class="article-share-link"><span class="fa fa-share">分享</span></a>
+      
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+
+
+  
+    <article id="post-java-compact-object-headers" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/notes/java-compact-object-headers/" class="article-date">
+  <time datetime="2026-09">2026-09 专题</time>
+</a>
+
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="p-name article-title" href="/notes/java-compact-object-headers/">Java 给每个小对象省下的那 4 个字节</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <p>想象这样一个 Java 类，只放两个字段，分别记一张车票从哪站出发、到哪站下车。把两个字段的大小加起来，离这张票在内存里的实际占用还差一点。HotSpot 也要为对象存一份管理信息，比如它属于哪个类。在堆里新建一百万张车票，这份开销也跟着付一百万次。</p>
+<p>JDK 27 在 64 位 HotSpot 上默认使用紧凑对象头。发布说明里的数字很直白，常见对象头原来有 96 位，现在压到 64 位，换成字节就是从 12 到 8。只算一百万份对象头，差额是四百万字节，约 3.8 MiB。代码里那些车票的字段可以照旧写，这项变化发生在虚拟机摆放对象的时候。</p>
+<p>这个算术还没回答整段程序能省多少内存。对象通常得按一定边界对齐，头部缩短以后，有些布局会跟着变小，有些尾部会多留出填充。还有一种极端情况，一块很大的字节数组自己也只有一个数组对象头，里面存再多照片像素，也不会按每个像素省四字节。看见堆占用下降的数字，我会想先知道，里面装的是成片的数据，还是密密麻麻的小对象。</p>
+
+        
+          <p><strong>原文出处</strong></p>
+          <ul><li><a target="_blank" rel="noopener" href="https://inside.java/2026/09/15/jdk-27-available/">Inside.java · The Arrival of Java 27!</a>（<time datetime="2026-09-15">2026-09-15</time>）</li></ul>
+        
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="https://tch-che.github.io/notes/java-compact-object-headers/" data-id="cmwvx6koh000j80uogxdz8426" data-title="Java 给每个小对象省下的那 4 个字节" class="article-share-link"><span class="fa fa-share">分享</span></a>
+      
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+
+
+  
+    <article id="post-cloudflare-cache-transcoding" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/notes/cloudflare-cache-transcoding/" class="article-date">
+  <time datetime="2026-09">2026-09 专题</time>
+</a>
+
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="p-name article-title" href="/notes/cloudflare-cache-transcoding/">缓存要装下更多网页，先挑哪些文件值得压</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <p>同一个网页来了一百个读者，CDN 会尽量从自己的缓存取，省得一百次都去找原站。原先 Cloudflare 通常沿用原站给的编码。如果站长发来的是没压过的 HTML，缓存也把它原样存下。文件可以正常打开，但同一块硬盘能留下的页面少了。</p>
+<p>这篇工程笔记试了个改法。在缓存写入合适的文本时用 Zstandard 压一遍，旁边记好原始长度和存储用的编码，读取时再处理。照片、视频和字体本来就大多压过，重复压要花 CPU，收益又小。样本里这几类占了约 63% 的字节，所以从总体流量推算「能节省多少」很容易过于乐观。</p>
+<p>我原以为优先挑热门网页最划算。作者算过，热门也意味着要反复读取，解压的次数跟着涨。测试里更朴素的条件挺管用，把符合要求且至少有 4 KiB 的文本拿来压，已经取得了绝大部分测得的空间收益。控制测试中，这批适合压的文件约能压到原来的三分之一。这个结果来自原型和选定的语料，给自己的小站估空间时，最好先看看硬盘里到底是文字多还是照片多。</p>
+
+        
+          <p><strong>原文出处</strong></p>
+          <ul><li><a target="_blank" rel="noopener" href="https://blog.cloudflare.com/cache-transcoding/">Cloudflare · How we could save petabytes of cache storage with Zstandard and Pingora</a>（<time datetime="2026-09-01">2026-09-01</time>）</li></ul>
+        
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="https://tch-che.github.io/notes/cloudflare-cache-transcoding/" data-id="cmwvx6ko6000380uoczsrg448" data-title="缓存要装下更多网页，先挑哪些文件值得压" class="article-share-link"><span class="fa fa-share">分享</span></a>
+      
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+
+
+  
+    <article id="post-go-generic-methods" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/notes/go-generic-methods/" class="article-date">
+  <time datetime="2026-08">2026-08 专题</time>
+</a>
+
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="p-name article-title" href="/notes/go-generic-methods/">Go 的随机数方法，终于不用按整数宽度起名字了</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <p>假设要做一个小抽签程序，盒子里有 30 个编号，编号变量用 <code>int32</code>。以前拿到一个自己的随机数生成器，得先在 <code>IntN</code>、<code>Int32N</code>、<code>Int64N</code> 里挑一个。三种名字都只想说同一件事，给我一个小于上限的非负随机数。至于选哪个名字，还得回头去看变量的声明。</p>
+<p>Go 1.27 给方法加上了自己的类型参数。现在可以写 <code>limit := int32(30)</code>，然后调用 <code>r.N(limit)</code>。编译器从 <code>limit</code> 知道这里用的是 <code>int32</code>，返回值也是这个类型。另一个调用点传 <code>int64</code> 时，还是这一个方法名。以前包级泛型函数也能做这类事，这次连自己选好、自己保存状态的生成器 <code>r</code> 都能直接这么用。</p>
+<p>有条边界我觉得值得单独记下。新语法可以写在具体类型的方法上，接口里的方法仍然不能声明自己的类型参数。所以碰上一个老接口，想把里面三个不同类型的方法一口气并成一个，照搬上面的写法会在编译时碰壁。先把调用者手里拿的是具体值还是接口想清楚，这个改动就好理解多了。</p>
+
+        
+          <p><strong>原文出处</strong></p>
+          <ul><li><a target="_blank" rel="noopener" href="https://go.dev/blog/go1.27">The Go Blog · Go 1.27 is released</a>（<time datetime="2026-08-19">2026-08-19</time>）</li><li><a target="_blank" rel="noopener" href="https://go.dev/doc/go1.27">Go 1.27 Release Notes</a>（<time datetime="2026-08-19">2026-08-19</time>）</li></ul>
+        
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="https://tch-che.github.io/notes/go-generic-methods/" data-id="cmwvx6kof000f80uoblxi4dbn" data-title="Go 的随机数方法，终于不用按整数宽度起名字了" class="article-share-link"><span class="fa fa-share">分享</span></a>
+      
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+
+
+  
+
+
+  <nav id="page-nav">
+    
+    <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="page-number" href="/page/3/">3</a><a class="page-number" href="/page/4/">4</a><a class="extend next" rel="next" href="/page/2/">下一页 &raquo;</a>
+  </nav>
 
 </section>
+        
+          <aside id="sidebar">
+  
+    <div class="widget-wrap">
+  <h3 class="widget-title">关于我</h3>
+  <div class="widget about-widget">
+    <div class="about-avatar">
+      <img src="/images/1.jpg" alt="avatar" />
+    </div>
+    <div class="about-name">车传凯</div>
+    <div class="about-bio">弃燕雀之小志，慕鸿鹄以高翔</div>
+    <div class="about-divider"></div>
+    <div class="about-info">
+      <div class="about-info-item">
+        <span class="about-info-label"><i class="fa fa-graduation-cap"></i> 教育经历</span>
+        <span class="about-info-value">黑龙江大学 软件工程</span>
+        <span class="about-info-date">2025.09 ——</span>
+      </div>
+      <div class="about-info-item">
+        <span class="about-info-label"><i class="fa fa-trophy"></i> 个人荣誉</span>
+        <span class="about-info-value">中国大学生计算机设计大赛省级一等奖</span>
+      </div>
+      <div class="about-info-item">
+        <span class="about-info-label"><i class="fa fa-users"></i> 担当职务</span>
+        <span class="about-info-value">中国计算机学会学生会员</span>
+      </div>
+      <div class="about-info-item">
+        <span class="about-info-label"><i class="fa fa-flask"></i> 研究方向</span>
+        <span class="about-info-value">计算法学 · 数据挖掘 · 医学影像处理 · 元胞自动机</span>
+      </div>
+    </div>
+  </div>
+</div>
 
-<section class="latest" id="notes">
-  <div class="section-head"><div><p class="overline">2026 / 11</p><h2>本期手记</h2></div><a class="lined" href="archives/index.html">全部 36 篇 <span aria-hidden="true">→</span></a></div>
-  <ul class="entries">
   
-    <li class="entry"><a href="notes/pelagos-quantum-decoder/index.html">
-      <span class="entry-topic">计算硬件</span>
-      <div><h3>量子纠错的试卷，为什么要请八张 GPU 来批？</h3><p>Pelagos 把纠错解码器的模拟评测摊到多张显卡上，里面有个很容易读错的 7.5 倍。</p></div>
-      <span class="entry-arrow" aria-hidden="true">↗</span>
-    </a></li>
-  
-    <li class="entry"><a href="notes/euclid-gravitational-lenses/index.html">
-      <span class="entry-topic">航天与观测</span>
-      <div><h3>星系旁边那一道蓝弧，怎么就能拿来称重？</h3><p>欧几里得望远镜的数据里有约一万五千个强引力透镜候选体，一张看似拉歪的照片能告诉人不少事。</p></div>
-      <span class="entry-arrow" aria-hidden="true">↗</span>
-    </a></li>
-  
-    <li class="entry"><a href="notes/dns-targeted-builds/index.html">
-      <span class="entry-topic">系统工程</span>
-      <div><h3>只改一条 DNS 记录，要重读两千万条吗？</h3><p>看 Cloudflare 怎样算清一次设置变更到底会影响哪些记录，顺便读懂「生效快了一半」量的是哪段时间。</p></div>
-      <span class="entry-arrow" aria-hidden="true">↗</span>
-    </a></li>
-  
-</ul>
+    
 
-</section>
-<section class="back-issues"><h2>往期手记</h2><div class="month-grid"><a href="archives/2026/10/index.html"><span>2026 / 10</span><span aria-hidden="true">↗</span></a><a href="archives/2026/09/index.html"><span>2026 / 09</span><span aria-hidden="true">↗</span></a><a href="archives/2026/08/index.html"><span>2026 / 08</span><span aria-hidden="true">↗</span></a><a href="archives/2026/07/index.html"><span>2026 / 07</span><span aria-hidden="true">↗</span></a><a href="archives/2026/06/index.html"><span>2026 / 06</span><span aria-hidden="true">↗</span></a><a href="archives/2026/05/index.html"><span>2026 / 05</span><span aria-hidden="true">↗</span></a><a href="archives/2026/04/index.html"><span>2026 / 04</span><span aria-hidden="true">↗</span></a><a href="archives/2026/03/index.html"><span>2026 / 03</span><span aria-hidden="true">↗</span></a><a href="archives/2026/02/index.html"><span>2026 / 02</span><span aria-hidden="true">↗</span></a><a href="archives/2026/01/index.html"><span>2026 / 01</span><span aria-hidden="true">↗</span></a><a href="archives/2025/12/index.html"><span>2025 / 12</span><span aria-hidden="true">↗</span></a></div></section>
+  
+    
 
-</main>
-  <footer class="foot shell"><span>Che’s Blog <i>/</i> 车传凯</span><a href="#top">回到顶部 ↑</a></footer>
+  
+    
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">归档</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2026/11/">2026 年 11 月</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2026/10/">2026 年 10 月</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2026/09/">2026 年 9 月</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2026/08/">2026 年 8 月</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2026/07/">2026 年 7 月</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2026/06/">2026 年 6 月</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2026/05/">2026 年 5 月</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2026/04/">2026 年 4 月</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2026/03/">2026 年 3 月</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2026/02/">2026 年 2 月</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2026/01/">2026 年 1 月</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2025/12/">2025 年 12 月</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">最新文章</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/notes/pelagos-quantum-decoder/">量子纠错的试卷，为什么要请八张 GPU 来批？</a>
+          </li>
+        
+          <li>
+            <a href="/notes/euclid-gravitational-lenses/">星系旁边那一道蓝弧，怎么就能拿来称重？</a>
+          </li>
+        
+          <li>
+            <a href="/notes/dns-targeted-builds/">只改一条 DNS 记录，要重读两千万条吗？</a>
+          </li>
+        
+          <li>
+            <a href="/notes/sleep-phase-model-memory/">给模型留一段「睡觉」的时间，它在学什么？</a>
+          </li>
+        
+          <li>
+            <a href="/notes/duckdb-async-io/">查远端的表，DuckDB 可以先把下一批数据叫上路</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      
+      &copy; 2026 车传凯<br>
+      Powered by <a href="https://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+
+<script src="/js/jquery-3.6.4.min.js"></script>
+
+
+
+  
+<script src="/fancybox/jquery.fancybox.min.js"></script>
+
+
+
+
+<script src="/js/script.js"></script>
+
+
+
+
+
+  </div>
 </body>
 </html>
