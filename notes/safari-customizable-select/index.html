@@ -1,0 +1,42 @@
+
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>给下拉菜单加个色块，还能保住方向键 · Che&#39;s Blog</title>
+  <meta name="description" content="Safari 27 支持给原生 select 换样式。好看的菜单终于可以少接手几件难事。">
+  <link rel="canonical" href="https://tch-che.github.io/notes/safari-customizable-select/">
+  <link rel="icon" href="../../assets/che.jpg">
+  <link rel="stylesheet" href="../../assets/handbook.css">
+<meta name="generator" content="Hexo 7.3.0"></head>
+<body id="top">
+  <a class="skip" href="#main">跳到正文</a>
+  <header class="mast shell">
+    <a class="wordmark" href="../../index.html"><img src="../../assets/che.jpg" alt="" width="36" height="36"><span>Che’s Blog</span></a>
+    <nav class="nav" aria-label="主导航">
+      
+        <a class="current" href="../../index.html" aria-current="location">手记</a>
+      
+        <a class="" href="../../archives/index.html" >归档</a>
+      
+        <a class="" href="../../about/index.html" >关于</a>
+      
+      <a class="git" target="_blank" rel="noopener" href="https://github.com/Tch-che">GitHub <span aria-hidden="true">↗</span></a>
+    </nav>
+  </header>
+  <main id="main" class="shell">
+<article class="reading">
+  <a class="crumb" href="../../archives/2026/09/index.html">← 2026 年 9 月手记</a>
+  <header class="post-head"><p class="byline"><span></span>浏览器</p><h1>给下拉菜单加个色块，还能保住方向键</h1><p class="author">车传凯 <i>/</i> 2026-09 专题</p></header>
+  <div class="prose"><p>假设页面要选主题颜色，一排色块比一排英文色名好认。用普通按钮和列表拼个下拉菜单，鼠标点起来大概很快就像那么回事了。试着把鼠标放下，麻烦才冒出来。按方向键时焦点该去哪？按 Escape 能不能收起来？选了蓝色之后，表单最后到底交了哪个值？</p>
+<p>WebKit 写 Safari 27 时演示了另一种办法。保留表单里的 <code>select</code> 和 <code>option</code>，给 <code>select</code> 以及它的 <code>::picker(select)</code> 设置 <code>appearance: base-select</code>。下拉项里可以摆颜色样本和文字，<code>::checkmark</code> 还可以单独调整选中标记的样式。外观更自由，方向键导航、读屏支持和表单提交这些工作仍由原生控件接手。</p>
+<p>我觉得这个例子里的文字值得留着。给三个选项各画一块颜色，看上去很干净，可有些人分不清接近的颜色，读屏软件也需要有意义的名称。写成「海蓝」再配一小块蓝色，装饰没加载时也能选。再往前想一步，旧浏览器里高级样式可能没有效果，简单明确的选项名刚好也能做它的退路。</p>
+</div>
+  <section class="sources"><h2>原文出处</h2><ul><li><a target="_blank" rel="noopener" href="https://webkit.org/blog/18325/webkit-features-for-safari-27-0/">WebKit · WebKit Features for Safari 27.0 ↗</a><time datetime="2026-09-17">2026-09-17</time></li></ul></section>
+  <nav class="related" aria-label="同月手记"><h2>这个月还读了</h2><a href="../java-compact-object-headers/index.html">Java 给每个小对象省下的那 4 个字节 <span aria-hidden="true">↗</span></a><a href="../cloudflare-cache-transcoding/index.html">缓存要装下更多网页，先挑哪些文件值得压 <span aria-hidden="true">↗</span></a></nav>
+</article>
+</main>
+  <footer class="foot shell"><span>Che’s Blog <i>/</i> 车传凯</span><a href="#top">回到顶部 ↑</a></footer>
+</body>
+</html>

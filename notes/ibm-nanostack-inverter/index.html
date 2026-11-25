@@ -1,0 +1,42 @@
+
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>看懂 0.7 纳米新闻，要先看一个反相器 · Che&#39;s Blog</title>
+  <meta name="description" content="IBM 把晶体管向上堆起来。一个能翻转输出的简单电路说明了什么？">
+  <link rel="canonical" href="https://tch-che.github.io/notes/ibm-nanostack-inverter/">
+  <link rel="icon" href="../../assets/che.jpg">
+  <link rel="stylesheet" href="../../assets/handbook.css">
+<meta name="generator" content="Hexo 7.3.0"></head>
+<body id="top">
+  <a class="skip" href="#main">跳到正文</a>
+  <header class="mast shell">
+    <a class="wordmark" href="../../index.html"><img src="../../assets/che.jpg" alt="" width="36" height="36"><span>Che’s Blog</span></a>
+    <nav class="nav" aria-label="主导航">
+      
+        <a class="current" href="../../index.html" aria-current="location">手记</a>
+      
+        <a class="" href="../../archives/index.html" >归档</a>
+      
+        <a class="" href="../../about/index.html" >关于</a>
+      
+      <a class="git" target="_blank" rel="noopener" href="https://github.com/Tch-che">GitHub <span aria-hidden="true">↗</span></a>
+    </nav>
+  </header>
+  <main id="main" class="shell">
+<article class="reading">
+  <a class="crumb" href="../../archives/2026/06/index.html">← 2026 年 6 月手记</a>
+  <header class="post-head"><p class="byline"><span></span>芯片与硬件</p><h1>看懂 0.7 纳米新闻，要先看一个反相器</h1><p class="author">车传凯 <i>/</i> 2026-06 专题</p></header>
+  <div class="prose"><p>我以前看芯片新闻，读到“几纳米”，脑子里会自动出现一把很小的尺子。IBM 把这次技术叫作 0.7 纳米，自己也专门解释了，这个数是制造工艺的节点名称。想知道它究竟做了什么，还是得去看晶体管是怎么摆的。</p>
+<p>这次的做法叫 nanostack。把部分原先并排摆的晶体管上下错开，在同样一块平面上就能容下更多东西。上下层还可以采用不同材料，分别调节晶体管的表现。举个容易在脑子里画出来的例子，反相器接收低电平就输出高电平，反过来也成立。团队在实物上验证了这个小电路能按预期翻转。单凭一张堆叠示意图，还回答不了上下两层接起来能不能工作，这个实验往前走了一步。</p>
+<p>发布稿里还提到，相对 IBM 自家的 2 纳米节点，性能提升最高可达 50%。这里原文用的是预测值。实验室里的反相器已经能开关，到一整颗处理器跑程序，中间还有布线、散热和制造良率的问题。先把“做出来的电路”和“估出来的速度”分别记下，新闻就好读多了。</p>
+</div>
+  <section class="sources"><h2>原文出处</h2><ul><li><a target="_blank" rel="noopener" href="https://newsroom.ibm.com/2026-06-25-ibm-debuts-worlds-first-sub-1-nanometer-chip-technology">IBM · IBM Debuts World’s First Sub-1 Nanometer Chip Technology ↗</a><time datetime="2026-06-25">2026-06-25</time></li></ul></section>
+  <nav class="related" aria-label="同月手记"><h2>这个月还读了</h2><a href="../diffusiongemma-sudoku/index.html">如果打到一半还能改前面的字 <span aria-hidden="true">↗</span></a><a href="../wasm-waits-for-fetch/index.html">网页去拿文件时，Wasm 能在原地等一下吗？ <span aria-hidden="true">↗</span></a></nav>
+</article>
+</main>
+  <footer class="foot shell"><span>Che’s Blog <i>/</i> 车传凯</span><a href="#top">回到顶部 ↑</a></footer>
+</body>
+</html>

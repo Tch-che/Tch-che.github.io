@@ -1,0 +1,42 @@
+
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>查远端的表，DuckDB 可以先把下一批数据叫上路 · Che&#39;s Blog</title>
+  <meta name="description" content="数据放到对象存储后，一条简单查询会在网络上等很久。异步读取让等待和计算有机会重叠。">
+  <link rel="canonical" href="https://tch-che.github.io/notes/duckdb-async-io/">
+  <link rel="icon" href="../../assets/che.jpg">
+  <link rel="stylesheet" href="../../assets/handbook.css">
+<meta name="generator" content="Hexo 7.3.0"></head>
+<body id="top">
+  <a class="skip" href="#main">跳到正文</a>
+  <header class="mast shell">
+    <a class="wordmark" href="../../index.html"><img src="../../assets/che.jpg" alt="" width="36" height="36"><span>Che’s Blog</span></a>
+    <nav class="nav" aria-label="主导航">
+      
+        <a class="current" href="../../index.html" aria-current="location">手记</a>
+      
+        <a class="" href="../../archives/index.html" >归档</a>
+      
+        <a class="" href="../../about/index.html" >关于</a>
+      
+      <a class="git" target="_blank" rel="noopener" href="https://github.com/Tch-che">GitHub <span aria-hidden="true">↗</span></a>
+    </nav>
+  </header>
+  <main id="main" class="shell">
+<article class="reading">
+  <a class="crumb" href="../../archives/2026/10/index.html">← 2026 年 10 月手记</a>
+  <header class="post-head"><p class="byline"><span></span>数据库</p><h1>查远端的表，DuckDB 可以先把下一批数据叫上路</h1><p class="author">车传凯 <i>/</i> 2026-10 专题</p></header>
+  <div class="prose"><p>假设一张销售表分成很多块，放在对象存储里。查询只想按城市加总金额，数据库已经足够聪明，知道该跳过顾客姓名那一列。可要是它读一块、等一块、算完再去要下一块，网速再快，也会有不少时间花在等待远端回复上。</p>
+<p>DuckDB 2.0 把异步读取带进了正式版，支持 Parquet、CSV 和它自己的存储格式。读 Parquet 时，可以把不同数据块的读取交到后台，同时保留多个已经发出、还没返回的请求。第一块数据到了，查询线程就开始解码和汇总，这时候接下来的几块可能已经在路上。发出请求的数量和真正做计算的线程数，终于不用绑得那么紧。</p>
+<p>拿一组假设数字就好想了。八个互不依赖的小请求，每个光往返就要 30 毫秒，逐个等待得付八次这笔时间。一起发能让好几段等待重合，实际耗时还得加上传输和解码。换成本地 SSD 上已经热起来的数据，或者查询主要在做昂贵的联结，最慢的那一步又变了。工程文章里的吞吐曲线值得看，波峰有多高是一回事，中间有多少空白是另一回事。</p>
+</div>
+  <section class="sources"><h2>原文出处</h2><ul><li><a target="_blank" rel="noopener" href="https://duckdb.org/2026/10/21/announcing-duckdb-200">DuckDB · Announcing DuckDB 2.0.0 LTS “Cinnamon Teal” ↗</a><time datetime="2026-10-21">2026-10-21</time></li><li><a target="_blank" rel="noopener" href="https://duckdb.org/2026/07/31/asynchronous-io">DuckDB · Asynchronous I/O in DuckDB: Work, Thread, Work ↗</a><time datetime="2026-07-31">2026-07-31</time></li></ul></section>
+  <nav class="related" aria-label="同月手记"><h2>这个月还读了</h2><a href="../sleep-phase-model-memory/index.html">给模型留一段「睡觉」的时间，它在学什么？ <span aria-hidden="true">↗</span></a><a href="../python-lazy-imports/index.html">只想看一眼 --help，为什么要等绘图库？ <span aria-hidden="true">↗</span></a></nav>
+</article>
+</main>
+  <footer class="foot shell"><span>Che’s Blog <i>/</i> 车传凯</span><a href="#top">回到顶部 ↑</a></footer>
+</body>
+</html>

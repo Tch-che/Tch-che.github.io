@@ -1,0 +1,43 @@
+
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>树莓派的 AI 扩展板，为什么自己带了 8GB 内存？ · Che&#39;s Blog</title>
+  <meta name="description" content="新板上的独立内存，解释了一个小相机怎样从识别物体走到用一句话描述画面。">
+  <link rel="canonical" href="https://tch-che.github.io/notes/raspberry-pi-ai-hat-memory/">
+  <link rel="icon" href="../../assets/che.jpg">
+  <link rel="stylesheet" href="../../assets/handbook.css">
+<meta name="generator" content="Hexo 7.3.0"></head>
+<body id="top">
+  <a class="skip" href="#main">跳到正文</a>
+  <header class="mast shell">
+    <a class="wordmark" href="../../index.html"><img src="../../assets/che.jpg" alt="" width="36" height="36"><span>Che’s Blog</span></a>
+    <nav class="nav" aria-label="主导航">
+      
+        <a class="current" href="../../index.html" aria-current="location">手记</a>
+      
+        <a class="" href="../../archives/index.html" >归档</a>
+      
+        <a class="" href="../../about/index.html" >关于</a>
+      
+      <a class="git" target="_blank" rel="noopener" href="https://github.com/Tch-che">GitHub <span aria-hidden="true">↗</span></a>
+    </nav>
+  </header>
+  <main id="main" class="shell">
+<article class="reading">
+  <a class="crumb" href="../../archives/2026/01/index.html">← 2026 年 1 月手记</a>
+  <header class="post-head"><p class="byline"><span></span>硬件</p><h1>树莓派的 AI 扩展板，为什么自己带了 8GB 内存？</h1><p class="author">车传凯 <i>/</i> 2026-01 专题</p></header>
+  <div class="prose"><p>同样是接个摄像头，「这是一只猫」和「猫正趴在窗台上」听起来差不多。对小电脑来说，两件事差得还挺远。前者可以是识别模型挑一个标签，后者要把图像的信息接到语言模型上，再一个词一个词地产生句子。</p>
+<p>树莓派在一月发布的 AI HAT+ 2 是插在 Pi 5 上的一块扩展板。它用了 Hailo-10H 加速器，旁边还单独放了 8GB 内存，用来装模型和运行中需要的数据。官方首发列的模型里，Qwen2.5-Coder 就有 15 亿个参数。模型已经准备好的情况下，板子能在本地处理请求，房间里的图像可以留在设备上。</p>
+<p>反而是性能表里的一句小字更让我在意。新板标的是 INT4 下 40 TOPS，旧款有一档是 26 TOPS，但官方说，在目标识别这类传统视觉任务上，两者整体表现接近。如果需求只是统计有几只猫经过窗口，不能照着两个数字的比例去猜帧率。</p>
+<p>对这个扩展板，我最想看的会是从拍下画面到说完一句话一共多久。算力峰值、能放下多大的模型、最后要等多久，回答的是三个不同的问题。</p>
+</div>
+  <section class="sources"><h2>原文出处</h2><ul><li><a target="_blank" rel="noopener" href="https://www.raspberrypi.com/news/introducing-the-raspberry-pi-ai-hat-plus-2-generative-ai-on-raspberry-pi-5/">Raspberry Pi · Introducing the Raspberry Pi AI HAT+ 2 ↗</a><time datetime="2026-01-15">2026-01-15</time></li></ul></section>
+  <nav class="related" aria-label="同月手记"><h2>这个月还读了</h2><a href="../temporal-a-day-or-24-hours/index.html">明天同一时间，和 24 小时以后有区别吗？ <span aria-hidden="true">↗</span></a><a href="../rubin-rack-interconnect/index.html">一台 AI 机柜，为什么要一起设计六种芯片？ <span aria-hidden="true">↗</span></a></nav>
+</article>
+</main>
+  <footer class="foot shell"><span>Che’s Blog <i>/</i> 车传凯</span><a href="#top">回到顶部 ↑</a></footer>
+</body>
+</html>

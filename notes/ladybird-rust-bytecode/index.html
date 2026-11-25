@@ -1,0 +1,43 @@
+
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>怎么判断 AI 移植的两万五千行代码能不能用？ · Che&#39;s Blog</title>
+  <meta name="description" content="Ladybird 把 JavaScript 编译前端搬到 Rust，最让我在意的是他们保留下来的那套旧程序。">
+  <link rel="canonical" href="https://tch-che.github.io/notes/ladybird-rust-bytecode/">
+  <link rel="icon" href="../../assets/che.jpg">
+  <link rel="stylesheet" href="../../assets/handbook.css">
+<meta name="generator" content="Hexo 7.3.0"></head>
+<body id="top">
+  <a class="skip" href="#main">跳到正文</a>
+  <header class="mast shell">
+    <a class="wordmark" href="../../index.html"><img src="../../assets/che.jpg" alt="" width="36" height="36"><span>Che’s Blog</span></a>
+    <nav class="nav" aria-label="主导航">
+      
+        <a class="current" href="../../index.html" aria-current="location">手记</a>
+      
+        <a class="" href="../../archives/index.html" >归档</a>
+      
+        <a class="" href="../../about/index.html" >关于</a>
+      
+      <a class="git" target="_blank" rel="noopener" href="https://github.com/Tch-che">GitHub <span aria-hidden="true">↗</span></a>
+    </nav>
+  </header>
+  <main id="main" class="shell">
+<article class="reading">
+  <a class="crumb" href="../../archives/2026/02/index.html">← 2026 年 2 月手记</a>
+  <header class="post-head"><p class="byline"><span></span>软件工程</p><h1>怎么判断 AI 移植的两万五千行代码能不能用？</h1><p class="author">车传凯 <i>/</i> 2026-02 专题</p></header>
+  <div class="prose"><p>网页上一段 <code>2 + 3</code>，进了浏览器以后，要先变成语法树，再变成引擎能执行的字节码。Ladybird 团队打算把这条流水线从 C++ 搬到 Rust。一个挺妙的地方是，新旧两套都能吃同一段脚本，中间交出来的东西也能摊开比。</p>
+<p>开发者 Andreas Kling 用两个编程助手帮忙做翻译，自己决定先搬哪块、接口长什么样。两周左右，写出了约两万五千行 Rust。他给自己定了一条有点较真的规矩。只要喂进去的是同一段代码，连两边吐出的字节码都要逐字节相同。这样，哪怕网页上碰巧都显示了 5，编译过程走岔了也藏不住。</p>
+<p>原文列了 52,898 个 JavaScript 规范测试和 12,461 个项目测试，两套都没发现回归。作者还让新旧实现同时处理浏览网页时遇到的脚本，及时对比输出。这种办法比「点开首页，页面看起来没问题」多照亮了不少角落。</p>
+<p>当然，旧实现要是本来就有个错，新实现也可能原样学过去。先把兼容性对齐，再来改写得别扭的地方，我觉得这个顺序很适合这种有老代码可以对照的任务。</p>
+</div>
+  <section class="sources"><h2>原文出处</h2><ul><li><a target="_blank" rel="noopener" href="https://ladybird.org/posts/adopting-rust/">Ladybird · Ladybird adopts Rust, with help from AI ↗</a><time datetime="2026-02-23">2026-02-23</time></li></ul></section>
+  <nav class="related" aria-label="同月手记"><h2>这个月还读了</h2><a href="../rubin-sky-image-alerts/index.html">望远镜一晚发了八十万条提醒，谁看得完？ <span aria-hidden="true">↗</span></a><a href="../green-tea-gc-pages/index.html">Go 的垃圾回收器，开始把挨着的对象一起看了 <span aria-hidden="true">↗</span></a></nav>
+</article>
+</main>
+  <footer class="foot shell"><span>Che’s Blog <i>/</i> 车传凯</span><a href="#top">回到顶部 ↑</a></footer>
+</body>
+</html>

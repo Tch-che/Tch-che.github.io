@@ -1,0 +1,43 @@
+
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>搜「电脑一拔电就关机」，能找到哪篇笔记？ · Che&#39;s Blog</title>
+  <meta name="description" content="从一个搜不到关键词的小例子，看 S3 Vectors 把相似度检索放进对象存储后，究竟省了哪一步。">
+  <link rel="canonical" href="https://tch-che.github.io/notes/s3-vectors-for-a-notebook/">
+  <link rel="icon" href="../../assets/che.jpg">
+  <link rel="stylesheet" href="../../assets/handbook.css">
+<meta name="generator" content="Hexo 7.3.0"></head>
+<body id="top">
+  <a class="skip" href="#main">跳到正文</a>
+  <header class="mast shell">
+    <a class="wordmark" href="../../index.html"><img src="../../assets/che.jpg" alt="" width="36" height="36"><span>Che’s Blog</span></a>
+    <nav class="nav" aria-label="主导航">
+      
+        <a class="current" href="../../index.html" aria-current="location">手记</a>
+      
+        <a class="" href="../../archives/index.html" >归档</a>
+      
+        <a class="" href="../../about/index.html" >关于</a>
+      
+      <a class="git" target="_blank" rel="noopener" href="https://github.com/Tch-che">GitHub <span aria-hidden="true">↗</span></a>
+    </nav>
+  </header>
+  <main id="main" class="shell">
+<article class="reading">
+  <a class="crumb" href="../../archives/2025/12/index.html">← 2025 年 12 月手记</a>
+  <header class="post-head"><p class="byline"><span></span>数据</p><h1>搜「电脑一拔电就关机」，能找到哪篇笔记？</h1><p class="author">车传凯 <i>/</i> 2025-12 专题</p></header>
+  <div class="prose"><p>假设笔记里有一篇《换电池记录》，里面写的是「断开电源，机器立刻黑屏」。以后搜「电脑一拔电就关机」，照字面匹配可能漏掉它。这种时候我希望搜索框能听懂大意，哪怕我已经记不起标题。</p>
+<p>做法是先让一个模型把每段文字变成一串数字，也就是向量。提问时，用同一个模型处理问题，再找靠得近的几段文字。12 月正式推出的 S3 Vectors 接手了存向量和找近邻这两件事。如果原文已经放在 S3 里，可以把段落编号和对应的向量关联起来，搜到编号再回去看上下文。</p>
+<p>AWS 给的正式版上限是每个索引 20 亿个向量。我自己的几页笔记当然用不上这个量，更值得看的是另一组数据。公告说，偶尔查一次可能要等接近一秒，经常查询时可以到一百毫秒左右或更低。这会影响搜索框该在打字时立刻查，还是等人按下回车。</p>
+<p>还有个小坑。「拔掉外接屏就黑屏」可能也很像。最后展示命中段落，往往比只给一个看起来很肯定的标题更有用。</p>
+</div>
+  <section class="sources"><h2>原文出处</h2><ul><li><a target="_blank" rel="noopener" href="https://aws.amazon.com/about-aws/whats-new/2025/12/amazon-s3-vectors-generally-available/">AWS · Amazon S3 Vectors is now generally available ↗</a><time datetime="2025-12-02">2025-12-02</time></li></ul></section>
+  <nav class="related" aria-label="同月手记"><h2>这个月还读了</h2><a href="../functiongemma-small-actions/index.html">两亿七千万参数，够不够帮我定个提醒？ <span aria-hidden="true">↗</span></a><a href="../css-scope-for-posts/index.html">给正文里的链接画个边界 <span aria-hidden="true">↗</span></a></nav>
+</article>
+</main>
+  <footer class="foot shell"><span>Che’s Blog <i>/</i> 车传凯</span><a href="#top">回到顶部 ↑</a></footer>
+</body>
+</html>

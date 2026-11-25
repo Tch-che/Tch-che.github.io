@@ -1,0 +1,42 @@
+
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>只改一条 DNS 记录，要重读两千万条吗？ · Che&#39;s Blog</title>
+  <meta name="description" content="看 Cloudflare 怎样算清一次设置变更到底会影响哪些记录，顺便读懂「生效快了一半」量的是哪段时间。">
+  <link rel="canonical" href="https://tch-che.github.io/notes/dns-targeted-builds/">
+  <link rel="icon" href="../../assets/che.jpg">
+  <link rel="stylesheet" href="../../assets/handbook.css">
+<meta name="generator" content="Hexo 7.3.0"></head>
+<body id="top">
+  <a class="skip" href="#main">跳到正文</a>
+  <header class="mast shell">
+    <a class="wordmark" href="../../index.html"><img src="../../assets/che.jpg" alt="" width="36" height="36"><span>Che’s Blog</span></a>
+    <nav class="nav" aria-label="主导航">
+      
+        <a class="current" href="../../index.html" aria-current="location">手记</a>
+      
+        <a class="" href="../../archives/index.html" >归档</a>
+      
+        <a class="" href="../../about/index.html" >关于</a>
+      
+      <a class="git" target="_blank" rel="noopener" href="https://github.com/Tch-che">GitHub <span aria-hidden="true">↗</span></a>
+    </nav>
+  </header>
+  <main id="main" class="shell">
+<article class="reading">
+  <a class="crumb" href="../../archives/2026/11/index.html">← 2026 年 11 月手记</a>
+  <header class="post-head"><p class="byline"><span></span>系统工程</p><h1>只改一条 DNS 记录，要重读两千万条吗？</h1><p class="author">车传凯 <i>/</i> 2026-11 专题</p></header>
+  <div class="prose"><p>给子域名换 IP，后台表里可能只改了一条记录。可 DNS 服务还要把数据库里的状态整理成边缘服务器能读取的格式。一条通知如果只说「这个域有变化」，下游就很难确定要重新生成哪些东西。Cloudflare 有些 DNS 区域已经超过两千万条记录，遇上含糊的通知，整区读一遍，哪怕最后只写了几个字节，也得先付出那次扫描的代价。</p>
+<p>他们让事件尽量附上具体字段以及变更前后的值，再逐项追踪每种设置会影响哪些输出。普通地址记录通常只要处理对应的名字，通配符还要连同共享的元数据一起更新。遇到只带时间戳、又说不清来由的通知，系统一般仍按全量处理。从编程角度看，给改动一个尽可能准确的名字，竟然能少做这么多工作。</p>
+<p>公布的结果里，峰值工作集内存从 79 GiB 降到 12 GiB。拿回这部分余量，再配合缩短排队等待，变更到写入分布式存储这段的中位时间从约 7.7 秒变成 3.3 秒。自己刚换完域名解析，还可能等到旧结果的缓存过期。把这两段时间分清，就不会拿 3.3 秒当作每一位访客都能看到新地址的承诺了。</p>
+</div>
+  <section class="sources"><h2>原文出处</h2><ul><li><a target="_blank" rel="noopener" href="https://blog.cloudflare.com/dns-targeted-zone-builds">Cloudflare · How we halved DNS build delay and cut memory use by 85% ↗</a><time datetime="2026-11-02">2026-11-02</time></li></ul></section>
+  <nav class="related" aria-label="同月手记"><h2>这个月还读了</h2><a href="../pelagos-quantum-decoder/index.html">量子纠错的试卷，为什么要请八张 GPU 来批？ <span aria-hidden="true">↗</span></a><a href="../euclid-gravitational-lenses/index.html">星系旁边那一道蓝弧，怎么就能拿来称重？ <span aria-hidden="true">↗</span></a></nav>
+</article>
+</main>
+  <footer class="foot shell"><span>Che’s Blog <i>/</i> 车传凯</span><a href="#top">回到顶部 ↑</a></footer>
+</body>
+</html>

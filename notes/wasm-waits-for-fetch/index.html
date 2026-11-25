@@ -1,0 +1,42 @@
+
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>网页去拿文件时，Wasm 能在原地等一下吗？ · Che&#39;s Blog</title>
+  <meta name="description" content="Safari 27 测试版支持 JSPI，同步写法的老程序也能等到异步结果。">
+  <link rel="canonical" href="https://tch-che.github.io/notes/wasm-waits-for-fetch/">
+  <link rel="icon" href="../../assets/che.jpg">
+  <link rel="stylesheet" href="../../assets/handbook.css">
+<meta name="generator" content="Hexo 7.3.0"></head>
+<body id="top">
+  <a class="skip" href="#main">跳到正文</a>
+  <header class="mast shell">
+    <a class="wordmark" href="../../index.html"><img src="../../assets/che.jpg" alt="" width="36" height="36"><span>Che’s Blog</span></a>
+    <nav class="nav" aria-label="主导航">
+      
+        <a class="current" href="../../index.html" aria-current="location">手记</a>
+      
+        <a class="" href="../../archives/index.html" >归档</a>
+      
+        <a class="" href="../../about/index.html" >关于</a>
+      
+      <a class="git" target="_blank" rel="noopener" href="https://github.com/Tch-che">GitHub <span aria-hidden="true">↗</span></a>
+    </nav>
+  </header>
+  <main id="main" class="shell">
+<article class="reading">
+  <a class="crumb" href="../../archives/2026/06/index.html">← 2026 年 6 月手记</a>
+  <header class="post-head"><p class="byline"><span></span>Web 开发</p><h1>网页去拿文件时，Wasm 能在原地等一下吗？</h1><p class="author">车传凯 <i>/</i> 2026-06 专题</p></header>
+  <div class="prose"><p>一段老 C 程序要读模型文件，通常先调用读取函数，再检查文件头，最后解析内容。这三行顺着看很自然。把它搬进浏览器，中间却卡了一下。假设文件在网上，JavaScript 调用 fetch 后先拿到一个 Promise，真正的数据还在路上。下一行凭什么立刻开始检查文件头呢？</p>
+<p>Safari 27 测试版支持了 WebAssembly 的 JavaScript Promise Integration，简称 JSPI。在需要等待的调用上，浏览器可以先挂起这段 Wasm 执行。文件拿到了，再从刚才停住的地方继续。这样，原来好几层函数之间传递的仍然是它们熟悉的结果，外面负责对接异步操作即可。等待期间浏览器还有机会响应点击和滚动，页面不用陪着这次请求一起停住。</p>
+<p>我觉得用两种不同的卡顿来记会更清楚。等文件时没有东西可算，挂起正合适。拿到文件后，假设解析要一口气做几百万次运算，这一段仍然会占用执行它的线程。JSPI 帮忙过的是等待这一关。真想让重计算也不影响界面，还得安排到合适的线程上。</p>
+</div>
+  <section class="sources"><h2>原文出处</h2><ul><li><a target="_blank" rel="noopener" href="https://webkit.org/blog/17967/news-from-wwdc26-webkit-in-safari-27-beta/">WebKit · News from WWDC26: WebKit in Safari 27 beta ↗</a><time datetime="2026-06-08">2026-06-08</time></li></ul></section>
+  <nav class="related" aria-label="同月手记"><h2>这个月还读了</h2><a href="../ibm-nanostack-inverter/index.html">看懂 0.7 纳米新闻，要先看一个反相器 <span aria-hidden="true">↗</span></a><a href="../diffusiongemma-sudoku/index.html">如果打到一半还能改前面的字 <span aria-hidden="true">↗</span></a></nav>
+</article>
+</main>
+  <footer class="foot shell"><span>Che’s Blog <i>/</i> 车传凯</span><a href="#top">回到顶部 ↑</a></footer>
+</body>
+</html>

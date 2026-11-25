@@ -1,0 +1,43 @@
+
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>在地图上框一下，数据库怎么知道哪些数据可以跳过？ · Che&#39;s Blog</title>
+  <meta name="description" content="DuckDB 1.5 把几何类型放进核心。一份按城市存放的公交站数据，能说明这样做对查询有什么帮助。">
+  <link rel="canonical" href="https://tch-che.github.io/notes/duckdb-geometry-row-groups/">
+  <link rel="icon" href="../../assets/che.jpg">
+  <link rel="stylesheet" href="../../assets/handbook.css">
+<meta name="generator" content="Hexo 7.3.0"></head>
+<body id="top">
+  <a class="skip" href="#main">跳到正文</a>
+  <header class="mast shell">
+    <a class="wordmark" href="../../index.html"><img src="../../assets/che.jpg" alt="" width="36" height="36"><span>Che’s Blog</span></a>
+    <nav class="nav" aria-label="主导航">
+      
+        <a class="current" href="../../index.html" aria-current="location">手记</a>
+      
+        <a class="" href="../../archives/index.html" >归档</a>
+      
+        <a class="" href="../../about/index.html" >关于</a>
+      
+      <a class="git" target="_blank" rel="noopener" href="https://github.com/Tch-che">GitHub <span aria-hidden="true">↗</span></a>
+    </nav>
+  </header>
+  <main id="main" class="shell">
+<article class="reading">
+  <a class="crumb" href="../../archives/2026/03/index.html">← 2026 年 3 月手记</a>
+  <header class="post-head"><p class="byline"><span></span>数据</p><h1>在地图上框一下，数据库怎么知道哪些数据可以跳过？</h1><p class="author">车传凯 <i>/</i> 2026-03 专题</p></header>
+  <div class="prose"><p>地图上框出一小块，问「这里有哪些公交站」，最笨的做法是把全国的站点挨个看。想想有点浪费。一大批坐标要是全在成都，就没必要为了查上海的街区，把它们一条条读出来。</p>
+<p>DuckDB 1.5 做了个挺根本的调整，把 <code>GEOMETRY</code> 从空间扩展搬进了数据库核心。存一列坐标时，数据库能按数据块记下这一批点的外包矩形。查询拿另一个矩形来比，两块地方完全碰不到，就可以直接跳过整批。这个版本先让判断外包框是否相交的 <code>&amp;&amp;</code> 运算符用上了这些统计信息。</p>
+<p>顺着公交站的例子，还能想明白数据怎么摆会影响效果。相邻城市的站点挨着存，一块数据的矩形就比较小。把全国的站点随机打散，每一块都可能从西南跨到东北，算出来的框太大，就很难排除谁。这个结论用纸画几个点就看得出来。</p>
+<p>还有最后一小步。如果问的是「在这条弯弯曲曲的街道里面吗」，外包矩形相交只说明值得细查。真正的形状判断仍然要做，许多这样的函数也还由空间扩展提供。</p>
+</div>
+  <section class="sources"><h2>原文出处</h2><ul><li><a target="_blank" rel="noopener" href="https://duckdb.org/2026/03/09/announcing-duckdb-150">DuckDB · Announcing DuckDB 1.5.0 ↗</a><time datetime="2026-03-09">2026-03-09</time></li></ul></section>
+  <nav class="related" aria-label="同月手记"><h2>这个月还读了</h2><a href="../cern-moving-antiprotons/index.html">为了测得更准，先让 92 个反质子坐一趟卡车 <span aria-hidden="true">↗</span></a><a href="../astro-dev-with-workerd/index.html">本地能跑的页面，部署以后为什么会找不到文件？ <span aria-hidden="true">↗</span></a></nav>
+</article>
+</main>
+  <footer class="foot shell"><span>Che’s Blog <i>/</i> 车传凯</span><a href="#top">回到顶部 ↑</a></footer>
+</body>
+</html>

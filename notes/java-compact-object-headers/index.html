@@ -1,0 +1,42 @@
+
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Java 给每个小对象省下的那 4 个字节 · Che&#39;s Blog</title>
+  <meta name="description" content="JDK 27 默认启用紧凑对象头。对象数量一多，那些没有写在类定义里的字节也值得数一数。">
+  <link rel="canonical" href="https://tch-che.github.io/notes/java-compact-object-headers/">
+  <link rel="icon" href="../../assets/che.jpg">
+  <link rel="stylesheet" href="../../assets/handbook.css">
+<meta name="generator" content="Hexo 7.3.0"></head>
+<body id="top">
+  <a class="skip" href="#main">跳到正文</a>
+  <header class="mast shell">
+    <a class="wordmark" href="../../index.html"><img src="../../assets/che.jpg" alt="" width="36" height="36"><span>Che’s Blog</span></a>
+    <nav class="nav" aria-label="主导航">
+      
+        <a class="current" href="../../index.html" aria-current="location">手记</a>
+      
+        <a class="" href="../../archives/index.html" >归档</a>
+      
+        <a class="" href="../../about/index.html" >关于</a>
+      
+      <a class="git" target="_blank" rel="noopener" href="https://github.com/Tch-che">GitHub <span aria-hidden="true">↗</span></a>
+    </nav>
+  </header>
+  <main id="main" class="shell">
+<article class="reading">
+  <a class="crumb" href="../../archives/2026/09/index.html">← 2026 年 9 月手记</a>
+  <header class="post-head"><p class="byline"><span></span>编程语言</p><h1>Java 给每个小对象省下的那 4 个字节</h1><p class="author">车传凯 <i>/</i> 2026-09 专题</p></header>
+  <div class="prose"><p>想象这样一个 Java 类，只放两个字段，分别记一张车票从哪站出发、到哪站下车。把两个字段的大小加起来，离这张票在内存里的实际占用还差一点。HotSpot 也要为对象存一份管理信息，比如它属于哪个类。在堆里新建一百万张车票，这份开销也跟着付一百万次。</p>
+<p>JDK 27 在 64 位 HotSpot 上默认使用紧凑对象头。发布说明里的数字很直白，常见对象头原来有 96 位，现在压到 64 位，换成字节就是从 12 到 8。只算一百万份对象头，差额是四百万字节，约 3.8 MiB。代码里那些车票的字段可以照旧写，这项变化发生在虚拟机摆放对象的时候。</p>
+<p>这个算术还没回答整段程序能省多少内存。对象通常得按一定边界对齐，头部缩短以后，有些布局会跟着变小，有些尾部会多留出填充。还有一种极端情况，一块很大的字节数组自己也只有一个数组对象头，里面存再多照片像素，也不会按每个像素省四字节。看见堆占用下降的数字，我会想先知道，里面装的是成片的数据，还是密密麻麻的小对象。</p>
+</div>
+  <section class="sources"><h2>原文出处</h2><ul><li><a target="_blank" rel="noopener" href="https://inside.java/2026/09/15/jdk-27-available/">Inside.java · The Arrival of Java 27! ↗</a><time datetime="2026-09-15">2026-09-15</time></li></ul></section>
+  <nav class="related" aria-label="同月手记"><h2>这个月还读了</h2><a href="../safari-customizable-select/index.html">给下拉菜单加个色块，还能保住方向键 <span aria-hidden="true">↗</span></a><a href="../cloudflare-cache-transcoding/index.html">缓存要装下更多网页，先挑哪些文件值得压 <span aria-hidden="true">↗</span></a></nav>
+</article>
+</main>
+  <footer class="foot shell"><span>Che’s Blog <i>/</i> 车传凯</span><a href="#top">回到顶部 ↑</a></footer>
+</body>
+</html>

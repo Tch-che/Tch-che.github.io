@@ -1,0 +1,43 @@
+
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>明天同一时间，和 24 小时以后有区别吗？ · Che&#39;s Blog</title>
+  <meta name="description" content="用切换夏令时前后的一次预约，认识 Temporal 里的一天、一段时间和一个瞬间。">
+  <link rel="canonical" href="https://tch-che.github.io/notes/temporal-a-day-or-24-hours/">
+  <link rel="icon" href="../../assets/che.jpg">
+  <link rel="stylesheet" href="../../assets/handbook.css">
+<meta name="generator" content="Hexo 7.3.0"></head>
+<body id="top">
+  <a class="skip" href="#main">跳到正文</a>
+  <header class="mast shell">
+    <a class="wordmark" href="../../index.html"><img src="../../assets/che.jpg" alt="" width="36" height="36"><span>Che’s Blog</span></a>
+    <nav class="nav" aria-label="主导航">
+      
+        <a class="current" href="../../index.html" aria-current="location">手记</a>
+      
+        <a class="" href="../../archives/index.html" >归档</a>
+      
+        <a class="" href="../../about/index.html" >关于</a>
+      
+      <a class="git" target="_blank" rel="noopener" href="https://github.com/Tch-che">GitHub <span aria-hidden="true">↗</span></a>
+    </nav>
+  </header>
+  <main id="main" class="shell">
+<article class="reading">
+  <a class="crumb" href="../../archives/2026/01/index.html">← 2026 年 1 月手记</a>
+  <header class="post-head"><p class="byline"><span></span>前端</p><h1>明天同一时间，和 24 小时以后有区别吗？</h1><p class="author">车传凯 <i>/</i> 2026-01 专题</p></header>
+  <div class="prose"><p>如果在上海约人，今天中午加 24 小时，通常就是明天中午。这条直觉搬到有夏令时的地方，就会露出一个小洞。以纽约开始夏令时的那个周末为例，周六中午到周日中午，钟面看着正好隔一天，实际只走了 23 小时。</p>
+<p>Chrome 144 在一月带来了 JavaScript 的 Temporal。它把好几种容易混着用的东西分开了。生日只需保存月日，演出的开场要记清当地时区，两个服务器上报的事件则可以放到同一条时间线上比较。选哪一种，取决于程序要替人记住什么。</p>
+<p>比如给一个带纽约时区的 <code>ZonedDateTime</code> 加上 <code>&#123; days: 1 &#125;</code>，表达的是翻过一个日历日。换成 <code>&#123; hours: 24 &#125;</code>，表达的是实实在在经过 24 个小时。在上面那个周末，后一种算法会走到周日下午一点。下次表单写「每天中午提醒」，我就知道该选第一个了。</p>
+<p>一处边界也值得记。Chrome 支持这个接口，只能说明对应版本的 Chrome 能跑。给网站的老访客做日历功能，还要检查他们的浏览器能不能识别 <code>Temporal</code>，否则连第一行日期计算都会停下来。</p>
+</div>
+  <section class="sources"><h2>原文出处</h2><ul><li><a target="_blank" rel="noopener" href="https://developer.chrome.com/blog/new-in-chrome-144">Chrome for Developers · New in Chrome 144 ↗</a><time datetime="2026-01-13">2026-01-13</time></li></ul></section>
+  <nav class="related" aria-label="同月手记"><h2>这个月还读了</h2><a href="../raspberry-pi-ai-hat-memory/index.html">树莓派的 AI 扩展板，为什么自己带了 8GB 内存？ <span aria-hidden="true">↗</span></a><a href="../rubin-rack-interconnect/index.html">一台 AI 机柜，为什么要一起设计六种芯片？ <span aria-hidden="true">↗</span></a></nav>
+</article>
+</main>
+  <footer class="foot shell"><span>Che’s Blog <i>/</i> 车传凯</span><a href="#top">回到顶部 ↑</a></footer>
+</body>
+</html>

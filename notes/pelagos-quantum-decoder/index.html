@@ -1,0 +1,42 @@
+
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>量子纠错的试卷，为什么要请八张 GPU 来批？ · Che&#39;s Blog</title>
+  <meta name="description" content="Pelagos 把纠错解码器的模拟评测摊到多张显卡上，里面有个很容易读错的 7.5 倍。">
+  <link rel="canonical" href="https://tch-che.github.io/notes/pelagos-quantum-decoder/">
+  <link rel="icon" href="../../assets/che.jpg">
+  <link rel="stylesheet" href="../../assets/handbook.css">
+<meta name="generator" content="Hexo 7.3.0"></head>
+<body id="top">
+  <a class="skip" href="#main">跳到正文</a>
+  <header class="mast shell">
+    <a class="wordmark" href="../../index.html"><img src="../../assets/che.jpg" alt="" width="36" height="36"><span>Che’s Blog</span></a>
+    <nav class="nav" aria-label="主导航">
+      
+        <a class="current" href="../../index.html" aria-current="location">手记</a>
+      
+        <a class="" href="../../archives/index.html" >归档</a>
+      
+        <a class="" href="../../about/index.html" >关于</a>
+      
+      <a class="git" target="_blank" rel="noopener" href="https://github.com/Tch-che">GitHub <span aria-hidden="true">↗</span></a>
+    </nav>
+  </header>
+  <main id="main" class="shell">
+<article class="reading">
+  <a class="crumb" href="../../archives/2026/11/index.html">← 2026 年 11 月手记</a>
+  <header class="post-head"><p class="byline"><span></span>计算硬件</p><h1>量子纠错的试卷，为什么要请八张 GPU 来批？</h1><p class="author">车传凯 <i>/</i> 2026-11 专题</p></header>
+  <div class="prose"><p>要知道一个量子纠错方案靠不靠谱，可以先模拟许多次出错的过程。检测步骤会留下间接线索，在量子纠错里叫作错误综合征（syndrome）。解码器拿到的就是这些线索，要据此推断该怎样纠正错误。同样的一组综合征有时对应好几种出错方式，这就有了一个可以实实在在比较的问题，哪种解码方法更常猜对，又能算得够快？</p>
+<p>IBM 和 AMD 开源的 Pelagos 用普通计算机上的 GPU 加快这类评测。越想知道一种罕见的失败多久才会发生，就越需要大量样本。假设一次失败的概率只有一万分之一，跑一百个例子都成功，仍然说不清它够不够可靠。很多样本之间互不依赖，正好能交给多张卡同时处理。</p>
+<p>论文配套的介绍给了一个数字，在所测系统上用八张 GPU，解码环节相对单卡的加速最高约 7.5 倍。差的那半倍也挺有意思，主机还要给不同卡安排任务、交换数据。这个数字说明团队能更快筛选纠错设计。等到把解码器接到真机器上，每轮测量完，能不能在下一轮操作需要结果前给出答案，又得拿延迟来考一遍。</p>
+</div>
+  <section class="sources"><h2>原文出处</h2><ul><li><a target="_blank" rel="noopener" href="https://www.ibm.com/quantum/blog/pelagos">IBM Quantum · IBM, AMD advance quantum error correction decoding at scale ↗</a><time datetime="2026-11-16">2026-11-16</time></li></ul></section>
+  <nav class="related" aria-label="同月手记"><h2>这个月还读了</h2><a href="../euclid-gravitational-lenses/index.html">星系旁边那一道蓝弧，怎么就能拿来称重？ <span aria-hidden="true">↗</span></a><a href="../dns-targeted-builds/index.html">只改一条 DNS 记录，要重读两千万条吗？ <span aria-hidden="true">↗</span></a></nav>
+</article>
+</main>
+  <footer class="foot shell"><span>Che’s Blog <i>/</i> 车传凯</span><a href="#top">回到顶部 ↑</a></footer>
+</body>
+</html>

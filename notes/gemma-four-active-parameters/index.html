@@ -1,0 +1,42 @@
+
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Gemma 4 的 260 亿参数，每次都要算一遍吗？ · Che&#39;s Blog</title>
+  <meta name="description" content="同一张模型卡上的 26B 和 3.8B，分别关系到存储和计算。">
+  <link rel="canonical" href="https://tch-che.github.io/notes/gemma-four-active-parameters/">
+  <link rel="icon" href="../../assets/che.jpg">
+  <link rel="stylesheet" href="../../assets/handbook.css">
+<meta name="generator" content="Hexo 7.3.0"></head>
+<body id="top">
+  <a class="skip" href="#main">跳到正文</a>
+  <header class="mast shell">
+    <a class="wordmark" href="../../index.html"><img src="../../assets/che.jpg" alt="" width="36" height="36"><span>Che’s Blog</span></a>
+    <nav class="nav" aria-label="主导航">
+      
+        <a class="current" href="../../index.html" aria-current="location">手记</a>
+      
+        <a class="" href="../../archives/index.html" >归档</a>
+      
+        <a class="" href="../../about/index.html" >关于</a>
+      
+      <a class="git" target="_blank" rel="noopener" href="https://github.com/Tch-che">GitHub <span aria-hidden="true">↗</span></a>
+    </nav>
+  </header>
+  <main id="main" class="shell">
+<article class="reading">
+  <a class="crumb" href="../../archives/2026/04/index.html">← 2026 年 4 月手记</a>
+  <header class="post-head"><p class="byline"><span></span>人工智能</p><h1>Gemma 4 的 260 亿参数，每次都要算一遍吗？</h1><p class="author">车传凯 <i>/</i> 2026-04 专题</p></header>
+  <div class="prose"><p>挑一个能在自己电脑上跑的模型，最先看到的往往是名字里的数字。Gemma 4 的一款模型写着 26B，介绍里又说每一步只有约 3.8B 参数参与计算。两个数差了将近七倍，我得把它们分开记。</p>
+<p>26B 指的是模型总共有约 260 亿个参数。这款模型用了混合专家结构，处理一个词元时，路由机制会挑一部分专家来工作。下一个词元来了，选中的组合可能又变了。于是每步实际用到的参数少了很多，其他权重仍然是模型的一部分。本地部署要预留多少空间，得把它们也算进去。只按 38 亿参数去估算下载大小，很容易把磁盘预算算错。</p>
+<p>算个粗账就明白了。假设每个参数都用 2 字节保存，260 亿个参数光权重就约 52 GB，还没给运行时和上下文留空间。量化能把这笔账压小。至于跑起来多快，还要看硬件搬运数据的速度。下次看模型介绍，我会先找总参数和激活参数，再往下看别人用的到底是哪张卡。</p>
+</div>
+  <section class="sources"><h2>原文出处</h2><ul><li><a target="_blank" rel="noopener" href="https://blog.google/innovation-and-ai/technology/developers-tools/gemma-4/">Google DeepMind · Gemma 4: Byte for byte, the most capable open models ↗</a><time datetime="2026-04-02">2026-04-02</time></li></ul></section>
+  <nav class="related" aria-label="同月手记"><h2>这个月还读了</h2><a href="../visiprint-filament-preview/index.html">换卷耗材，这只小章鱼会变成什么样？ <span aria-hidden="true">↗</span></a><a href="../emdash-plugin-permissions/index.html">装个博客插件，它到底能看什么？ <span aria-hidden="true">↗</span></a></nav>
+</article>
+</main>
+  <footer class="foot shell"><span>Che’s Blog <i>/</i> 车传凯</span><a href="#top">回到顶部 ↑</a></footer>
+</body>
+</html>

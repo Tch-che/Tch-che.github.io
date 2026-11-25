@@ -1,0 +1,42 @@
+
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>TypeScript 快了十倍，省下的是哪段等待？ · Che&#39;s Blog</title>
+  <meta name="description" content="拿 VS Code 的一次完整构建，分清编译器变快和用户打开网页变快。">
+  <link rel="canonical" href="https://tch-che.github.io/notes/typescript-seven-build-time/">
+  <link rel="icon" href="../../assets/che.jpg">
+  <link rel="stylesheet" href="../../assets/handbook.css">
+<meta name="generator" content="Hexo 7.3.0"></head>
+<body id="top">
+  <a class="skip" href="#main">跳到正文</a>
+  <header class="mast shell">
+    <a class="wordmark" href="../../index.html"><img src="../../assets/che.jpg" alt="" width="36" height="36"><span>Che’s Blog</span></a>
+    <nav class="nav" aria-label="主导航">
+      
+        <a class="current" href="../../index.html" aria-current="location">手记</a>
+      
+        <a class="" href="../../archives/index.html" >归档</a>
+      
+        <a class="" href="../../about/index.html" >关于</a>
+      
+      <a class="git" target="_blank" rel="noopener" href="https://github.com/Tch-che">GitHub <span aria-hidden="true">↗</span></a>
+    </nav>
+  </header>
+  <main id="main" class="shell">
+<article class="reading">
+  <a class="crumb" href="../../archives/2026/07/index.html">← 2026 年 7 月手记</a>
+  <header class="post-head"><p class="byline"><span></span>开发工具</p><h1>TypeScript 快了十倍，省下的是哪段等待？</h1><p class="author">车传凯 <i>/</i> 2026-07 专题</p></header>
+  <div class="prose"><p>微软在 TypeScript 7 的发布文章里摆了张表。拿 VS Code 的代码库做完整构建，旧版用了 125.7 秒，新版用了 10.6 秒。两分钟和十来秒的区别挺直观。前者够起身倒杯水，后者可能还没想好要不要起身，结果已经出来了。</p>
+<p>变化发生在开发工具这一边。团队用 Go 移植了编译器，尽量保留原有的类型检查逻辑，再利用原生代码和共享内存多线程来处理大项目。平常敲的还是 TypeScript，运行的依旧可以是 tsc。另一个我觉得更贴近写代码的数字，是他们在同一台机器上打开 VS Code 项目里的一个文件，从开编辑器到看到第一处报错，等待时间从大约 17.5 秒降到了 1.3 秒以内。</p>
+<p>怎么知道自己的项目能省几秒？我会把流水线里的类型检查、打包、上传分开看。假如最慢的是上传图片，那编译器再快，整次发布也很难跟着快十倍。至于读者打开网页要等多久，那是浏览器的另一笔账。看完这个表，最有用的动作也许是先给自己那几段命令分别计时。</p>
+</div>
+  <section class="sources"><h2>原文出处</h2><ul><li><a target="_blank" rel="noopener" href="https://devblogs.microsoft.com/typescript/announcing-typescript-7-0/">Microsoft · Announcing TypeScript 7.0 ↗</a><time datetime="2026-07-08">2026-07-08</time></li></ul></section>
+  <nav class="related" aria-label="同月手记"><h2>这个月还读了</h2><a href="../particlegs-rendering-compression/index.html">两亿多个粒子，转一下视角要等多久？ <span aria-hidden="true">↗</span></a><a href="../euclid-quasar-shortlist/index.html">从满天的亮点里，怎么挑出 31 个类星体？ <span aria-hidden="true">↗</span></a></nav>
+</article>
+</main>
+  <footer class="foot shell"><span>Che’s Blog <i>/</i> 车传凯</span><a href="#top">回到顶部 ↑</a></footer>
+</body>
+</html>

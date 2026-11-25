@@ -1,0 +1,43 @@
+
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Go 的垃圾回收器，开始把挨着的对象一起看了 · Che&#39;s Blog</title>
+  <meta name="description" content="Green Tea 改了扫描小对象的顺序。用一张图书馆还书单，就能想明白它为什么可能更快。">
+  <link rel="canonical" href="https://tch-che.github.io/notes/green-tea-gc-pages/">
+  <link rel="icon" href="../../assets/che.jpg">
+  <link rel="stylesheet" href="../../assets/handbook.css">
+<meta name="generator" content="Hexo 7.3.0"></head>
+<body id="top">
+  <a class="skip" href="#main">跳到正文</a>
+  <header class="mast shell">
+    <a class="wordmark" href="../../index.html"><img src="../../assets/che.jpg" alt="" width="36" height="36"><span>Che’s Blog</span></a>
+    <nav class="nav" aria-label="主导航">
+      
+        <a class="current" href="../../index.html" aria-current="location">手记</a>
+      
+        <a class="" href="../../archives/index.html" >归档</a>
+      
+        <a class="" href="../../about/index.html" >关于</a>
+      
+      <a class="git" target="_blank" rel="noopener" href="https://github.com/Tch-che">GitHub <span aria-hidden="true">↗</span></a>
+    </nav>
+  </header>
+  <main id="main" class="shell">
+<article class="reading">
+  <a class="crumb" href="../../archives/2026/02/index.html">← 2026 年 2 月手记</a>
+  <header class="post-head"><p class="byline"><span></span>编程语言</p><h1>Go 的垃圾回收器，开始把挨着的对象一起看了</h1><p class="author">车传凯 <i>/</i> 2026-02 专题</p></header>
+  <div class="prose"><p>假设你在图书馆按还书单找书。单子第一行在三楼，第二行在一楼，第三行又回三楼。照着走也能找齐，只是腿会有点累。把同一层的几本攒起来找，就省掉一些来回。</p>
+<p>Go 的垃圾回收器也有类似的烦恼。它要从仍在使用的变量出发，沿着指针看看哪些对象还活着。两个互相指向的对象，住的内存地址可能离得很远。CPU 刚把一块内存读进缓存，接着又被领去别处，那块缓存就没用足。</p>
+<p>Go 1.26 默认启用了 Green Tea。处理小对象时，它把有待扫描的内存页放进队列，同时记下页里哪些对象已经发现、哪些已经扫过。等轮到这一页，就有机会把挨在一起的几个对象顺手看完。要找的那些对象还是得找，省的是找它们时东奔西跑的花销。</p>
+<p>团队在实验阶段观察到，许多负载花在垃圾回收上的时间少了约一成。要是一个程序本来每秒只有 100 毫秒用来回收，节省这部分的一成，算下来是 10 毫秒。看整段程序能快多少，先得知道它原来把时间花在哪儿。</p>
+</div>
+  <section class="sources"><h2>原文出处</h2><ul><li><a target="_blank" rel="noopener" href="https://go.dev/blog/go1.26">The Go Blog · Go 1.26 is released ↗</a><time datetime="2026-02-10">2026-02-10</time></li><li><a target="_blank" rel="noopener" href="https://go.dev/blog/greenteagc">The Go Blog · The Green Tea Garbage Collector ↗</a><time datetime="2025-10-29">2025-10-29</time></li></ul></section>
+  <nav class="related" aria-label="同月手记"><h2>这个月还读了</h2><a href="../rubin-sky-image-alerts/index.html">望远镜一晚发了八十万条提醒，谁看得完？ <span aria-hidden="true">↗</span></a><a href="../ladybird-rust-bytecode/index.html">怎么判断 AI 移植的两万五千行代码能不能用？ <span aria-hidden="true">↗</span></a></nav>
+</article>
+</main>
+  <footer class="foot shell"><span>Che’s Blog <i>/</i> 车传凯</span><a href="#top">回到顶部 ↑</a></footer>
+</body>
+</html>

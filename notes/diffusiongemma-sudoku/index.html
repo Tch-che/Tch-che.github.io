@@ -1,0 +1,42 @@
+
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>如果打到一半还能改前面的字 · Che&#39;s Blog</title>
+  <meta name="description" content="借一个数独例子看 DiffusionGemma 如何反复修改同一块文本。">
+  <link rel="canonical" href="https://tch-che.github.io/notes/diffusiongemma-sudoku/">
+  <link rel="icon" href="../../assets/che.jpg">
+  <link rel="stylesheet" href="../../assets/handbook.css">
+<meta name="generator" content="Hexo 7.3.0"></head>
+<body id="top">
+  <a class="skip" href="#main">跳到正文</a>
+  <header class="mast shell">
+    <a class="wordmark" href="../../index.html"><img src="../../assets/che.jpg" alt="" width="36" height="36"><span>Che’s Blog</span></a>
+    <nav class="nav" aria-label="主导航">
+      
+        <a class="current" href="../../index.html" aria-current="location">手记</a>
+      
+        <a class="" href="../../archives/index.html" >归档</a>
+      
+        <a class="" href="../../about/index.html" >关于</a>
+      
+      <a class="git" target="_blank" rel="noopener" href="https://github.com/Tch-che">GitHub <span aria-hidden="true">↗</span></a>
+    </nav>
+  </header>
+  <main id="main" class="shell">
+<article class="reading">
+  <a class="crumb" href="../../archives/2026/06/index.html">← 2026 年 6 月手记</a>
+  <header class="post-head"><p class="byline"><span></span>人工智能</p><h1>如果打到一半还能改前面的字</h1><p class="author">车传凯 <i>/</i> 2026-06 专题</p></header>
+  <div class="prose"><p>看聊天窗口一个字一个字往外冒，很容易以为生成文字就得这样。DiffusionGemma 的开发文章里有个数独例子。第一格能填什么，可能要看最后一行；如果最后一行的数字变了，第一格也得跟着检查。要是允许模型来回改，填这张表就自然多了。</p>
+<p>这个实验模型每次铺开 256 个词元的位置，先放随机的占位内容，再一轮轮修改。每个位置都可以参考同一块里左右两边的信息，已经比较确定的地方能给其他位置提供线索。整块定下来，才把结果存进缓存，接着生成下一块。这样 GPU 一次有许多位置可算，但同一块也可能需要过很多轮，不能把 256 理解成一次就写完 256 个词。</p>
+<p>开发文章还给了一个挺坦率的数字。基础模型在他们的数独测试上成功率接近零，针对数独微调后才到了约 80%。能擦掉前面填错的一格，和知道这一格该填什么，原来是两件不同的事。下次看到一段解题演示，我想先看看作者用的是哪一版权重。</p>
+</div>
+  <section class="sources"><h2>原文出处</h2><ul><li><a target="_blank" rel="noopener" href="https://developers.googleblog.com/diffusiongemma-the-developer-guide/">Google Developers · DiffusionGemma: The Developer Guide ↗</a><time datetime="2026-06-10">2026-06-10</time></li></ul></section>
+  <nav class="related" aria-label="同月手记"><h2>这个月还读了</h2><a href="../ibm-nanostack-inverter/index.html">看懂 0.7 纳米新闻，要先看一个反相器 <span aria-hidden="true">↗</span></a><a href="../wasm-waits-for-fetch/index.html">网页去拿文件时，Wasm 能在原地等一下吗？ <span aria-hidden="true">↗</span></a></nav>
+</article>
+</main>
+  <footer class="foot shell"><span>Che’s Blog <i>/</i> 车传凯</span><a href="#top">回到顶部 ↑</a></footer>
+</body>
+</html>

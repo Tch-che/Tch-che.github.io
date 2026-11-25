@@ -1,0 +1,42 @@
+
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Rust 的 2..5，里面藏着一个游标 · Che&#39;s Blog</title>
+  <meta name="description" content="数组的一段区间和遍历到哪一步，终于可以交给两个类型。">
+  <link rel="canonical" href="https://tch-che.github.io/notes/rust-range-and-cursor/">
+  <link rel="icon" href="../../assets/che.jpg">
+  <link rel="stylesheet" href="../../assets/handbook.css">
+<meta name="generator" content="Hexo 7.3.0"></head>
+<body id="top">
+  <a class="skip" href="#main">跳到正文</a>
+  <header class="mast shell">
+    <a class="wordmark" href="../../index.html"><img src="../../assets/che.jpg" alt="" width="36" height="36"><span>Che’s Blog</span></a>
+    <nav class="nav" aria-label="主导航">
+      
+        <a class="current" href="../../index.html" aria-current="location">手记</a>
+      
+        <a class="" href="../../archives/index.html" >归档</a>
+      
+        <a class="" href="../../about/index.html" >关于</a>
+      
+      <a class="git" target="_blank" rel="noopener" href="https://github.com/Tch-che">GitHub <span aria-hidden="true">↗</span></a>
+    </nav>
+  </header>
+  <main id="main" class="shell">
+<article class="reading">
+  <a class="crumb" href="../../archives/2026/05/index.html">← 2026 年 5 月手记</a>
+  <header class="post-head"><p class="byline"><span></span>编程语言</p><h1>Rust 的 2..5，里面藏着一个游标</h1><p class="author">车传凯 <i>/</i> 2026-05 专题</p></header>
+  <div class="prose"><p>在纸上写下 2 到 5，把这段区间抄给别人，当然还是同一段。可在 Rust 里，旧的范围类型自己就能当迭代器。比如让 2..5 向前走一步，拿到 2 以后，下一步应该拿 3。这个对象除了描述两端，还记得已经走到了哪儿。如果它随手就能隐式复制一份，哪一份游标往前挪了，很容易看花眼。</p>
+<p>Rust 1.96 在标准库里加了一组新的范围类型。现在可以存下一段范围，需要遍历时再把它转换为迭代器。假设编辑器要给一段 ASCII 代码里的拼写错误画线，只想保存起点和终点，等点击时再取那一段。这样的标记可以放进能直接复制的结构里。标记本身不用背着“上一次读到第几个字符”的状态。</p>
+<p>我本来以为升级版本，所有写作 2..5 的表达式自然就变了。读到发布说明后半段才发现，1.96 稳定的是新库类型，这个字面量在当时依然产生旧类型。想拿现成代码验证区别，得先看变量的具体类型。只截一行循环，往往看不到这次修改究竟改了哪里。</p>
+</div>
+  <section class="sources"><h2>原文出处</h2><ul><li><a target="_blank" rel="noopener" href="https://blog.rust-lang.org/2026/05/28/Rust-1.96.0/">Rust Release Team · Announcing Rust 1.96.0 ↗</a><time datetime="2026-05-28">2026-05-28</time></li></ul></section>
+  <nav class="related" aria-label="同月手记"><h2>这个月还读了</h2><a href="../duckdb-quack-writers/index.html">两段程序想同时写 DuckDB 怎么办？ <span aria-hidden="true">↗</span></a><a href="../implosion-carving-light/index.html">先把图案刻大一点，再缩小给光看 <span aria-hidden="true">↗</span></a></nav>
+</article>
+</main>
+  <footer class="foot shell"><span>Che’s Blog <i>/</i> 车传凯</span><a href="#top">回到顶部 ↑</a></footer>
+</body>
+</html>

@@ -1,0 +1,42 @@
+
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>给模型留一段「睡觉」的时间，它在学什么？ · Che&#39;s Blog</title>
+  <meta name="description" content="Google Research 把持续学习分成接收新资料和离线复习两段，想解决学了新的就忘了旧的难题。">
+  <link rel="canonical" href="https://tch-che.github.io/notes/sleep-phase-model-memory/">
+  <link rel="icon" href="../../assets/che.jpg">
+  <link rel="stylesheet" href="../../assets/handbook.css">
+<meta name="generator" content="Hexo 7.3.0"></head>
+<body id="top">
+  <a class="skip" href="#main">跳到正文</a>
+  <header class="mast shell">
+    <a class="wordmark" href="../../index.html"><img src="../../assets/che.jpg" alt="" width="36" height="36"><span>Che’s Blog</span></a>
+    <nav class="nav" aria-label="主导航">
+      
+        <a class="current" href="../../index.html" aria-current="location">手记</a>
+      
+        <a class="" href="../../archives/index.html" >归档</a>
+      
+        <a class="" href="../../about/index.html" >关于</a>
+      
+      <a class="git" target="_blank" rel="noopener" href="https://github.com/Tch-che">GitHub <span aria-hidden="true">↗</span></a>
+    </nav>
+  </header>
+  <main id="main" class="shell">
+<article class="reading">
+  <a class="crumb" href="../../archives/2026/10/index.html">← 2026 年 10 月手记</a>
+  <header class="post-head"><p class="byline"><span></span>人工智能</p><h1>给模型留一段「睡觉」的时间，它在学什么？</h1><p class="author">车传凯 <i>/</i> 2026-10 专题</p></header>
+  <div class="prose"><p>在一段对话里给模型讲清楚一批生词，它接下来多半能照着用。另开一段对话，刚才的资料没了，那份熟练也可能跟着消失。直接用这批生词去更新模型，又有机会把原先会的东西挤掉。想同时保住两头，得给「记住」找个比复制聊天记录更具体的做法。</p>
+<p>Google Research 的实验叫它「睡眠」。模型工作时先接收材料，把新信息放在短期记忆里。离线阶段暂时停下接收新输入，启用预留的一小部分模型参数，通过练习把有用的信息逐渐写进去。研究里还让不同的专家模块组合起来生成练习题，再从中筛选样本。整个过程都要实际花算力更新数值，给正在运行的聊天窗口晾一晚上，模型当然不会自己复习。</p>
+<p>最吸引眼球的数字来自 BABILong 长文本测试。作者报告，输入材料最高拉到一千万个 token，方法仍能在这项任务上找回需要的线索。我更想问一个小问题，如果资料里反复出现了一个错误的年份，它会不会也被认真巩固下来？测试表明某些信息能留下，至于长期留下的到底该是哪部分，还得单独评价。</p>
+</div>
+  <section class="sources"><h2>原文出处</h2><ul><li><a target="_blank" rel="noopener" href="https://research.google/blog/the-sleep-framework-a-new-way-for-llms-to-retain-knowledge-in-continual-learning/">Google Research · The sleep framework: A new way for LLMs to retain knowledge in continual learning ↗</a><time datetime="2026-10-27">2026-10-27</time></li></ul></section>
+  <nav class="related" aria-label="同月手记"><h2>这个月还读了</h2><a href="../duckdb-async-io/index.html">查远端的表，DuckDB 可以先把下一批数据叫上路 <span aria-hidden="true">↗</span></a><a href="../python-lazy-imports/index.html">只想看一眼 --help，为什么要等绘图库？ <span aria-hidden="true">↗</span></a></nav>
+</article>
+</main>
+  <footer class="foot shell"><span>Che’s Blog <i>/</i> 车传凯</span><a href="#top">回到顶部 ↑</a></footer>
+</body>
+</html>

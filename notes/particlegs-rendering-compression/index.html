@@ -1,0 +1,42 @@
+
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>两亿多个粒子，转一下视角要等多久？ · Che&#39;s Blog</title>
+  <meta name="description" content="ParticleGS 让压缩直接对最后看到的画面负责，也因此有了明确的使用边界。">
+  <link rel="canonical" href="https://tch-che.github.io/notes/particlegs-rendering-compression/">
+  <link rel="icon" href="../../assets/che.jpg">
+  <link rel="stylesheet" href="../../assets/handbook.css">
+<meta name="generator" content="Hexo 7.3.0"></head>
+<body id="top">
+  <a class="skip" href="#main">跳到正文</a>
+  <header class="mast shell">
+    <a class="wordmark" href="../../index.html"><img src="../../assets/che.jpg" alt="" width="36" height="36"><span>Che’s Blog</span></a>
+    <nav class="nav" aria-label="主导航">
+      
+        <a class="current" href="../../index.html" aria-current="location">手记</a>
+      
+        <a class="" href="../../archives/index.html" >归档</a>
+      
+        <a class="" href="../../about/index.html" >关于</a>
+      
+      <a class="git" target="_blank" rel="noopener" href="https://github.com/Tch-che">GitHub <span aria-hidden="true">↗</span></a>
+    </nav>
+  </header>
+  <main id="main" class="shell">
+<article class="reading">
+  <a class="crumb" href="../../archives/2026/07/index.html">← 2026 年 7 月手记</a>
+  <header class="post-head"><p class="byline"><span></span>计算机图形</p><h1>两亿多个粒子，转一下视角要等多久？</h1><p class="author">车传凯 <i>/</i> 2026-07 专题</p></header>
+  <div class="prose"><p>模拟里有 2.81 亿个粒子。想把它们画到屏幕上，转一下视角再看看里面的细丝，看起来只是动动鼠标的事。ParticleGS 论文里，作者用 ParaView 渲染这组完整数据，在他们的测试条件下，一帧要约 3.6 秒。拖一下得等这么久，手和眼睛很难配合起来。</p>
+<p>普通的有损压缩会关心每个坐标偏离原值多少。麻烦的是，单看每个数都只错一点，画出来却可能多出原本不存在的条纹。ParticleGS 从另一个方向入手，拿许多角度的渲染图作参照，用一组有位置、形状和透明度的三维高斯来近似这些视图。再用一个小网络适配粒子半径、透明度之类的显示设置，让人转动视角时也能调参数。</p>
+<p>在这组宇宙模拟上，论文报告约 65 倍的压缩比，还能在单张 GPU 上交互浏览。我会把这样的文件当成快速看图的版本，先找值得放大的区域。要追踪某个粒子的轨迹、统计一个区域的粒子数，还是得回到原始数据。图像很像，不等于能从里面取回每一行坐标。</p>
+</div>
+  <section class="sources"><h2>原文出处</h2><ul><li><a target="_blank" rel="noopener" href="https://arxiv.org/abs/2607.22956">Jiang 等 · 3D Gaussian Splatting for Scientific Particle Data Compression and Rendering ↗</a><time datetime="2026-07-24">2026-07-24</time></li></ul></section>
+  <nav class="related" aria-label="同月手记"><h2>这个月还读了</h2><a href="../typescript-seven-build-time/index.html">TypeScript 快了十倍，省下的是哪段等待？ <span aria-hidden="true">↗</span></a><a href="../euclid-quasar-shortlist/index.html">从满天的亮点里，怎么挑出 31 个类星体？ <span aria-hidden="true">↗</span></a></nav>
+</article>
+</main>
+  <footer class="foot shell"><span>Che’s Blog <i>/</i> 车传凯</span><a href="#top">回到顶部 ↑</a></footer>
+</body>
+</html>

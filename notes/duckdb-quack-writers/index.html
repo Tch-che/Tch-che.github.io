@@ -1,0 +1,42 @@
+
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>两段程序想同时写 DuckDB 怎么办？ · Che&#39;s Blog</title>
+  <meta name="description" content="Quack 让一个 DuckDB 进程接管数据文件，其他进程通过 HTTP 读写。">
+  <link rel="canonical" href="https://tch-che.github.io/notes/duckdb-quack-writers/">
+  <link rel="icon" href="../../assets/che.jpg">
+  <link rel="stylesheet" href="../../assets/handbook.css">
+<meta name="generator" content="Hexo 7.3.0"></head>
+<body id="top">
+  <a class="skip" href="#main">跳到正文</a>
+  <header class="mast shell">
+    <a class="wordmark" href="../../index.html"><img src="../../assets/che.jpg" alt="" width="36" height="36"><span>Che’s Blog</span></a>
+    <nav class="nav" aria-label="主导航">
+      
+        <a class="current" href="../../index.html" aria-current="location">手记</a>
+      
+        <a class="" href="../../archives/index.html" >归档</a>
+      
+        <a class="" href="../../about/index.html" >关于</a>
+      
+      <a class="git" target="_blank" rel="noopener" href="https://github.com/Tch-che">GitHub <span aria-hidden="true">↗</span></a>
+    </nav>
+  </header>
+  <main id="main" class="shell">
+<article class="reading">
+  <a class="crumb" href="../../archives/2026/05/index.html">← 2026 年 5 月手记</a>
+  <header class="post-head"><p class="byline"><span></span>数据库</p><h1>两段程序想同时写 DuckDB 怎么办？</h1><p class="author">车传凯 <i>/</i> 2026-05 专题</p></header>
+  <div class="prose"><p>DuckDB 吸引我的地方是简单。开一个 Python 进程，连上文件，就可以写 SQL。可要是另一个采集脚本也要把新数据写进同一个文件，事情就麻烦了。每个进程都留着自己的内存状态，光让它们共享一个文件路径，两边并不知道对方改到了哪里。</p>
+<p>DuckDB 团队给出的 Quack 协议换了个安排。让其中一个实例持有数据库，当服务端。其余实例把远端数据库挂进来，照常访问表，由服务端协调读写。想象有两个温度采集脚本和一个图表页面，各自有自己的进程。两个脚本都可以递交新记录，图表那头再来查最近一小时的平均温度。这样就不用每个脚本写一份临时文件，再找时间合并。</p>
+<p>有一点特别适合拿来提醒自己。服务端明明就在另一个进程里，SQL 写起来却很像在查本地表。假设只想知道最大值，让远端算完再捎一个数字回来，比来回搬整张表划算得多。网络这笔账还在。对只有一个脚本的小任务，直接打开本地文件依旧是最省事的写法。</p>
+</div>
+  <section class="sources"><h2>原文出处</h2><ul><li><a target="_blank" rel="noopener" href="https://duckdb.org/2026/05/12/quack-remote-protocol">DuckDB · Quack: The DuckDB Client-Server Protocol ↗</a><time datetime="2026-05-12">2026-05-12</time></li></ul></section>
+  <nav class="related" aria-label="同月手记"><h2>这个月还读了</h2><a href="../rust-range-and-cursor/index.html">Rust 的 2..5，里面藏着一个游标 <span aria-hidden="true">↗</span></a><a href="../implosion-carving-light/index.html">先把图案刻大一点，再缩小给光看 <span aria-hidden="true">↗</span></a></nav>
+</article>
+</main>
+  <footer class="foot shell"><span>Che’s Blog <i>/</i> 车传凯</span><a href="#top">回到顶部 ↑</a></footer>
+</body>
+</html>

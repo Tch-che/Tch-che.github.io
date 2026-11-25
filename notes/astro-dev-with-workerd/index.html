@@ -1,0 +1,43 @@
+
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>本地能跑的页面，部署以后为什么会找不到文件？ · Che&#39;s Blog</title>
+  <meta name="description" content="Astro 6 改造了开发服务器。用 Cloudflare 部署时，本地预览就能碰到真正的运行时和它的接口。">
+  <link rel="canonical" href="https://tch-che.github.io/notes/astro-dev-with-workerd/">
+  <link rel="icon" href="../../assets/che.jpg">
+  <link rel="stylesheet" href="../../assets/handbook.css">
+<meta name="generator" content="Hexo 7.3.0"></head>
+<body id="top">
+  <a class="skip" href="#main">跳到正文</a>
+  <header class="mast shell">
+    <a class="wordmark" href="../../index.html"><img src="../../assets/che.jpg" alt="" width="36" height="36"><span>Che’s Blog</span></a>
+    <nav class="nav" aria-label="主导航">
+      
+        <a class="current" href="../../index.html" aria-current="location">手记</a>
+      
+        <a class="" href="../../archives/index.html" >归档</a>
+      
+        <a class="" href="../../about/index.html" >关于</a>
+      
+      <a class="git" target="_blank" rel="noopener" href="https://github.com/Tch-che">GitHub <span aria-hidden="true">↗</span></a>
+    </nav>
+  </header>
+  <main id="main" class="shell">
+<article class="reading">
+  <a class="crumb" href="../../archives/2026/03/index.html">← 2026 年 3 月手记</a>
+  <header class="post-head"><p class="byline"><span></span>前端</p><h1>本地能跑的页面，部署以后为什么会找不到文件？</h1><p class="author">车传凯 <i>/</i> 2026-03 专题</p></header>
+  <div class="prose"><p>想象一个展示作品的小网站。开发时，服务端代码从电脑硬盘读一份作品清单，一切都很顺。部署到边缘节点以后，程序还想按那个路径找文件。问题来了，那台机器既没有这块硬盘，也没义务认识电脑上的目录。</p>
+<p>这就是 Astro 6 改开发服务器时想缩小的落差。以前 <code>astro dev</code> 跑在 Node.js 上，网站上线可能跑在 Cloudflare Workers 上。两个环境都能执行 JavaScript，能提供的系统接口却有差别。页面本身写得完全对，也可能栽在加载数据的第一步。</p>
+<p>新版 Cloudflare 适配器借助 Vite 的 Environment API，可以让开发、预渲染和部署后的代码都交给 <code>workerd</code> 执行。要是决定把作品清单放在 KV，开发时就能用这套绑定来读数据。这样一来，写错绑定名之类的问题，有机会在自己的预览页上就露出来。</p>
+<p>也有些事得等到部署后才看得准。比如本地预览里只有三件作品，线上已经有三千件，数据量的差距不会因为换了运行时就消失。读完我给「本地能跑」这句话加了两个小问题。用什么环境跑的，又拿什么数据跑的？</p>
+</div>
+  <section class="sources"><h2>原文出处</h2><ul><li><a target="_blank" rel="noopener" href="https://astro.build/blog/astro-6/">Astro · Astro 6.0 ↗</a><time datetime="2026-03-10">2026-03-10</time></li></ul></section>
+  <nav class="related" aria-label="同月手记"><h2>这个月还读了</h2><a href="../cern-moving-antiprotons/index.html">为了测得更准，先让 92 个反质子坐一趟卡车 <span aria-hidden="true">↗</span></a><a href="../duckdb-geometry-row-groups/index.html">在地图上框一下，数据库怎么知道哪些数据可以跳过？ <span aria-hidden="true">↗</span></a></nav>
+</article>
+</main>
+  <footer class="foot shell"><span>Che’s Blog <i>/</i> 车传凯</span><a href="#top">回到顶部 ↑</a></footer>
+</body>
+</html>

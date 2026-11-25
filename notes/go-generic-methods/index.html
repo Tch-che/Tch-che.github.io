@@ -1,0 +1,42 @@
+
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Go 的随机数方法，终于不用按整数宽度起名字了 · Che&#39;s Blog</title>
+  <meta name="description" content="跟着 math/rand/v2 的一个小改动，弄清方法自己的类型参数到底解决什么。">
+  <link rel="canonical" href="https://tch-che.github.io/notes/go-generic-methods/">
+  <link rel="icon" href="../../assets/che.jpg">
+  <link rel="stylesheet" href="../../assets/handbook.css">
+<meta name="generator" content="Hexo 7.3.0"></head>
+<body id="top">
+  <a class="skip" href="#main">跳到正文</a>
+  <header class="mast shell">
+    <a class="wordmark" href="../../index.html"><img src="../../assets/che.jpg" alt="" width="36" height="36"><span>Che’s Blog</span></a>
+    <nav class="nav" aria-label="主导航">
+      
+        <a class="current" href="../../index.html" aria-current="location">手记</a>
+      
+        <a class="" href="../../archives/index.html" >归档</a>
+      
+        <a class="" href="../../about/index.html" >关于</a>
+      
+      <a class="git" target="_blank" rel="noopener" href="https://github.com/Tch-che">GitHub <span aria-hidden="true">↗</span></a>
+    </nav>
+  </header>
+  <main id="main" class="shell">
+<article class="reading">
+  <a class="crumb" href="../../archives/2026/08/index.html">← 2026 年 8 月手记</a>
+  <header class="post-head"><p class="byline"><span></span>编程语言</p><h1>Go 的随机数方法，终于不用按整数宽度起名字了</h1><p class="author">车传凯 <i>/</i> 2026-08 专题</p></header>
+  <div class="prose"><p>假设要做一个小抽签程序，盒子里有 30 个编号，编号变量用 <code>int32</code>。以前拿到一个自己的随机数生成器，得先在 <code>IntN</code>、<code>Int32N</code>、<code>Int64N</code> 里挑一个。三种名字都只想说同一件事，给我一个小于上限的非负随机数。至于选哪个名字，还得回头去看变量的声明。</p>
+<p>Go 1.27 给方法加上了自己的类型参数。现在可以写 <code>limit := int32(30)</code>，然后调用 <code>r.N(limit)</code>。编译器从 <code>limit</code> 知道这里用的是 <code>int32</code>，返回值也是这个类型。另一个调用点传 <code>int64</code> 时，还是这一个方法名。以前包级泛型函数也能做这类事，这次连自己选好、自己保存状态的生成器 <code>r</code> 都能直接这么用。</p>
+<p>有条边界我觉得值得单独记下。新语法可以写在具体类型的方法上，接口里的方法仍然不能声明自己的类型参数。所以碰上一个老接口，想把里面三个不同类型的方法一口气并成一个，照搬上面的写法会在编译时碰壁。先把调用者手里拿的是具体值还是接口想清楚，这个改动就好理解多了。</p>
+</div>
+  <section class="sources"><h2>原文出处</h2><ul><li><a target="_blank" rel="noopener" href="https://go.dev/blog/go1.27">The Go Blog · Go 1.27 is released ↗</a><time datetime="2026-08-19">2026-08-19</time></li><li><a target="_blank" rel="noopener" href="https://go.dev/doc/go1.27">Go 1.27 Release Notes ↗</a><time datetime="2026-08-19">2026-08-19</time></li></ul></section>
+  <nav class="related" aria-label="同月手记"><h2>这个月还读了</h2><a href="../starling-optical-navigation/index.html">卫星可以靠路过的卫星给自己定位 <span aria-hidden="true">↗</span></a><a href="../sodium-battery-solvent/index.html">十万个分子，最后为什么只测了 27 个？ <span aria-hidden="true">↗</span></a></nav>
+</article>
+</main>
+  <footer class="foot shell"><span>Che’s Blog <i>/</i> 车传凯</span><a href="#top">回到顶部 ↑</a></footer>
+</body>
+</html>

@@ -1,0 +1,42 @@
+
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>装个博客插件，它到底能看什么？ · Che&#39;s Blog</title>
+  <meta name="description" content="从一封新文章通知邮件，看 EmDash 怎样给插件分配权限。">
+  <link rel="canonical" href="https://tch-che.github.io/notes/emdash-plugin-permissions/">
+  <link rel="icon" href="../../assets/che.jpg">
+  <link rel="stylesheet" href="../../assets/handbook.css">
+<meta name="generator" content="Hexo 7.3.0"></head>
+<body id="top">
+  <a class="skip" href="#main">跳到正文</a>
+  <header class="mast shell">
+    <a class="wordmark" href="../../index.html"><img src="../../assets/che.jpg" alt="" width="36" height="36"><span>Che’s Blog</span></a>
+    <nav class="nav" aria-label="主导航">
+      
+        <a class="current" href="../../index.html" aria-current="location">手记</a>
+      
+        <a class="" href="../../archives/index.html" >归档</a>
+      
+        <a class="" href="../../about/index.html" >关于</a>
+      
+      <a class="git" target="_blank" rel="noopener" href="https://github.com/Tch-che">GitHub <span aria-hidden="true">↗</span></a>
+    </nav>
+  </header>
+  <main id="main" class="shell">
+<article class="reading">
+  <a class="crumb" href="../../archives/2026/04/index.html">← 2026 年 4 月手记</a>
+  <header class="post-head"><p class="byline"><span></span>Web 开发</p><h1>装个博客插件，它到底能看什么？</h1><p class="author">车传凯 <i>/</i> 2026-04 专题</p></header>
+  <div class="prose"><p>假设给博客装一个小插件，每次发文章，它就给编辑发封邮件。要是安装时弹窗说它还想改主题、删用户，我大概会点取消。可很多时候根本没有弹窗。Cloudflare 在介绍 EmDash 时提到，传统 WordPress 插件和站点运行在同一个环境里，安装的那一刻，数据库和文件系统就已经向插件敞开了。</p>
+<p>EmDash 的测试版给每个插件分配单独的运行环境。拿发信这个例子看，插件先在清单中声明要读内容、要发邮件。文章保存后，它检查是不是已发布的文章，再把标题发给编辑。站点交到它手里的就只有相应的接口。如果有个插件要把缩略图传给图床，还可以把允许访问的主机名写清楚。</p>
+<p>这让我想到装浏览器扩展时的一件小事。看到“可以读取网页”，我至少能追问一句，为什么一个调颜色的工具需要这个权限？博客插件也能这样问就好了。当然，一旦我同意它读文章、发邮件，它依然可能把有权读取的内容发错地方。安装前看清单，到这一步才真的有用。</p>
+</div>
+  <section class="sources"><h2>原文出处</h2><ul><li><a target="_blank" rel="noopener" href="https://blog.cloudflare.com/emdash-wordpress/">Cloudflare · Introducing EmDash ↗</a><time datetime="2026-04-01">2026-04-01</time></li></ul></section>
+  <nav class="related" aria-label="同月手记"><h2>这个月还读了</h2><a href="../visiprint-filament-preview/index.html">换卷耗材，这只小章鱼会变成什么样？ <span aria-hidden="true">↗</span></a><a href="../gemma-four-active-parameters/index.html">Gemma 4 的 260 亿参数，每次都要算一遍吗？ <span aria-hidden="true">↗</span></a></nav>
+</article>
+</main>
+  <footer class="foot shell"><span>Che’s Blog <i>/</i> 车传凯</span><a href="#top">回到顶部 ↑</a></footer>
+</body>
+</html>

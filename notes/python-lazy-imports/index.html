@@ -1,0 +1,42 @@
+
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>只想看一眼 --help，为什么要等绘图库？ · Che&#39;s Blog</title>
+  <meta name="description" content="Python 3.15 的 lazy import 能把模块加载推到第一次使用，连报错的位置也会跟着变。">
+  <link rel="canonical" href="https://tch-che.github.io/notes/python-lazy-imports/">
+  <link rel="icon" href="../../assets/che.jpg">
+  <link rel="stylesheet" href="../../assets/handbook.css">
+<meta name="generator" content="Hexo 7.3.0"></head>
+<body id="top">
+  <a class="skip" href="#main">跳到正文</a>
+  <header class="mast shell">
+    <a class="wordmark" href="../../index.html"><img src="../../assets/che.jpg" alt="" width="36" height="36"><span>Che’s Blog</span></a>
+    <nav class="nav" aria-label="主导航">
+      
+        <a class="current" href="../../index.html" aria-current="location">手记</a>
+      
+        <a class="" href="../../archives/index.html" >归档</a>
+      
+        <a class="" href="../../about/index.html" >关于</a>
+      
+      <a class="git" target="_blank" rel="noopener" href="https://github.com/Tch-che">GitHub <span aria-hidden="true">↗</span></a>
+    </nav>
+  </header>
+  <main id="main" class="shell">
+<article class="reading">
+  <a class="crumb" href="../../archives/2026/10/index.html">← 2026 年 10 月手记</a>
+  <header class="post-head"><p class="byline"><span></span>编程语言</p><h1>只想看一眼 --help，为什么要等绘图库？</h1><p class="author">车传凯 <i>/</i> 2026-10 专题</p></header>
+  <div class="prose"><p>一个命令行工具有三个入口，看帮助、数行数、画图。前两个点进去连一条曲线都不会画，却可能因为文件第一行导入了绘图库，一启动就要等它和它的依赖全部准备好。Python 导入模块时会执行模块顶层的代码，光是看一眼帮助也可能替以后用不到的功能买单。</p>
+<p>Python 3.15 加了 <code>lazy import</code>。可以在模块开头写 <code>lazy import matplotlib.pyplot as plt</code>。程序读到这里先记下名字，真正走到 <code>plt.subplots()</code>，需要 <code>plt</code> 这个对象时，才加载模块。写代码的人仍能在文件头看到它依赖什么。只看帮助的人也不用等绘图库，真要出图的人则在第一次用的时候等。</p>
+<p>有个细节会影响测试。如果环境里根本没装绘图库，看帮助可能一路正常，直到点「画图」才收到导入错误。一些插件还会在被导入时顺手注册命令，把这类模块改成延迟导入，谁也没有访问它，注册动作就可能一直不发生。所以下次看到有人报开头变快了，我会想同时看看第一次画图的时间，以及缺了依赖时屏幕上给出的错误提示。</p>
+</div>
+  <section class="sources"><h2>原文出处</h2><ul><li><a target="_blank" rel="noopener" href="https://blog.python.org/2026/10/python-3150-final-is-here/">Python Insider · Python 3.15.0 (final) is here! ↗</a><time datetime="2026-10-09">2026-10-09</time></li><li><a target="_blank" rel="noopener" href="https://docs.python.org/3.15/whatsnew/3.15.html#pep-810-explicit-lazy-imports">Python 3.15 文档 · Explicit lazy imports ↗</a><time datetime="2026-10-09">2026-10-09</time></li></ul></section>
+  <nav class="related" aria-label="同月手记"><h2>这个月还读了</h2><a href="../sleep-phase-model-memory/index.html">给模型留一段「睡觉」的时间，它在学什么？ <span aria-hidden="true">↗</span></a><a href="../duckdb-async-io/index.html">查远端的表，DuckDB 可以先把下一批数据叫上路 <span aria-hidden="true">↗</span></a></nav>
+</article>
+</main>
+  <footer class="foot shell"><span>Che’s Blog <i>/</i> 车传凯</span><a href="#top">回到顶部 ↑</a></footer>
+</body>
+</html>

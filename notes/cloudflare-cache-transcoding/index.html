@@ -1,0 +1,42 @@
+
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>缓存要装下更多网页，先挑哪些文件值得压 · Che&#39;s Blog</title>
+  <meta name="description" content="Cloudflare 的一份实习项目笔记里，最让我意外的是那条 4 KiB 的分界线。">
+  <link rel="canonical" href="https://tch-che.github.io/notes/cloudflare-cache-transcoding/">
+  <link rel="icon" href="../../assets/che.jpg">
+  <link rel="stylesheet" href="../../assets/handbook.css">
+<meta name="generator" content="Hexo 7.3.0"></head>
+<body id="top">
+  <a class="skip" href="#main">跳到正文</a>
+  <header class="mast shell">
+    <a class="wordmark" href="../../index.html"><img src="../../assets/che.jpg" alt="" width="36" height="36"><span>Che’s Blog</span></a>
+    <nav class="nav" aria-label="主导航">
+      
+        <a class="current" href="../../index.html" aria-current="location">手记</a>
+      
+        <a class="" href="../../archives/index.html" >归档</a>
+      
+        <a class="" href="../../about/index.html" >关于</a>
+      
+      <a class="git" target="_blank" rel="noopener" href="https://github.com/Tch-che">GitHub <span aria-hidden="true">↗</span></a>
+    </nav>
+  </header>
+  <main id="main" class="shell">
+<article class="reading">
+  <a class="crumb" href="../../archives/2026/09/index.html">← 2026 年 9 月手记</a>
+  <header class="post-head"><p class="byline"><span></span>系统工程</p><h1>缓存要装下更多网页，先挑哪些文件值得压</h1><p class="author">车传凯 <i>/</i> 2026-09 专题</p></header>
+  <div class="prose"><p>同一个网页来了一百个读者，CDN 会尽量从自己的缓存取，省得一百次都去找原站。原先 Cloudflare 通常沿用原站给的编码。如果站长发来的是没压过的 HTML，缓存也把它原样存下。文件可以正常打开，但同一块硬盘能留下的页面少了。</p>
+<p>这篇工程笔记试了个改法。在缓存写入合适的文本时用 Zstandard 压一遍，旁边记好原始长度和存储用的编码，读取时再处理。照片、视频和字体本来就大多压过，重复压要花 CPU，收益又小。样本里这几类占了约 63% 的字节，所以从总体流量推算「能节省多少」很容易过于乐观。</p>
+<p>我原以为优先挑热门网页最划算。作者算过，热门也意味着要反复读取，解压的次数跟着涨。测试里更朴素的条件挺管用，把符合要求且至少有 4 KiB 的文本拿来压，已经取得了绝大部分测得的空间收益。控制测试中，这批适合压的文件约能压到原来的三分之一。这个结果来自原型和选定的语料，给自己的小站估空间时，最好先看看硬盘里到底是文字多还是照片多。</p>
+</div>
+  <section class="sources"><h2>原文出处</h2><ul><li><a target="_blank" rel="noopener" href="https://blog.cloudflare.com/cache-transcoding/">Cloudflare · How we could save petabytes of cache storage with Zstandard and Pingora ↗</a><time datetime="2026-09-01">2026-09-01</time></li></ul></section>
+  <nav class="related" aria-label="同月手记"><h2>这个月还读了</h2><a href="../safari-customizable-select/index.html">给下拉菜单加个色块，还能保住方向键 <span aria-hidden="true">↗</span></a><a href="../java-compact-object-headers/index.html">Java 给每个小对象省下的那 4 个字节 <span aria-hidden="true">↗</span></a></nav>
+</article>
+</main>
+  <footer class="foot shell"><span>Che’s Blog <i>/</i> 车传凯</span><a href="#top">回到顶部 ↑</a></footer>
+</body>
+</html>
